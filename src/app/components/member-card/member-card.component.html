@@ -1,0 +1,70 @@
+<md-card class="team__card" [@memberCardState]='state'>
+    <md-card-content class="containerX team__card__front" fxLayout="column" *ngIf="front === true">
+        <div class="containerX" fxLayout="row">
+            <span class="flex-item" fxFlex=20></span>
+            <div fxFlex="60" class="flex-item team__card__imgcontainer">
+                <img src="{{member.imgUrl}}" alt="{{member.name}}" class="team__card__img">
+            </div>
+            <div class="flex-item containerX" fxFlex="20" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <button class="flex-item" md-icon-button (click)="flipCard()">
+                    <md-icon>flip_to_back</md-icon>
+                </button>
+            </div>
+        </div>
+        <div class="containerX" fxLayout="column" class="team__card__content">
+            <div class="containerX team__card__content__subcontent" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <div class="title">
+                    {{member.name}}
+                </div>
+                <span class="flex-item" fxFlex></span>
+            </div>
+            <div class="containerX team__card__content__subcontent" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <div class="subhead">
+                    {{member.occupation}}
+                </div>
+                <span class="flex-item" fxFlex></span>
+            </div>
+            <div class="team__card__content__subcontent">
+                <div class="team__card__content__line">
+                </div>
+            </div>
+        </div>
+    </md-card-content>
+    <md-card-content class="containerX team__card__back" fxLayout="column" *ngIf="front === false">
+        <div class="containerX" fxLayout="row">
+            <span class="flex-item" fxFlex=20></span>
+            <div fxFlex="60" class="flex-item team__card__imgcontainer">
+                <img src="{{member.imgUrl}}" alt="{{member.name}}" class="team__card__img">
+            </div>
+            <div class="flex-item containerX" fxFlex="20" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <button class="flex-item" md-icon-button (click)="flipCard()">
+                    <md-icon>flip_to_front</md-icon>
+                </button>
+            </div>
+        </div>
+        <div class="containerX" fxLayout="column" class="team__card__content">
+            <div class="containerX team__card__content__subcontent" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <div class="title">
+                    {{member.pseudo}}
+                </div>
+                <span class="flex-item" fxFlex></span>
+            </div>
+            <div class="containerX team__card__content__subcontent" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <div class="subhead">
+                    {{member.citation}}
+                </div>
+                <span class="flex-item" fxFlex></span>
+            </div>
+            <div class="team__card__content__subcontent">
+                <div class="team__card__content__line">
+                </div>
+            </div>
+        </div>
+    </md-card-content>
+</md-card>
