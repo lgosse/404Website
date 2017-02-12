@@ -1,3 +1,12 @@
-<p>
-  partners works!
-</p>
+<div class="containerX" fxLayout="row" class="partner__spinner" *ngIf="loading === true">
+    <span class="flex-item" fxFlex></span>
+    <div class="flex-item">
+        <md-spinner></md-spinner>
+    </div>
+    <span class="flex-item" fxFlex></span>
+</div>
+<md-grid-list [@partnersLoadedState]="partnersLoadedState" cols="{{nbCols}}" rowHeight="300px">
+    <md-grid-tile *ngFor="let partner of partners" [colspan]="3" [rowspan]="1">
+        <app-partner-card class="flex-item" [partner]="partner"></app-partner-card>
+    </md-grid-tile>
+</md-grid-list>

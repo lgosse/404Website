@@ -1,15 +1,15 @@
-<md-toolbar color="primary">
+<md-toolbar color="primary" class="box-shadow-1">
 
     <span class="md-display-1">{{title}}</span>
     <md-toolbar-row class="containerX">
         <span class="flex-item" fxFlex></span>
-        <nav md-tab-nav-bar class="no-border">
-            <a md-tab-link routerLink="home" routerLinkActive="active" active="active">ACCUEIL</a>
-            <!--<a md-tab-link routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</a>-->
-            <a md-tab-link routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</a>
-            <a md-tab-link routerLink="families" routerLinkActive="active" active="active">LE PROGRAMME</a>
-            <a md-tab-link routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</a>
-        </nav>
+        <md-button-toggle-group class="no-border">
+            <md-button-toggle class="md-button" routerLink="home" routerLinkActive="active" active="active">ACCUEIL</md-button-toggle>
+            <!--<md-button-toggle class="md-button" routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</md-button-toggle>-->
+            <md-button-toggle class="md-button" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
+            <md-button-toggle class="md-button" routerLink="program" routerLinkActive="active" active="active">LE PROGRAMME</md-button-toggle>
+            <md-button-toggle class="md-button" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
+        </md-button-toggle-group>
         <span class="flex-item" fxFlex></span>
         <!--<div class="flex-item containerX" fxFlex fxLayoutAlign="right right">
             <span class="flex-item" fxFlex></span>

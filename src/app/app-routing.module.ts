@@ -5,7 +5,8 @@ import { TeamComponent } from './components/team/team.component';
 import { HomeComponent } from './components/home/home.component';
 import { FamiliesComponent } from './components/families/families.component';
 import { EventsComponent } from './components/events/events.component';
-import { PartnersComponent } from './components/partners/partners.component';
+import { PartnersComponent } from 'app/components/partners/partners.component';
+import { ProgramComponent } from 'app/components/program/program.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:       'partners',
     component:  PartnersComponent
+  },
+  {
+    path:       'program',
+    component:  ProgramComponent
   }
 ];
 
