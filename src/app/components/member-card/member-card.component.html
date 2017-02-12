@@ -8,7 +8,7 @@
             <div class="flex-item containerX" fxFlex="20" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
                 <button class="flex-item" md-icon-button (click)="flipCard()">
-                    <md-icon>flip_to_back</md-icon>
+                    <md-icon>rotate_left</md-icon>
                 </button>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="flex-item containerX" fxFlex="20" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
                 <button class="flex-item" md-icon-button (click)="flipCard()">
-                    <md-icon>flip_to_front</md-icon>
+                    <md-icon>rotate_left</md-icon>
                 </button>
             </div>
         </div>
@@ -58,6 +58,13 @@
                 <span class="flex-item" fxFlex></span>
                 <div class="subhead">
                     {{member.citation}}
+                </div>
+                <span class="flex-item" fxFlex></span>
+            </div>
+            <div class="containerX team__card__content__subcontent" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <div class="subhead">
+                    {{member.email}}
                 </div>
                 <span class="flex-item" fxFlex></span>
             </div>

@@ -7,4 +7,5 @@ export class Member {
     occupation  : string;
     phone       : string;
     pseudo      : string;
+    rank        : number;
 }

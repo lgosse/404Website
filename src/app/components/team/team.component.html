@@ -1,5 +1,6 @@
-<md-grid-list cols="3" rowHeight="400px">
+<md-grid-list cols="{{nbCols}}" rowHeight="400px">
     <md-grid-tile *ngFor="let member of members" [colspan]="1" [rowspan]="1">
         <app-member-card class="flex-item" [member]="member"></app-member-card>
     </md-grid-tile>
 </md-grid-list>
+<span fxFlex class="flex-item"></span>
