@@ -1,0 +1,31 @@
+.program {
+    &__card {
+        &__title {
+            ;
+        }
+        &__subtitle {
+            ;
+        }
+        &__content {
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+        }
+        &__section {
+            &__head {
+                ;
+            }
+            &__body {
+                ;
+            }
+            &__foot {
+                padding: 8px 0 8px 0;
+            }
+            &__img {
+                ;
+            }
+        }
+        &__actions {
+            border-top: 1px solid #CCCCCC;
+        }
+    }
+}
