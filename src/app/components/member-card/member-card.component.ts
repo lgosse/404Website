@@ -8,7 +8,7 @@ import {
     transition,
     animate,
     keyframes
-  } from '@angular/core';
+} from '@angular/core';
 
 import { Member } from 'app/classes/member';
 

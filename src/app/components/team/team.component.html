@@ -1,4 +1,11 @@
-<md-grid-list cols="{{nbCols}}" rowHeight="400px">
+<div class="containerX" fxLayout="row" class="team__spinner" *ngIf="loading === true">
+    <span class="flex-item" fxFlex></span>
+    <div class="flex-item">
+        <md-spinner></md-spinner>
+    </div>
+    <span class="flex-item" fxFlex></span>
+</div>
+<md-grid-list [@teamLoadedState]="teamLoadedState" cols="{{nbCols}}" rowHeight="400px">
     <md-grid-tile *ngFor="let member of members" [colspan]="1" [rowspan]="1">
         <app-member-card class="flex-item" [member]="member"></app-member-card>
     </md-grid-tile>

@@ -5,11 +5,12 @@ import { TeamComponent } from './components/team/team.component';
 import { HomeComponent } from './components/home/home.component';
 import { FamiliesComponent } from './components/families/families.component';
 import { EventsComponent } from './components/events/events.component';
+import { PartnersComponent } from './components/partners/partners.component';
 
 const routes: Routes = [
   {
     path:       '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch:  'full'
   },
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     path:       'events',
     component:  EventsComponent
   },
+  {
+    path:       'partners',
+    component:  PartnersComponent
+  }
 ];
 
 @NgModule({
