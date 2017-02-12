@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TeamComponent } from './components/team/team.component';
 import { HomeComponent } from './components/home/home.component';
+import { FamiliesComponent } from './components/families/families.component';
+import { EventsComponent } from './components/events/events.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,15 @@ const routes: Routes = [
   {
     path:       'home',
     component:  HomeComponent
-  }
+  },
+  {
+    path:       'families',
+    component:  FamiliesComponent
+  },
+  {
+    path:       'events',
+    component:  EventsComponent
+  },
 ];
 
 @NgModule({
