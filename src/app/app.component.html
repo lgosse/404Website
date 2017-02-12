@@ -3,12 +3,13 @@
     <span class="md-display-1">{{title}}</span>
     <md-toolbar-row class="containerX">
         <span class="flex-item" fxFlex></span>
-        <div>
-            <a md-button routerLink="/home">ACCUEIL</a>
-            <a md-button routerLink="/events">ÉVÈNEMENTS</a>
-            <a md-button routerLink="/team">L'ÉQUIPE</a>
-            <a md-button routerLink="/families">LES FAMILLES</a>
-        </div>
+        <nav md-tab-nav-bar class="no-border">
+            <a md-tab-link routerLink="home" routerLinkActive="active" active="active">ACCUEIL</a>
+            <!--<a md-tab-link routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</a>-->
+            <a md-tab-link routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</a>
+            <a md-tab-link routerLink="families" routerLinkActive="active" active="active">LE PROGRAMME</a>
+            <a md-tab-link routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</a>
+        </nav>
         <span class="flex-item" fxFlex></span>
         <!--<div class="flex-item containerX" fxFlex fxLayoutAlign="right right">
             <span class="flex-item" fxFlex></span>
