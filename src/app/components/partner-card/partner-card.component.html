@@ -1,0 +1,22 @@
+<md-card class="partner__card">
+    <md-card-content class="containerX partner__card__content" fxLayout="row">
+        <div class="containerX partner__card__text__container flex-item" fxFlex fxLayout="column">
+            <div fxFlex class="flex-item"></div>
+            <div class="flex-item partner__card__title display-1" fxFlex>{{partner.name}}</div>
+            <div fxFlex class="flex-item"></div>
+            <div class="flex-item partner__card__description title" fxFlex>{{partner.occupation}}</div>
+            <div fxFlex class="flex-item"></div>
+            <div class="containerX" fxLayout="row">
+                <a md-raised-button class="partner__card__button" href="{{partner.url}}" target="_blank">
+                    VOIR LE SITE <md-icon>forward</md-icon>
+                </a>
+                <span class="flex-item" fxFlex></span>
+            </div>
+            <div fxFlex class="flex-item"></div>
+        </div>
+        <div class="containerX partner__card__image__container flex-item" fxLayout="row">
+            <div class="flex-item" fxFlex></div>
+            <img src="{{partner.imgUrl}}" class="partner__card__image" alt="partner logo">
+        </div>
+    </md-card-content>
+</md-card>
