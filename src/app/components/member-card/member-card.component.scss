@@ -5,7 +5,8 @@
         transform-style: preserve-3d;
         height: 320px !important;
         width: 250px !important;
-        background-color: unset !important;
+        background-color: white;
+        border-radius: 3px;
         &__imgcontainer {
             margin-top: 8%;
         }

@@ -16,6 +16,8 @@ import { EventsComponent } from 'app/components/events/events.component';
 import { FamiliesComponent } from 'app/components/families/families.component';
 import { MemberCardComponent } from './components/member-card/member-card.component';
 import { PartnersComponent } from './components/partners/partners.component';
+import { PartnerCardComponent } from './components/partner-card/partner-card.component';
+import { ProgramComponent } from './components/program/program.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -34,7 +36,9 @@ export const firebaseConfig = {
     EventsComponent,
     FamiliesComponent,
     MemberCardComponent,
-    PartnersComponent
+    PartnersComponent,
+    PartnerCardComponent,
+    ProgramComponent,
   ],
   imports: [
     BrowserModule,

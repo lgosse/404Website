@@ -1,0 +1,26 @@
+.partner {
+    &__card {
+        height: 200px !important;
+        width: 500px !important;
+        border-radius: 3px;
+        background-color: white;
+        &__content {}
+        &__text {
+            &__container {}
+        }
+        &__image {
+            width: 100%;
+            &__container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        &__description {
+            padding-left: 15px;
+            color: #999999;
+        }
+        &__button {
+            margin-left: 15px;
+        }
+    }
+}
