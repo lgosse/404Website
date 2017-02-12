@@ -1,15 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { FirebaseListObservable } from 'angularfire2';
+
+import { Member } from 'app/classes/member';
+import { TeamService } from 'app/services/team.service';
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss']
+    selector: 'app-team',
+    templateUrl: './team.component.html',
+    styleUrls: ['./team.component.scss'],
+    providers: [TeamService]
 })
+
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+    members: FirebaseListObservable<any>
+    width: number;
+    height: number;
+    nbCols: number;
 
-  ngOnInit() {
-  }
+    constructor(
+        private teamService: TeamService,
+        ngZone: NgZone
+    ) {
+        window.onresize = (e) => {
+            ngZone.run(() => {
+                this.updateGridLayout();
+            })
+        }
+    }
+
+    updateGridLayout(): void {
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        if (this.width <= 729) {
+            this.nbCols = 1;
+        } else if (this.width <= 1253) {
+            this.nbCols = 2;
+        } else {
+            this.nbCols = 3;
+        }
+    }
+
+    sortByRank(firstMember: Member, secondMember: Member): number {
+        if (firstMember.rank > secondMember.rank) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    ngOnInit() {
+        this.teamService.getMembers()
+            .subscribe(members => {
+                this.members = members.sort(this.sortByRank);
+            });
+        this.updateGridLayout();
+    }
 
 }

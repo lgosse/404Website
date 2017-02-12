@@ -1,0 +1,40 @@
+.team {
+    &__card {
+        transform: rotateY(0deg);
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        height: 320px !important;
+        width: 250px !important;
+        background-color: unset !important;
+        &__imgcontainer {
+            margin-top: 8%;
+        }
+        &__img {
+            border-radius: 5000px;
+            width: 100%;
+        }
+        &__content {
+            height: 50%;
+            &__subcontent {
+                padding-top: 10px;
+                height: 33%;
+                text-align: center
+            }
+            &__line {
+                height: 0px;
+                border-top: 1px solid #B6B7B8;
+                margin: auto;
+                margin-top: 20px;
+                width: 40%;
+            }
+        }
+        &__back {
+            transform: rotateY(-180deg);
+        }
+        &__clicked {
+            transform: rotateY(180deg);
+            transition: 0.6s;
+            transform-style: preserve-3d;
+        }
+    }
+}

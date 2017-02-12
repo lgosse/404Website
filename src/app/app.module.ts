@@ -4,20 +4,35 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { AngularFireModule } from 'angularfire2';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from 'app/app-routing.module';
 
-import { AppComponent } from './app.component';
-import { TeamComponent } from './components/team/team.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { HomeComponent } from './components/home/home.component';
+import { AppComponent } from 'app/app.component';
+import { TeamComponent } from 'app/components/team/team.component';
+import { LayoutComponent } from 'app/components/layout/layout.component';
+import { HomeComponent } from 'app/components/home/home.component';
+import { EventsComponent } from 'app/components/events/events.component';
+import { FamiliesComponent } from 'app/components/families/families.component';
+import { MemberCardComponent } from './components/member-card/member-card.component';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
+  authDomain: 'website-d0a07.firebaseapp.com',
+  databaseURL: 'https://website-d0a07.firebaseio.com',
+  storageBucket: 'website-d0a07.appspot.com',
+  messagingSenderId: '10707548851'
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
+    EventsComponent,
+    FamiliesComponent,
+    MemberCardComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +40,8 @@ import { HomeComponent } from './components/home/home.component';
     HttpModule,
     AppRoutingModule,
     MaterialModule.forRoot(),
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
