@@ -1,0 +1,29 @@
+<md-card class="program__card" color="accent" style="width: 40%">
+    <md-card-title class="program__card__title">
+        {{commitment.title}}
+    </md-card-title>
+    <md-card-subtitle class="program__card__subtitle title">
+        {{commitment.subtitle}}
+    </md-card-subtitle>
+    <md-card-content [@cardState]="cardState" class="program__card__content containerX" fxLayout="column">
+        <div class="program__card__section" *ngFor="let section of commitment.description">
+            <md-card-subtitle class="program__card__section__head">
+                {{section.head}}
+            </md-card-subtitle>
+            <div class="program__card__section__body">
+                {{section.body}}
+            </div>
+            <div class="program__card__section__foot">
+                {{section.foot}}
+            </div>
+            <img md-card-image src="{{section.imgUrl}}" class="program__card__section__img">
+        </div>
+    </md-card-content>
+    <md-card-actions fxLayout="row" class="containerX program__card__actions">
+        <span fxFlex class="flex-item"></span>
+        <button md-button (click)="toggleCardState()">
+            VOIR PLUS
+            <md-icon>expand_more</md-icon>
+        </button>
+    </md-card-actions>
+</md-card>
