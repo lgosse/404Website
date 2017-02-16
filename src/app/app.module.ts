@@ -19,6 +19,7 @@ import { PartnersComponent } from './components/partners/partners.component';
 import { PartnerCardComponent } from './components/partner-card/partner-card.component';
 import { ProgramComponent } from './components/program/program.component';
 import { ProgramCardComponent } from './components/program-card/program-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -41,6 +42,7 @@ export const firebaseConfig = {
     PartnerCardComponent,
     ProgramComponent,
     ProgramCardComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

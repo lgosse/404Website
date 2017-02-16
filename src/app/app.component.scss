@@ -1,14 +1,21 @@
 .content {
     height: 100%;
-    min-height: calc(100vh - 148px);
+    min-height: calc(100vh - 129px);
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px 20px 10px 20px;
     background-color: #FAFAFA;
 }
 
 md-button-toggle-group {
     box-shadow: none;
     color: rgb(245, 245, 245);
+}
+
+.app {
+    &__content {
+        &__title {
+            font-weight: 700;
+        }
+    }
 }

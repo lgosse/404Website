@@ -11,8 +11,8 @@ import { ProgramComponent } from 'app/components/program/program.component';
 const routes: Routes = [
   {
     path:       '',
-    redirectTo: 'home',
-    pathMatch:  'full'
+    redirectTo: '/home',
+    pathMatch:  'full',
   },
   {
     path:       'team',

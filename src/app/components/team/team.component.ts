@@ -26,11 +26,11 @@ import { TeamService } from 'app/services/team.service';
                 transform: 'translateY(0)'
             })),
             state('loading', style({
-                transform: 'translateY(100%)'
+                transform: 'translateY(3000px)'
             })),
             transition('loading => loaded', [
                 animate(300, keyframes([
-                    style({transform: 'translateY(30%)', offset: 0}),
+                    style({transform: 'translateY(900px)', offset: 0}),
                     style({transform: 'translateY(-15px)', offset: 0.7}),
                     style({transform: 'translateY(0)', offset: 1.0})
                 ]))
