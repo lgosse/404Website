@@ -1,10 +1,14 @@
-<div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading === true">
-    <span class="flex-item" fxFlex></span>
-    <div class="flex-item">
-        <md-spinner></md-spinner>
+<div class="program">
+    <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading === true">
+        <span class="flex-item" fxFlex></span>
+        <div class="flex-item">
+            <md-spinner></md-spinner>
+        </div>
+        <span class="flex-item" fxFlex></span>
     </div>
-    <span class="flex-item" fxFlex></span>
-</div>
-<div *ngFor="let commitment of program">
-    <app-program-card class="flex-item" [commitment]="commitment"></app-program-card>
+    <div [@programLoadedState]="programLoadedState">
+        <div *ngFor="let commitment of program">
+            <app-program-card class="flex-item" [commitment]="commitment"></app-program-card>
+        </div>
+    </div>
 </div>

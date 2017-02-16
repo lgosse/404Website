@@ -1,4 +1,4 @@
-<md-toolbar color="primary" class="box-shadow-1">
+<md-toolbar color="primary" class="box-shadow-2">
 
     <span class="md-display-1">{{title}}</span>
     <md-toolbar-row class="containerX">
@@ -11,17 +11,11 @@
             <md-button-toggle class="md-button" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
         </md-button-toggle-group>
         <span class="flex-item" fxFlex></span>
-        <!--<div class="flex-item containerX" fxFlex fxLayoutAlign="right right">
-            <span class="flex-item" fxFlex></span>
-            <div>
-                <a md-button routerLink=".">
-                    <md-icon>person</md-icon>
-                    <span md-caption>My Account</span>
-                </a>
-            </div>
-        </div>-->
     </md-toolbar-row>
 </md-toolbar>
-<div class="content box-shadow-2">
-    <router-outlet></router-outlet>
+<div>
+    <div class="content box-shadow-2">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
 </div>
