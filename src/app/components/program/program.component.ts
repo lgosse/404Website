@@ -1,6 +1,7 @@
 import {
     Component,
     OnInit,
+    NgZone,
     trigger,
     state,
     style,
@@ -40,13 +41,22 @@ import { ProgramService } from 'app/services/program.service';
 export class ProgramComponent implements OnInit {
 
     program: FirebaseListObservable<any>;
-    nbCols: number = 1;
+    width: number;
+    height: number;
+    nbCols: number = 2;
     loading: boolean = true;
     programLoadedState: string = 'loading';
 
     constructor(
+        private ngZone: NgZone,
         private programService: ProgramService
-    ) { }
+    ) {
+        window.onresize = (e) => {
+            ngZone.run(() => {
+                this.updateGridLayout();
+            })
+        }
+    }
 
     sortByDate(firstCommitment: Commitment, secondCommitment: Commitment): number {
         if (firstCommitment.date > secondCommitment.date) {
@@ -56,6 +66,15 @@ export class ProgramComponent implements OnInit {
         }
     }
 
+    updateGridLayout(): void {
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        if (this.width <= 500) {
+            this.nbCols = 1;
+        } else {
+            this.nbCols = 2;
+        }
+    }
 
     ngOnInit() {
         this.programService.getProgram()

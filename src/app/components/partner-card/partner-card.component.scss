@@ -1,7 +1,11 @@
 .partner {
     &__card {
-        height: 200px !important;
-        width: 500px !important;
+        @media (max-width: 600px) {
+            display: none;
+        }
+        height: 200px;
+        width: 500px;
+        margin: 10px;
         border-radius: 3px;
         background-color: white;
         &__content {}
@@ -21,6 +25,38 @@
         }
         &__button {
             margin-left: 15px;
+        }
+        &--mobile {
+            @media (min-width: 600px) {
+                display: none;
+            }
+            min-height: 380px;
+            width: 70vw;
+            margin: 10px;
+            border-radius: 3px;
+            background-color: white;
+            &__content {}
+            &__text {
+                &__container {}
+            }
+            &__image {
+                width: 100%;
+                &__container {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+            &__title {
+                width: 100%;
+                text-align: center;
+                padding-bottom: 10px;
+            }
+            &__description {
+                padding-bottom: 10px;
+                width: 100%;
+                text-align: center;
+                color: #999999;
+            }
         }
     }
 }

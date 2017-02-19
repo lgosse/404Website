@@ -1,0 +1,29 @@
+<md-toolbar color="primary" class="containerX" fxLayout="row">
+    <div class="md-display-1">Contactez-nous</div>
+    <span fxFlex class="flex-item"></span>
+    <div>
+        <button (click)="close()" md-icon-button>
+            <md-icon>close</md-icon>
+        </button>
+    </div>
+</md-toolbar>
+<div class="contact">
+    <form (ngSubmit)="onSubmit($event)">
+        <md-input-container class="containerX" fxLayout="column">
+            <input [(ngModel)]="contact.email" mdInput placeholder="Mail" autofocus required name="email">
+        </md-input-container>
+        <md-input-container class="containerX" fxLayout="column">
+            <input [(ngModel)]="contact.subject" mdInput type="text" placeholder="Objet" required name="subject">
+        </md-input-container>
+        <md-input-container class="containerX" fxLayout="column">
+            <textarea [(ngModel)]="contact.message" mdInput type="text" placeholder="Message" required name="message"></textarea>
+        </md-input-container>
+        <div class="containerX" fxLayout="row">
+            <span fxFlex class="flex-item"></span>
+            <button type="submit" color="primary" md-raised-button>
+                ENVOYER
+                <md-icon>mail_outline</md-icon>
+            </button>
+        </div>
+    </form>
+</div>
