@@ -5,8 +5,10 @@
     </div>
     <span class="flex-item" fxFlex></span>
 </div>
-<md-grid-list [@partnersLoadedState]="partnersLoadedState" cols="{{nbCols}}" rowHeight="300px">
-    <md-grid-tile *ngFor="let partner of partners" [colspan]="3" [rowspan]="1">
-        <app-partner-card class="flex-item" [partner]="partner"></app-partner-card>
-    </md-grid-tile>
-</md-grid-list>
+<div class="containerX" [@partnersLoadedState]="partnersLoadedState" fxLayout="column">
+    <div class="containerX" *ngFor="let partner of partners" fxLayout="row">
+        <span fxFlex class="flex-item"></span>
+        <app-partner-card [partner]="partner"></app-partner-card>
+        <span fxFlex class="flex-item"></span>
+    </div>
+</div>

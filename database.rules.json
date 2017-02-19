@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "bdeMembers": {
+      ".read": true
+    },
+    "program": {
+      ".read": true
+    },
+    "partners": {
+      ".read": true
+    },
+    "contact": {
+      ".write": true,
+      ".read": true
+    },
+    ".write": "auth != null",
+    ".read": "auth != null"
+  }
+}
