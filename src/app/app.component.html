@@ -1,21 +1,66 @@
-<md-toolbar color="primary" class="box-shadow-2">
+<md-sidenav-container>
+    <md-sidenav #sidenav mode="over" opened="false">
+        <md-toolbar color="primary" class="box-shadow-2">
+            <div class="containerx" fxLayout="row">
+                <span class="md-display-1">MENU</span>
 
-    <span class="md-display-1">{{title}}</span>
-    <md-toolbar-row class="containerX">
-        <span class="flex-item" fxFlex></span>
-        <md-button-toggle-group class="no-border">
-            <md-button-toggle class="md-button" routerLink="home" routerLinkActive="active" active="active">ACCUEIL</md-button-toggle>
-            <!--<md-button-toggle class="md-button" routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</md-button-toggle>-->
-            <md-button-toggle class="md-button" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
-            <md-button-toggle class="md-button" routerLink="program" routerLinkActive="active" active="active">LE PROGRAMME</md-button-toggle>
-            <md-button-toggle class="md-button" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
-        </md-button-toggle-group>
-        <span class="flex-item" fxFlex></span>
-    </md-toolbar-row>
-</md-toolbar>
-<div>
-    <div class="content box-shadow-2">
-        <router-outlet></router-outlet>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item>
+                <a md-line (click)="navigateTo('/home'); sidenav.close()" class="app__sidenav__item">
+                    ACCUEIL
+                </a>
+            </md-list-item>
+            <md-list-item>
+                <a md-line (click)="navigateTo('/team'); sidenav.close()" class="app__sidenav__item">
+                    L'ÉQUIPE
+                </a>
+            </md-list-item>
+            <md-list-item>
+                <a md-line (click)="navigateTo('/program'); sidenav.close()" class="app__sidenav__item">
+                    LE PROGRAMME
+                </a>
+            </md-list-item>
+            <md-list-item>
+                <a md-line (click)="navigateTo('/partners'); sidenav.close()" class="app__sidenav__item">
+                    PARTENAIRES
+                </a>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+    <div class="header">
+        <md-toolbar color="primary" class="box-shadow-2">
+            <span class="md-display-1">{{title}}</span>
+            <md-toolbar-row class="containerX">
+                <span class="flex-item" fxFlex></span>
+                <md-button-toggle-group class="no-border">
+                    <md-button-toggle class="md-raised-button" color="primary" routerLink="home" routerLinkActive="active" active="active">ACCUEIL</md-button-toggle>
+                    <!--<md-button-toggle class="md-button" color="primary" routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</md-button-toggle>-->
+                    <md-button-toggle class="md-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
+                    <md-button-toggle class="md-button" color="primary" routerLink="program" routerLinkActive="active" active="active">LE PROGRAMME</md-button-toggle>
+                    <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
+                </md-button-toggle-group>
+                <span class="flex-item" fxFlex></span>
+            </md-toolbar-row>
+        </md-toolbar>
     </div>
-    <app-footer></app-footer>
-</div>
+    <div class="header--mobile">
+        <md-toolbar color="primary" class="box-shadow-2">
+            <div class="containerX" fxLayout="row">
+                <div class="flex-item" fxFlex>
+                    <button md-icon-button (click)="sidenav.open()">
+                            <md-icon>menu</md-icon>
+                    </button>
+                </div>
+            </div>
+            <span class="md-display-1">{{title}}</span>
+        </md-toolbar>
+    </div>
+    <div>
+        <div class="box-shadow-2 content">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer class="footer"></app-footer>
+    </div>
+</md-sidenav-container>

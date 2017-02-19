@@ -10,7 +10,6 @@ import { AppRoutingModule } from 'app/app-routing.module';
 
 import { AppComponent } from 'app/app.component';
 import { TeamComponent } from 'app/components/team/team.component';
-import { LayoutComponent } from 'app/components/layout/layout.component';
 import { HomeComponent } from 'app/components/home/home.component';
 import { EventsComponent } from 'app/components/events/events.component';
 import { FamiliesComponent } from 'app/components/families/families.component';
@@ -20,6 +19,8 @@ import { PartnerCardComponent } from './components/partner-card/partner-card.com
 import { ProgramComponent } from './components/program/program.component';
 import { ProgramCardComponent } from './components/program-card/program-card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DialogContactComponent } from './components/dialog-contact/dialog-contact.component';
+import { LoginComponent } from './components/login/login.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -33,7 +34,6 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     TeamComponent,
-    LayoutComponent,
     HomeComponent,
     EventsComponent,
     FamiliesComponent,
@@ -43,6 +43,8 @@ export const firebaseConfig = {
     ProgramComponent,
     ProgramCardComponent,
     FooterComponent,
+    DialogContactComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,9 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+      DialogContactComponent
+  ]
 })
 export class AppModule { }

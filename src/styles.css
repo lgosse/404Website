@@ -5,7 +5,7 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Roboto;
-    background-image: url('background.png');
+    background-image: url('background.svg');
 }
 
 .padding {
@@ -16,14 +16,22 @@ body {
     margin: 10px;
 }
 
-.md-button-toggle-label-content {
-    background-color: unset !important;
+.mat-button-toggle-label-content {
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     border-radius: 3px;
     font-size: 16px;
 }
 
-.md-button-toggle-label-content:hover {
+.mat-button-toggle-checked {
+    background-color: unset !important;
+    color: rgba(0, 0, 0, 0.38) !important;
+}
+
+.mat-button-toggle-checked.active {
+    color: white !important;
+}
+
+.mat-button-toggle-label-content:hover {
     background-color: rgba(0, 0, 0, 0.05) !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -53,32 +61,32 @@ body {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.md-focused {
+.mat-focused {
     color: #ffca28 !important;
 }
 
-.md-input-ripple {
+.mat-input-ripple {
     background-color: #ffca28 !important;
 }
 
 .display-3 {
-    font-size: 56px;
+    font-size: 56px !important;
 }
 
 .display-2 {
-    font-size: 45px;
+    font-size: 45px !important;
 }
 
 .display-1 {
-    font-size: 34px;
+    font-size: 34px !important;
 }
 
 .headline {
-    font-size: 24px;
+    font-size: 24px !important;
 }
 
 .title {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 .subhead {
@@ -87,4 +95,12 @@ body {
 
 .no-border {
     border: 0 !important;
+}
+
+.mat-dialog-container {
+    padding: 0 !important;
+}
+
+.mat-toolbar-layout {
+    width: 100%;
 }
