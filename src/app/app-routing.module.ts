@@ -9,6 +9,12 @@ import { EventsComponent } from './components/events/events.component';
 import { PartnersComponent } from 'app/components/partners/partners.component';
 import { ProgramComponent } from 'app/components/program/program.component';
 import { LoginComponent } from 'app/components/login/login.component';
+import { BackOfficeComponent } from 'app/components/back-office/back-office.component';
+import { MessagesComponent } from 'app/components/back-office/messages/messages.component';
+import { ProgramOfficeComponent } from 'app/components/back-office/program-office/program-office.component';
+import { EventsOfficeComponent } from 'app/components/back-office/events-office/events-office.component';
+import { CommitmentFormComponent } from 'app/components/back-office/commitment-form/commitment-form.component';
+import { NewCommitmentFormComponent } from 'app/components/back-office/new-commitment-form/new-commitment-form.component';
 
 const routes: Routes = [
 {
@@ -46,6 +52,37 @@ const routes: Routes = [
         {
             path:       'login',
             component:  LoginComponent
+        },
+        {
+            path:       'back-office',
+            component: BackOfficeComponent,
+            children: [
+                {
+                    path: '',
+                    redirectTo: '/back-office/messages',
+                    pathMatch: 'full'
+                },
+                {
+                    path: 'messages',
+                    component: MessagesComponent
+                },
+                {
+                    path: 'program-office',
+                    component: ProgramOfficeComponent
+                },
+                {
+                    path: 'commitment/:id',
+                    component: CommitmentFormComponent
+                },
+                {
+                    path: 'new-commitment',
+                    component: NewCommitmentFormComponent
+                },
+                {
+                    path: 'events-office',
+                    component: EventsOfficeComponent
+                }
+            ]
         },
         {
             path: '**',

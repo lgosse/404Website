@@ -27,11 +27,21 @@
                     PARTENAIRES
                 </a>
             </md-list-item>
+            <md-list-item *ngIf="admin === true">
+                <a md-line (click)="navigateTo('/back-office'); sidenav.close()" class="app__sidenav__item">
+                    BACK-OFFICE
+                </a>
+            </md-list-item>
         </md-list>
     </md-sidenav>
     <div class="header">
         <md-toolbar color="primary" class="box-shadow-2">
             <span class="md-display-1">{{title}}</span>
+            <span class="flex-item" fxFlex style="width: 100%"></span>
+            <button md-button (click)="logout()" *ngIf="loggued === true">
+                LOGOUT
+                <md-icon>exit_to_app</md-icon>
+            </button>
             <md-toolbar-row class="containerX">
                 <span class="flex-item" fxFlex></span>
                 <md-button-toggle-group class="no-border">
@@ -40,8 +50,9 @@
                     <md-button-toggle class="md-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="program" routerLinkActive="active" active="active">LE PROGRAMME</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
+                    <md-button-toggle *ngIf="admin === true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
                 </md-button-toggle-group>
-                <span class="flex-item" fxFlex></span>
+                <div class="flex-item containerX" fxFlex></div>
             </md-toolbar-row>
         </md-toolbar>
     </div>

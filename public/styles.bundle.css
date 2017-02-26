@@ -70,23 +70,23 @@ body {
 }
 
 .display-3 {
-    font-size: 56px;
+    font-size: 56px !important;
 }
 
 .display-2 {
-    font-size: 45px;
+    font-size: 45px !important;
 }
 
 .display-1 {
-    font-size: 34px;
+    font-size: 34px !important;
 }
 
 .headline {
-    font-size: 24px;
+    font-size: 24px !important;
 }
 
 .title {
-    font-size: 20px;
+    font-size: 20px !important;
 }
 
 .subhead {

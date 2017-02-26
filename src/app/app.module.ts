@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AngularFireModule } from 'angularfire2';
+import * as Firebase from 'firebase';
 
 import { AppRoutingModule } from 'app/app-routing.module';
 
@@ -21,6 +22,14 @@ import { ProgramCardComponent } from './components/program-card/program-card.com
 import { FooterComponent } from './components/footer/footer.component';
 import { DialogContactComponent } from './components/dialog-contact/dialog-contact.component';
 import { LoginComponent } from './components/login/login.component';
+import { BackOfficeComponent } from './components/back-office/back-office.component';
+import { MessagesComponent } from './components/back-office/messages/messages.component';
+import { ProgramOfficeComponent } from './components/back-office/program-office/program-office.component';
+import { EventsOfficeComponent } from './components/back-office/events-office/events-office.component';
+import { MessageCardComponent } from './components/back-office/message-card/message-card.component';
+import { CommitmentFormComponent } from './components/back-office/commitment-form/commitment-form.component';
+import { CommitmentCardComponent } from './components/back-office/commitment-card/commitment-card.component';
+import { NewCommitmentFormComponent } from './components/back-office/new-commitment-form/new-commitment-form.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -29,6 +38,8 @@ export const firebaseConfig = {
   storageBucket: 'website-d0a07.appspot.com',
   messagingSenderId: '10707548851'
 };
+
+Firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -45,6 +56,14 @@ export const firebaseConfig = {
     FooterComponent,
     DialogContactComponent,
     LoginComponent,
+    BackOfficeComponent,
+    MessagesComponent,
+    ProgramOfficeComponent,
+    EventsOfficeComponent,
+    MessageCardComponent,
+    CommitmentFormComponent,
+    CommitmentCardComponent,
+    NewCommitmentFormComponent,
   ],
   imports: [
     BrowserModule,

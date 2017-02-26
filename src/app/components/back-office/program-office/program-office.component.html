@@ -1,0 +1,12 @@
+<div class="program">
+    <div *ngFor="let commitment of program">
+        <app-commitment-card class="flex-item" [commitment]="commitment"></app-commitment-card>
+    </div>
+    <div class="containerX" fxLayout="row">
+        <span class="flex-item" fxFlex="fxFLex"></span>
+        <button md-raised-button (click)="newCommitment()" color="primary">
+            ADD
+        </button>
+        <span class="flex-item" fxFlex="fxFLex"></span>
+    </div>
+</div>

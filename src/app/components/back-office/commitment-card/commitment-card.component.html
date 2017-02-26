@@ -1,0 +1,13 @@
+<md-card class="program__card commitment">
+    <md-card-content class="containerX" fxLayout="column">
+        <div class="containerX headline" fxLayout="row">
+            <span class="flex-item commitment__text" fxFlex>{{commitment.title}}</span>
+            <button md-button (click)="edit()">
+                MODIFIER
+            </button>
+            <button md-button style="margin-left: 5px" (click)="remove()">
+                SUPPRIMER
+            </button>
+        </div>
+    </md-card-content>
+</md-card>

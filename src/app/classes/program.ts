@@ -1,5 +1,5 @@
 export class Commitment {
-    date: number;
+    date: Date;
     description: [{
         head: string;
         imgUrl: string;

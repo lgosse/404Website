@@ -1,0 +1,24 @@
+<div class="back-office">
+    <md-toolbar color="primary" class="containerX">
+        <span class="flex-item" fxFlex=""></span>
+        <md-button-toggle-group class="no-border">
+            <md-button-toggle color="primary" routerLink="messages" routerLinkActive="active" active>
+                MESSAGES
+            </md-button-toggle>
+            <md-button-toggle color="primary" routerLink="program-office" routerLinkActive="active" active>
+                PROGRAM
+            </md-button-toggle>
+            <md-button-toggle color="primary" routerLink="events-office" routerLinkActive="active" active>
+                EVENTS
+            </md-button-toggle>
+            <!--<md-button-toggle color="primary" routerLink="" routerLinkActive="active" active>
+                PARTNERS
+            </md-button-toggle>
+            <md-button-toggle color="primary" routerLink="" routerLinkActive="active" active>
+
+            </md-button-toggle>-->
+        </md-button-toggle-group>
+        <span class="flex-item" fxFlex=""></span>
+    </md-toolbar>
+    <router-outlet></router-outlet>
+</div>
