@@ -28,13 +28,13 @@ export class DialogContactComponent implements OnInit {
     }
 
     close(): void {
-        this.dialogRef.close();
+        this.dialogRef.close(null);
     }
 
     onSubmit(event): void {
         event.preventDefault();
         this.contactService.sendContactForm(this.contact);
-        this.dialogRef.close();
+        this.dialogRef.close('Sent !');
     }
 
 }

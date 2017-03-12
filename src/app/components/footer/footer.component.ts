@@ -22,7 +22,9 @@ export class FooterComponent implements OnInit {
         let dialogRef = this.dialog.open(DialogContactComponent, {disableClose: true});
             dialogRef.afterClosed().subscribe(result => {
             console.log(result);
-            this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER');
+            if (result !== null) {
+                this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER');
+            }
         });
     }
 
