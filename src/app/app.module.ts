@@ -30,6 +30,10 @@ import { MessageCardComponent } from './components/back-office/message-card/mess
 import { CommitmentFormComponent } from './components/back-office/commitment-form/commitment-form.component';
 import { CommitmentCardComponent } from './components/back-office/commitment-card/commitment-card.component';
 import { NewCommitmentFormComponent } from './components/back-office/new-commitment-form/new-commitment-form.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
+import { EventFormComponent } from './components/back-office/event-form/event-form.component';
+import { NewEventFormComponent } from './components/back-office/new-event-form/new-event-form.component';
+import { EventBackCardComponent } from './components/back-office/event-back-card/event-back-card.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -64,6 +68,10 @@ Firebase.initializeApp(firebaseConfig);
     CommitmentFormComponent,
     CommitmentCardComponent,
     NewCommitmentFormComponent,
+    EventCardComponent,
+    EventFormComponent,
+    NewEventFormComponent,
+    EventBackCardComponent,
   ],
   imports: [
     BrowserModule,
