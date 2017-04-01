@@ -1,0 +1,37 @@
+// Import theming functions
+@import '~@angular/material/core/theming/theming';
+// Import your custom theme
+@import 'src/app/theme.scss';
+.event {
+    &__actions {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    &__card {
+        padding: 0;
+        margin: 20px 20px;
+    }
+    &__img {
+        height: 218px;
+        overflow: hidden;
+    }
+    &__content {
+        height: 171px;
+        min-height: 171px;
+        max-height: 171px;
+        padding: 24px 30px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #F7F7F7;
+        &__title {
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    &__action {
+        color: mat-color($bde-app-primary, 400) !important;
+    }
+}
