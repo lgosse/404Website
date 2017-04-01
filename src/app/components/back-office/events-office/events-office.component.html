@@ -1,3 +1,12 @@
-<p>
-  events-office works!
-</p>
+<div class="events">
+    <div *ngFor="let event of events">
+        <app-event-back-card class="flex-item" [event]="event"></app-event-back-card>
+    </div>
+    <div class="containerX" fxLayout="row">
+        <span class="flex-item" fxFlex="fxFLex"></span>
+        <button md-raised-button (click)="newEvent()" color="primary">
+            ADD
+        </button>
+        <span class="flex-item" fxFlex="fxFLex"></span>
+    </div>
+</div>
