@@ -35,6 +35,7 @@ import { EventFormComponent } from './components/back-office/event-form/event-fo
 import { NewEventFormComponent } from './components/back-office/new-event-form/new-event-form.component';
 import { EventBackCardComponent } from './components/back-office/event-back-card/event-back-card.component';
 import { IdeaBoxComponent } from './components/idea-box/idea-box.component';
+import { FaqComponent } from './components/faq/faq.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -74,6 +75,7 @@ Firebase.initializeApp(firebaseConfig);
     NewEventFormComponent,
     EventBackCardComponent,
     IdeaBoxComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,

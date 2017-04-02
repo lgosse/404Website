@@ -32,6 +32,11 @@
                     PARTENAIRES
                 </a>
             </md-list-item>
+            <md-list-item>
+                <a md-line (click)="navigateTo('/faq'); sidenav.close()" class="app__sidenav__item">
+                    FAQ
+                </a>
+            </md-list-item>
             <md-list-item *ngIf="admin === true">
                 <a md-line (click)="navigateTo('/back-office'); sidenav.close()" class="app__sidenav__item">
                     BACK-OFFICE
@@ -55,6 +60,7 @@
                     <md-button-toggle class="md-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="program" routerLinkActive="active" active="active">LE PROGRAMME</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
+                    <md-button-toggle class="md-button" color="primary" routerLink="faq" routerLinkActive="active" active="active">FAQ</md-button-toggle>
                     <md-button-toggle *ngIf="admin === true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
                 </md-button-toggle-group>
                 <div class="flex-item containerX" fxFlex></div>

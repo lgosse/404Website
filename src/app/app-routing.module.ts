@@ -17,6 +17,7 @@ import { NewCommitmentFormComponent } from 'app/components/back-office/new-commi
 import { EventsOfficeComponent } from 'app/components/back-office/events-office/events-office.component';
 import { EventFormComponent } from 'app/components/back-office/event-form/event-form.component';
 import { NewEventFormComponent } from 'app/components/back-office/new-event-form/new-event-form.component';
+import { FaqComponent } from 'app/components/faq/faq.component';
 
 const routes: Routes = [
 {
@@ -54,6 +55,10 @@ const routes: Routes = [
         {
             path:       'login',
             component:  LoginComponent
+        },
+        {
+            path:       'faq',
+            component:  FaqComponent
         },
         {
             path:       'back-office',

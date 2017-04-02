@@ -1,0 +1,12 @@
+.faq {
+    padding: 40px 40px 10px 40px;
+    &__question {
+        margin: 20px 0;
+        font-weight: 900;
+    }
+    &__answer {
+        color: #555555;
+        margin: 10px;
+        margin-bottom: 40px;
+    }
+}

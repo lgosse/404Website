@@ -540,7 +540,7 @@ var ProgramOfficeComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__ = __webpack_require__(486);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogContactComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -742,7 +742,7 @@ var HomeComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_services_connexion_service__ = __webpack_require__(732);
@@ -1341,7 +1341,7 @@ var AppRoutingModule = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
@@ -1423,7 +1423,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_flex_layout__ = __webpack_require__(634);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(72);
@@ -1846,7 +1846,7 @@ var EventCardComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_components_dialog_contact_dialog_contact_component__ = __webpack_require__(478);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1903,7 +1903,8 @@ var FooterComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__ = __webpack_require__(486);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IdeaBoxComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1916,9 +1917,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var IdeaBoxComponent = (function () {
-    function IdeaBoxComponent(contactService) {
+    function IdeaBoxComponent(contactService, snackBar) {
         this.contactService = contactService;
+        this.snackBar = snackBar;
         this.contact = {
             email: '',
             subject: '',
@@ -1930,18 +1933,30 @@ var IdeaBoxComponent = (function () {
     IdeaBoxComponent.prototype.onSubmit = function (event) {
         event.preventDefault();
         this.contactService.sendContactForm(this.contact);
+        this.contact = {
+            email: '',
+            subject: '',
+            message: '',
+        };
+        this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER');
     };
+    IdeaBoxComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 2000
+        });
+    };
+    ;
     IdeaBoxComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Component */])({
             selector: 'app-idea-box',
             template: __webpack_require__(947),
             styles: [__webpack_require__(921)],
-            providers: [__WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__["a" /* ContactService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__["a" /* ContactService */]]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__["a" /* ContactService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__["a" /* ContactService */]) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__["a" /* ContactService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__["a" /* ContactService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdSnackBar */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MdSnackBar */]) === 'function' && _b) || Object])
     ], IdeaBoxComponent);
     return IdeaBoxComponent;
-    var _a;
+    var _a, _b;
 }());
 //# sourceMappingURL=/Users/lgosse/BDE404Website/src/idea-box.component.js.map
 
