@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MdSnackBar } from '@angular/material';
+
 import { ContactForm } from 'app/classes/contact-form';
 
 import { ContactService } from 'app/services/contact.service';
@@ -19,7 +21,8 @@ export class IdeaBoxComponent implements OnInit {
     };
 
     constructor(
-        private contactService: ContactService
+        private contactService: ContactService,
+        public snackBar: MdSnackBar
     ) { }
 
     ngOnInit() {
@@ -28,6 +31,17 @@ export class IdeaBoxComponent implements OnInit {
     onSubmit(event): void {
         event.preventDefault();
         this.contactService.sendContactForm(this.contact);
+        this.contact = {
+            email: '',
+            subject: '',
+            message: '',
+        };
+        this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER')
     }
 
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message, action, {
+            duration: 2000
+        });
+    };
 }

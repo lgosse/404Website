@@ -307,7 +307,7 @@ var EventsOfficeComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_messages_service__ = __webpack_require__(486);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_messages_service__ = __webpack_require__(487);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessagesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -541,7 +541,7 @@ var ProgramOfficeComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__ = __webpack_require__(732);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_services_contact_service__ = __webpack_require__(486);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogContactComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -745,7 +745,7 @@ var HomeComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_services_connexion_service__ = __webpack_require__(731);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_app_services_connexion_service__ = __webpack_require__(732);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1075,6 +1075,42 @@ var TeamComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2__ = __webpack_require__(85);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ContactService = (function () {
+    function ContactService(af) {
+        this.contact = af.database.list('/contact');
+    }
+    ContactService.prototype.sendContactForm = function (contactForm) {
+        this.contact.push(contactForm);
+    };
+    ContactService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2__["b" /* AngularFire */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_angularfire2__["b" /* AngularFire */]) === 'function' && _a) || Object])
+    ], ContactService);
+    return ContactService;
+    var _a;
+}());
+//# sourceMappingURL=/Users/lgosse/BDE404Website/src/contact.service.js.map
+
+/***/ }),
+
+/***/ 487:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2__ = __webpack_require__(85);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessagesService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1112,7 +1148,7 @@ var MessagesService = (function () {
 
 /***/ }),
 
-/***/ 542:
+/***/ 543:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -1121,21 +1157,21 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 542;
+webpackEmptyContext.id = 543;
 
 
 /***/ }),
 
-/***/ 543:
+/***/ 544:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(736);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(685);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(735);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(716);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(717);
 
 
 
@@ -1149,7 +1185,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 714:
+/***/ 715:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1299,7 +1335,7 @@ var AppRoutingModule = (function () {
 
 /***/ }),
 
-/***/ 715:
+/***/ 716:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1379,7 +1415,7 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 716:
+/***/ 717:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1388,37 +1424,37 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_flex_layout__ = __webpack_require__(633);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_flex_layout__ = __webpack_require__(634);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_app_app_routing_module__ = __webpack_require__(714);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_app_app_component__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_app_app_routing_module__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_app_app_component__ = __webpack_require__(716);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_app_components_team_team_component__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_app_components_home_home_component__ = __webpack_require__(481);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_app_components_events_events_component__ = __webpack_require__(479);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_app_components_families_families_component__ = __webpack_require__(480);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_member_card_member_card_component__ = __webpack_require__(728);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_member_card_member_card_component__ = __webpack_require__(729);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_partners_partners_component__ = __webpack_require__(483);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_partner_card_partner_card_component__ = __webpack_require__(729);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_partner_card_partner_card_component__ = __webpack_require__(730);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_program_program_component__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_program_card_program_card_component__ = __webpack_require__(730);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_footer_footer_component__ = __webpack_require__(726);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_program_card_program_card_component__ = __webpack_require__(731);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_footer_footer_component__ = __webpack_require__(727);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_dialog_contact_dialog_contact_component__ = __webpack_require__(478);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_login_login_component__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_back_office_back_office_component__ = __webpack_require__(470);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_back_office_messages_messages_component__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_back_office_program_office_program_office_component__ = __webpack_require__(477);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_back_office_events_office_events_office_component__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_back_office_message_card_message_card_component__ = __webpack_require__(724);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_back_office_message_card_message_card_component__ = __webpack_require__(725);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_back_office_commitment_form_commitment_form_component__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_back_office_commitment_card_commitment_card_component__ = __webpack_require__(722);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_back_office_commitment_card_commitment_card_component__ = __webpack_require__(723);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_back_office_new_commitment_form_new_commitment_form_component__ = __webpack_require__(475);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_event_card_event_card_component__ = __webpack_require__(725);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_event_card_event_card_component__ = __webpack_require__(726);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_back_office_event_form_event_form_component__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_back_office_new_event_form_new_event_form_component__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_back_office_event_back_card_event_back_card_component__ = __webpack_require__(723);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_idea_box_idea_box_component__ = __webpack_require__(727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_back_office_event_back_card_event_back_card_component__ = __webpack_require__(724);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_idea_box_idea_box_component__ = __webpack_require__(728);
 /* unused harmony export firebaseConfig */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1529,7 +1565,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 717:
+/***/ 718:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1543,7 +1579,7 @@ var EventBde = (function () {
 
 /***/ }),
 
-/***/ 718:
+/***/ 719:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1557,7 +1593,7 @@ var Member = (function () {
 
 /***/ }),
 
-/***/ 719:
+/***/ 720:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1571,7 +1607,7 @@ var Message = (function () {
 
 /***/ }),
 
-/***/ 720:
+/***/ 721:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1585,7 +1621,7 @@ var Partner = (function () {
 
 /***/ }),
 
-/***/ 721:
+/***/ 722:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1599,7 +1635,7 @@ var Commitment = (function () {
 
 /***/ }),
 
-/***/ 722:
+/***/ 723:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1652,7 +1688,7 @@ var CommitmentCardComponent = (function () {
 
 /***/ }),
 
-/***/ 723:
+/***/ 724:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1705,13 +1741,13 @@ var EventBackCardComponent = (function () {
 
 /***/ }),
 
-/***/ 724:
+/***/ 725:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_messages_service__ = __webpack_require__(486);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_classes_message__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_messages_service__ = __webpack_require__(487);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_app_classes_message__ = __webpack_require__(720);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageCardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1762,12 +1798,12 @@ var MessageCardComponent = (function () {
 
 /***/ }),
 
-/***/ 725:
+/***/ 726:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_eventBde__ = __webpack_require__(717);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_eventBde__ = __webpack_require__(718);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventCardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1805,7 +1841,7 @@ var EventCardComponent = (function () {
 
 /***/ }),
 
-/***/ 726:
+/***/ 727:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1862,11 +1898,12 @@ var FooterComponent = (function () {
 
 /***/ }),
 
-/***/ 727:
+/***/ 728:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__ = __webpack_require__(486);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IdeaBoxComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1878,31 +1915,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var IdeaBoxComponent = (function () {
-    function IdeaBoxComponent() {
+    function IdeaBoxComponent(contactService) {
+        this.contactService = contactService;
+        this.contact = {
+            email: '',
+            subject: '',
+            message: '',
+        };
     }
     IdeaBoxComponent.prototype.ngOnInit = function () {
+    };
+    IdeaBoxComponent.prototype.onSubmit = function (event) {
+        event.preventDefault();
+        this.contactService.sendContactForm(this.contact);
     };
     IdeaBoxComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Component */])({
             selector: 'app-idea-box',
             template: __webpack_require__(947),
-            styles: [__webpack_require__(921)]
+            styles: [__webpack_require__(921)],
+            providers: [__WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__["a" /* ContactService */]]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__["a" /* ContactService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_app_services_contact_service__["a" /* ContactService */]) === 'function' && _a) || Object])
     ], IdeaBoxComponent);
     return IdeaBoxComponent;
+    var _a;
 }());
 //# sourceMappingURL=/Users/lgosse/BDE404Website/src/idea-box.component.js.map
 
 /***/ }),
 
-/***/ 728:
+/***/ 729:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_member__ = __webpack_require__(718);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_member__ = __webpack_require__(719);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MemberCardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2009,12 +2059,12 @@ var MemberCardComponent = (function () {
 
 /***/ }),
 
-/***/ 729:
+/***/ 730:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_partner__ = __webpack_require__(720);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_partner__ = __webpack_require__(721);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartnerCardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2051,12 +2101,12 @@ var PartnerCardComponent = (function () {
 
 /***/ }),
 
-/***/ 730:
+/***/ 731:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_program__ = __webpack_require__(721);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_classes_program__ = __webpack_require__(722);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgramCardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2124,7 +2174,7 @@ var ProgramCardComponent = (function () {
 
 /***/ }),
 
-/***/ 731:
+/***/ 732:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2156,42 +2206,6 @@ var ConnexionService = (function () {
     return ConnexionService;
 }());
 //# sourceMappingURL=/Users/lgosse/BDE404Website/src/connexion.service.js.map
-
-/***/ }),
-
-/***/ 732:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2__ = __webpack_require__(85);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ContactService = (function () {
-    function ContactService(af) {
-        this.contact = af.database.list('/contact');
-    }
-    ContactService.prototype.sendContactForm = function (contactForm) {
-        this.contact.push(contactForm);
-    };
-    ContactService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2__["b" /* AngularFire */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_angularfire2__["b" /* AngularFire */]) === 'function' && _a) || Object])
-    ], ContactService);
-    return ContactService;
-    var _a;
-}());
-//# sourceMappingURL=/Users/lgosse/BDE404Website/src/contact.service.js.map
 
 /***/ }),
 
@@ -2461,14 +2475,14 @@ module.exports = ".footer {\n  border-top: 1px solid #eeeeee; }\n  .footer__love
 /***/ 920:
 /***/ (function(module, exports) {
 
-module.exports = ".home {\n  height: 100%; }\n  .home__img {\n    width: 100% !important; }\n"
+module.exports = ".home {\n  height: 100%; }\n  .home__img {\n    width: 100% !important; }\n  @media (min-width: 720px) {\n    .home__video-container {\n      padding: 20px; } }\n  @media (min-width: 720px) {\n    .home__card {\n      width: 70%;\n      margin: 20px auto;\n      margin-bottom: 40px; } }\n  @media (max-width: 720px) {\n    .home__card {\n      width: 90vw; } }\n  .home__logo-container {\n    padding: 20px;\n    margin-top: 40px;\n    margin-bottom: 40px; }\n  .home__logo {\n    height: 300px; }\n    @media (max-width: 720px) {\n      .home__logo {\n        height: 150px; } }\n  .home__welcome {\n    margin-top: 40px;\n    margin-bottom: 30px; }\n"
 
 /***/ }),
 
 /***/ 921:
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".idea-box__card {\n  padding: 0;\n  margin: 20px auto; }\n  @media (min-width: 720px) {\n    .idea-box__card {\n      width: 75%; } }\n  @media (max-width: 720px) {\n    .idea-box__card {\n      width: 100vw; } }\n\n.contact {\n  padding: 24px; }\n"
 
 /***/ }),
 
@@ -2643,14 +2657,14 @@ module.exports = "<md-toolbar class=\"box-shadow-2 footer containerX\">\n    <di
 /***/ 946:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"home\">\n    <div class=\"home__img__container\">\n        <img class=\"home__img\" src=\"https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Faff2.jpg?alt=media&token=2d24159c-c8e4-46bf-ab12-a7d0b2a807ed\" alt=\"gif t_error 404\">\n    </div>\n    <div class=\"home__img__container\">\n        <img class=\"home__img\" src=\"https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/gifs%2FGIF3.gif?alt=media&token=20683d26-12d2-4901-98a7-c6650a30de4e\" alt=\"gif t_error 404\">\n    </div>\n    <div class=\"containerX\" fxLayout=\"row\">\n        <span fxFlex></span>\n        <app-idea-box></app-idea-box>\n        <span fxFlex></span>\n    </div>\n</div>"
+module.exports = "<div class=\"home containerX\" fxLayout=\"column\">\n    <div class=\"home__logo-container center containerX\" fxLayout=\"row\">\n        <img class=\"center home__logo\" src=\"visu_logo_site.png\" />\n    </div>\n    <md-card class=\"center home__card\">\n        <md-card-content class=\"containerX\" fxLayout=\"column\">\n            <div class=\"containerX home__video-container\" fxLayout=\"row\">\n                <span fxFlex></span>\n                <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Wv-bUqO3G8I\" frameborder=\"0\" allowfullscreen></iframe>\n                <span fxFlex></span>\n            </div>\n            <div class=\"containerX\" fxLayout=\"row\">\n                <span fxFlex></span>\n                <a href=\"https://www.youtube.com/channel/UCb5Wq73IorRBqLhxztkKNlg\" target=\"_blank\">\n                    <button md-raised-button color=\"primary\">\n                        <md-icon>ondemand_video</md-icon>\n                        Nos autres vidéos\n                    </button>\n                </a>\n                <span fxFlex></span>\n            </div>\n        </md-card-content>\n    </md-card>\n    <div class=\"containerX\" fxLayout=\"row\">\n        <app-idea-box fxFlex></app-idea-box>\n    </div>\n</div>"
 
 /***/ }),
 
 /***/ 947:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  idea-box works!\n</p>\n"
+module.exports = "<md-card class=\"idea-box__card\">\n    <md-toolbar color=\"primary\" class=\"containerX\" fxLayout=\"row\">\n        <div class=\"md-display-1\">Boîte à idées</div>\n    </md-toolbar>\n    <div class=\"contact\">\n        <form (ngSubmit)=\"onSubmit($event)\">\n            <md-input-container class=\"containerX\" fxLayout=\"column\">\n                <input [(ngModel)]=\"contact.email\" mdInput placeholder=\"Mail\" required name=\"email\">\n            </md-input-container>\n            <md-input-container class=\"containerX\" fxLayout=\"column\">\n                <input [(ngModel)]=\"contact.subject\" mdInput type=\"text\" placeholder=\"Objet\" required name=\"subject\">\n            </md-input-container>\n            <md-input-container class=\"containerX\" fxLayout=\"column\">\n                <textarea [(ngModel)]=\"contact.message\" mdInput type=\"text\" placeholder=\"Envoie-nous tes idées\" required name=\"message\"></textarea>\n            </md-input-container>\n            <div class=\"containerX\" fxLayout=\"row\">\n                <span fxFlex class=\"flex-item\"></span>\n                <button type=\"submit\" color=\"primary\" md-raised-button>\n                ENVOYER\n                <md-icon>mail_outline</md-icon>\n            </button>\n            </div>\n        </form>\n    </div>\n</md-card>"
 
 /***/ }),
 
@@ -2706,7 +2720,7 @@ module.exports = "<div class=\"containerX\" fxLayout=\"row\" class=\"team__spinn
 /***/ 996:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(543);
+module.exports = __webpack_require__(544);
 
 
 /***/ })
