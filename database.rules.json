@@ -9,6 +9,9 @@
     "partners": {
       ".read": true
     },
+	"events": {
+	  ".read": true
+	},
     "contact": {
       ".write": true,
       ".read": true
