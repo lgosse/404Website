@@ -1,0 +1,14 @@
+.idea-box__card {
+    padding: 0;
+    margin: 20px auto;
+    @media(min-width: 720px) {
+        width: 75%;
+    }
+    @media(max-width: 720px) {
+        width: 100vw;
+    }
+}
+
+.contact {
+    padding: 24px;
+}

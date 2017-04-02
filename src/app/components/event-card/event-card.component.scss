@@ -13,10 +13,26 @@
     &__card {
         padding: 0;
         margin: 20px 20px;
+        @media (max-width: 720px) {
+            display: none !important;
+        }
+        &--mobile {
+            padding: 0;
+            margin: 20px 20px;
+            @media (min-width: 720px) {
+                display: none !important;
+            }
+        }
     }
     &__img {
         height: 218px;
+        width: 218px;
+        min-width: 218px;
         overflow: hidden;
+        &--mobile {
+            width: 100%;
+            overflow: hidden;
+        }
     }
     &__content {
         height: 171px;
