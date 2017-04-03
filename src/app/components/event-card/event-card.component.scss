@@ -18,7 +18,7 @@
         }
         &--mobile {
             padding: 0;
-            margin: 20px 20px;
+            margin: 20px 0px;
             @media (min-width: 720px) {
                 display: none !important;
             }
@@ -35,9 +35,7 @@
         }
     }
     &__content {
-        height: 171px;
         min-height: 171px;
-        max-height: 171px;
         padding: 24px 30px;
         margin-bottom: 5px;
         border-bottom: 1px solid #F7F7F7;
@@ -49,5 +47,11 @@
     }
     &__action {
         color: mat-color($bde-app-primary, 400) !important;
+        &__text {
+            @media (max-width: 720px) {
+                font-size: 4vw;
+            }
+            word-wrap: break-word;
+        }
     }
 }

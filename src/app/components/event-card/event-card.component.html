@@ -32,11 +32,11 @@
         <md-card-actions class="containerX padding event__actions" fxLayout="column">
             <button md-button disabled class="event__action">
                 <md-icon>date_range</md-icon>
-                <span md-caption>{{event.date | date}}</span>
+                <span md-caption class="event__action__text">{{event.date | date}}</span>
             </button>
             <a href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
                 <md-icon>location_on</md-icon>
-                <span md-caption>{{event.location}}</span>
+                <span md-caption class="event__action__text">{{event.location}}</span>
             </a>
         </md-card-actions>
     </div>
