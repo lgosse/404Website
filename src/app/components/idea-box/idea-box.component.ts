@@ -30,6 +30,10 @@ export class IdeaBoxComponent implements OnInit {
 
     onSubmit(event): void {
         event.preventDefault();
+        if (this.validateEmail(this.contact.email) === false) {
+            this.openSnackBar('L\'adresse email renseignée est invalide.', 'FERMER');
+            return ;
+        }
         this.contactService.sendContactForm(this.contact);
         this.contact = {
             email: '',
@@ -37,6 +41,12 @@ export class IdeaBoxComponent implements OnInit {
             message: '',
         };
         this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER')
+    }
+
+    
+    validateEmail(email: string): boolean {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
 
     openSnackBar(message: string, action: string) {
