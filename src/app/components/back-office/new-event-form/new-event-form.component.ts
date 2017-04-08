@@ -30,7 +30,8 @@ export class NewEventFormComponent implements OnInit {
             title: '',
             imgUrl: '',
             location: '',
-            description: ''
+            description: '',
+            subscription: false
         }
         this.eventObservable = this.eventsService.getEvents();
     }
@@ -42,6 +43,7 @@ export class NewEventFormComponent implements OnInit {
             imgUrl: this.event.imgUrl,
             location: this.event.location,
             description: this.event.description,
+            subscription: this.event.subscription
         }
 
         this.eventObservable.push(newEvent);

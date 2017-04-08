@@ -36,6 +36,10 @@ import { NewEventFormComponent } from './components/back-office/new-event-form/n
 import { EventBackCardComponent } from './components/back-office/event-back-card/event-back-card.component';
 import { IdeaBoxComponent } from './components/idea-box/idea-box.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { EventSubscribingComponent } from './components/event-subscribing/event-subscribing.component';
+import { SubscriptionsOfficeComponent } from './components/back-office/subscriptions-office/subscriptions-office.component';
+import { EventSubscriptionComponent } from './components/back-office/event-subscription/event-subscription.component';
+import { SubscriptionLoginComponent } from './components/back-office/subscription-login/subscription-login.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
@@ -76,6 +80,10 @@ Firebase.initializeApp(firebaseConfig);
     EventBackCardComponent,
     IdeaBoxComponent,
     FaqComponent,
+    EventSubscribingComponent,
+    SubscriptionsOfficeComponent,
+    EventSubscriptionComponent,
+    SubscriptionLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +97,8 @@ Firebase.initializeApp(firebaseConfig);
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-      DialogContactComponent
+      DialogContactComponent,
+      EventSubscribingComponent      
   ]
 })
 export class AppModule { }

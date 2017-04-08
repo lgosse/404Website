@@ -4,4 +4,5 @@ export class EventBde {
     imgUrl: string;
     location: string;
     description: string;
+    subscription: boolean;
 }

@@ -11,6 +11,7 @@ import { ContactService } from 'app/services/contact.service';
     styleUrls: ['./dialog-contact.component.scss'],
     providers: [ContactService]
 })
+
 export class DialogContactComponent implements OnInit {
 
     contact: ContactForm = {

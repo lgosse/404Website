@@ -1,0 +1,10 @@
+<md-card class="events__card event">
+    <md-card-content class="event__card__content containerX" fxLayout="column">
+        <div class="containerX headline" fxLayout="row">
+            <span class="flex-item message__text" fxFlex>{{event.$key}}</span>
+        </div>
+        <div class="message__body">
+            <app-subscription-login *ngFor="let login of logins" [login]="login" [event]="event.$key"></app-subscription-login>
+        </div>
+    </md-card-content>
+</md-card>

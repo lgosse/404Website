@@ -17,6 +17,9 @@
             <md-input-container>
                 <textarea [(ngModel)]="event.description" mdInput placeholder="Description" autofocus required name="description"></textarea>
             </md-input-container>
+            <md-checkbox [(ngModel)]="event.subscription" name="subscription">
+                Subscriptions ?
+            </md-checkbox>
             <div class="containerX" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
                 <button md-raised-button color="primary">

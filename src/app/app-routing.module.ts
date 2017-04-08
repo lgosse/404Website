@@ -18,6 +18,7 @@ import { EventsOfficeComponent } from 'app/components/back-office/events-office/
 import { EventFormComponent } from 'app/components/back-office/event-form/event-form.component';
 import { NewEventFormComponent } from 'app/components/back-office/new-event-form/new-event-form.component';
 import { FaqComponent } from 'app/components/faq/faq.component';
+import { SubscriptionsOfficeComponent } from 'app/components/back-office/subscriptions-office/subscriptions-office.component';
 
 const routes: Routes = [
 {
@@ -72,6 +73,10 @@ const routes: Routes = [
                 {
                     path: 'messages',
                     component: MessagesComponent
+                },
+                {
+                    path: 'subscriptions',
+                    component: SubscriptionsOfficeComponent
                 },
                 {
                     path: 'program-office',

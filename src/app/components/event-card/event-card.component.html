@@ -6,13 +6,20 @@
         <md-card-content class="containerX event__content" fxLayout="column">
             <p class="event__content__title">{{event.title}}</p>
             <p>{{event.description | slice:0:500}}</p>
+            <div class="containerX" fxLayout="row">
+                <button md-button disabled class="event__action">
+                    <md-icon>date_range</md-icon>
+                    <span md-caption>{{event.date | date}}</span>
+                </button>
+                <span class="flex-item" fxFlex></span>
+            </div>
         </md-card-content>
         <md-card-actions class="containerX padding event__actions" fxLayout="row">
-            <button md-button disabled class="event__action">
-                <md-icon>date_range</md-icon>
-                <span md-caption>{{event.date | date}}</span>
-            </button>
             <span class="flex-item" fxFlex></span>
+            <button md-button (click)="showSubscriptionDialog()" class="event__action event__actions" *ngIf="event.subscription === true">
+                <md-icon>edit</md-icon>
+                <span md-caption class="event__action__text">S'INSCRIRE</span>
+            </button>
             <a href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
                 <md-icon>location_on</md-icon>
                 <span md-caption>{{event.location}}</span>
@@ -28,11 +35,15 @@
         <md-card-content class="containerX event__content" fxLayout="column">
             <p class="event__content__title">{{event.title}}</p>
             <p>{{event.description | slice:0:500}}</p>
-        </md-card-content>
-        <md-card-actions class="containerX padding event__actions" fxLayout="column">
             <button md-button disabled class="event__action">
                 <md-icon>date_range</md-icon>
                 <span md-caption class="event__action__text">{{event.date | date}}</span>
+            </button>
+        </md-card-content>
+        <md-card-actions class="containerX padding event__actions" fxLayout="column">
+            <button md-button (click)="showSubscriptionDialog()" class="event__action" *ngIf="event.subscription === true">
+                <md-icon>edit</md-icon>
+                <span md-caption class="event__action__text">S'INSCRIRE</span>
             </button>
             <a href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
                 <md-icon>location_on</md-icon>

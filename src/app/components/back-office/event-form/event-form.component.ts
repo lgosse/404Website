@@ -30,7 +30,6 @@ export class EventFormComponent implements OnInit {
         this.eventObservable = this.eventsService.getEvent(this.key);
         this.eventObservable.subscribe(event => {
             this.event = event;
-            console.log(this.event);
         })
     }
 
@@ -41,6 +40,7 @@ export class EventFormComponent implements OnInit {
             imgUrl: this.event.imgUrl,
             location: this.event.location,
             description: this.event.description,
+            subscription: this.event.subscription
         }
 
         this.eventObservable.update(update);

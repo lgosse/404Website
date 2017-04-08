@@ -16,6 +16,10 @@
       ".write": true,
       ".read": true
     },
+	"subscriptions": {
+	  ".write": true,
+	  ".read": true
+	},
     ".write": "auth != null",
     ".read": "auth != null"
   }

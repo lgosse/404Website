@@ -1,0 +1,10 @@
+<md-card class="logins__card login">
+    <md-card-content class="logins__card__content containerX" fxLayout="column">
+        <div class="containerX headline" fxLayout="row">
+            <span class="flex-item login__text" fxFlex>{{login.$value}}</span>
+            <button md-icon-button style="color: #A0CE4e" (click)="deleteSubscription()">
+                <md-icon>check</md-icon>
+            </button>
+        </div>
+    </md-card-content>
+</md-card>
