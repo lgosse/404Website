@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 import { Message } from 'app/classes/message';
 
@@ -9,9 +9,9 @@ export class MessagesService {
     messages: FirebaseListObservable<any>;
 
     constructor(
-        private af: AngularFire,
+        private af: AngularFireDatabase,
     ) {
-        this.messages = af.database.list('/contact');
+        this.messages = af.list('/contact');
     }
 
     getMessages(): FirebaseListObservable<any> {
@@ -19,7 +19,7 @@ export class MessagesService {
     }
 
     getMessageByKey(key: string): FirebaseObjectObservable<any> {
-        return this.af.database.object('/contact/' + key);
+        return this.af.object('/contact/' + key);
     }
 
     deleteMessage(key: string): void {

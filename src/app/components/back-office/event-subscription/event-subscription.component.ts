@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { SubscriptionService } from 'app/services/subscription.service';
 
-import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-event-subscription',

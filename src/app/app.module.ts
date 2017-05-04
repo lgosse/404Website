@@ -5,7 +5,10 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AngularFireModule } from 'angularfire2';
-import * as Firebase from 'firebase';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as Firebase from 'firebase/app';
 
 import { AppRoutingModule } from 'app/app-routing.module';
 
@@ -91,8 +94,11 @@ Firebase.initializeApp(firebaseConfig);
     HttpModule,
     AppRoutingModule,
     MaterialModule.forRoot(),
+    BrowserAnimationsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],

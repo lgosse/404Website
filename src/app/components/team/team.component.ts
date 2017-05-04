@@ -10,7 +10,7 @@ import {
     keyframes
 } from '@angular/core';
 
-import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 import { Member } from 'app/classes/member';
 import { TeamService } from 'app/services/team.service';

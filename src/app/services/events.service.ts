@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Injectable()
 export class EventsService {
@@ -7,9 +7,9 @@ export class EventsService {
     events: FirebaseListObservable<any>;
 
     constructor(
-      private af: AngularFire
+      private af: AngularFireDatabase
     ) {
-        this.events = af.database.list('/events');
+        this.events = af.list('/events');
     }
 
     getEvents(): FirebaseListObservable<any> {
@@ -17,7 +17,7 @@ export class EventsService {
     }
 
     getEvent(key: string):FirebaseObjectObservable<any> {
-        return this.af.database.object('/events/' + key);
+        return this.af.object('/events/' + key);
     }
 
     removeEvent(key: string): void {

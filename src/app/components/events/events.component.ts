@@ -10,7 +10,7 @@ import {
     keyframes
 } from '@angular/core';
 
-import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 import { EventBde } from 'app/classes/eventBde';
 import { EventsService } from 'app/services/events.service';

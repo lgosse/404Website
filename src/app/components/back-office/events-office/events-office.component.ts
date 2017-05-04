@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventsService } from 'app/services/events.service';
 import { Router } from '@angular/router';
 
-import { FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
     selector: 'app-events-office',

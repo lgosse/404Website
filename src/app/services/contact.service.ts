@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 import { ContactForm } from 'app/classes/contact-form';
 
@@ -8,8 +8,8 @@ export class ContactService {
 
     contact: FirebaseListObservable<any>;
 
-    constructor(af: AngularFire) {
-        this.contact = af.database.list('/contact');
+    constructor(af: AngularFireDatabase) {
+        this.contact = af.list('/contact');
     }
 
     sendContactForm(contactForm: ContactForm): void {

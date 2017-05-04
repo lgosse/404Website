@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class TeamService {
 
     members: FirebaseListObservable<any>;
 
-    constructor(af: AngularFire) {
-        this.members = af.database.list('/bdeMembers');
+    constructor(af: AngularFireDatabase) {
+        this.members = af.list('/bdeMembers');
     }
 
     getMembers(): FirebaseListObservable<any> {

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Injectable()
 export class ProgramService {
 
     program: FirebaseListObservable<any>;
 
-    constructor(private af: AngularFire) {
-        this.program = af.database.list('/program');
+    constructor(private af: AngularFireDatabase) {
+        this.program = af.list('/program');
     }
 
     getProgram(): FirebaseListObservable<any> {
@@ -15,7 +15,7 @@ export class ProgramService {
     }
 
     getCommitment(key: string): FirebaseObjectObservable<any> {
-        return this.af.database.object('/program/' + key);
+        return this.af.object('/program/' + key);
     }
 
     removeCommitment(key: string): void {
