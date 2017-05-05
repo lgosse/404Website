@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Firebase from 'firebase/app';
 
 import { AppRoutingModule } from 'app/app-routing.module';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+  
 import { AppComponent } from 'app/app.component';
 import { TeamComponent } from 'app/components/team/team.component';
 import { HomeComponent } from 'app/components/home/home.component';
@@ -100,7 +101,7 @@ Firebase.initializeApp(firebaseConfig);
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   entryComponents: [
       DialogContactComponent,
