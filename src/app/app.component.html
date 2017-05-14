@@ -23,13 +23,13 @@
                 </a>
             </md-list-item>
             <md-list-item>
-                <a md-line (click)="navigateTo('/program'); sidenav.close()" class="app__sidenav__item">
-                    LE PROGRAMME
+                <a md-line (click)="navigateTo('/partners'); sidenav.close()" class="app__sidenav__item">
+                    PARTENAIRES
                 </a>
             </md-list-item>
             <md-list-item>
-                <a md-line (click)="navigateTo('/partners'); sidenav.close()" class="app__sidenav__item">
-                    PARTENAIRES
+                <a md-line (click)="navigateTo('/deals'); sidenav.close()" class="app__sidenav__item">
+                    BONS PLANS
                 </a>
             </md-list-item>
             <md-list-item>
@@ -58,8 +58,8 @@
                     <md-button-toggle class="md-raised-button" color="primary" routerLink="home" routerLinkActive="active" active="active">ACCUEIL</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
-                    <md-button-toggle class="md-button" color="primary" routerLink="program" routerLinkActive="active" active="active">LE PROGRAMME</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
+                    <md-button-toggle class="md-button" color="primary" routerLink="deals" routerLinkActive="active" active="active">BONS PLANS</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="faq" routerLinkActive="active" active="active">FAQ</md-button-toggle>
                     <md-button-toggle *ngIf="admin === true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
                 </md-button-toggle-group>

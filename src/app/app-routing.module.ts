@@ -9,6 +9,7 @@ import { EventsComponent } from './components/events/events.component';
 import { PartnersComponent } from 'app/components/partners/partners.component';
 import { ProgramComponent } from 'app/components/program/program.component';
 import { LoginComponent } from 'app/components/login/login.component';
+import { DealsComponent } from 'app/components/deals/deals.component';
 import { BackOfficeComponent } from 'app/components/back-office/back-office.component';
 import { MessagesComponent } from 'app/components/back-office/messages/messages.component';
 import { ProgramOfficeComponent } from 'app/components/back-office/program-office/program-office.component';
@@ -19,6 +20,9 @@ import { EventFormComponent } from 'app/components/back-office/event-form/event-
 import { NewEventFormComponent } from 'app/components/back-office/new-event-form/new-event-form.component';
 import { FaqComponent } from 'app/components/faq/faq.component';
 import { SubscriptionsOfficeComponent } from 'app/components/back-office/subscriptions-office/subscriptions-office.component';
+import { DealsOfficeComponent } from './components/back-office/deals-office/deals-office.component';
+import { NewDealFormComponent } from './components/back-office/new-deal-form/new-deal-form.component';
+import { DealFormComponent } from './components/back-office/deal-form/deal-form.component';
 
 const routes: Routes = [
 {
@@ -62,6 +66,10 @@ const routes: Routes = [
             component:  FaqComponent
         },
         {
+            path:       'deals',
+            component:  DealsComponent
+        },
+        {
             path:       'back-office',
             component: BackOfficeComponent,
             children: [
@@ -78,18 +86,18 @@ const routes: Routes = [
                     path: 'subscriptions',
                     component: SubscriptionsOfficeComponent
                 },
-                {
-                    path: 'program-office',
-                    component: ProgramOfficeComponent
-                },
-                {
-                    path: 'commitment/:id',
-                    component: CommitmentFormComponent
-                },
-                {
-                    path: 'new-commitment',
-                    component: NewCommitmentFormComponent
-                },
+                // {
+                //     path: 'program-office',
+                //     component: ProgramOfficeComponent
+                // },
+                // {
+                //     path: 'commitment/:id',
+                //     component: CommitmentFormComponent
+                // },
+                // {
+                //     path: 'new-commitment',
+                //     component: NewCommitmentFormComponent
+                // },
                 {
                     path: 'events-office',
                     component: EventsOfficeComponent
@@ -101,6 +109,18 @@ const routes: Routes = [
                 {
                     path: 'new-event',
                     component: NewEventFormComponent
+                },
+                {
+                    path: 'deals-office',
+                    component: DealsOfficeComponent
+                },
+                {
+                    path: 'deal/:id',
+                    component: DealFormComponent
+                },
+                {
+                    path: 'new-deal',
+                    component: NewDealFormComponent
                 },
             ]
         },

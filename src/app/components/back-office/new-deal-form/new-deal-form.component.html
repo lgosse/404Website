@@ -1,0 +1,30 @@
+<div class="deal-form containerX" fxLayout="row">
+    <div class="flex-item" fxFlex=20></div>
+    <div class="deal-form__content" *ngIf="deal" class="flex-item" fxFlex=60>
+        <form (ngSubmit)="onSubmit($deal)" class="containerX" fxLayout="column">
+            <md-input-container>
+                <input type="text" [(ngModel)]="deal.title" mdInput placeholder="Title" autofocus required name="title">
+            </md-input-container>
+            <md-input-container>
+                <textarea [(ngModel)]="deal.description" mdInput placeholder="description" autofocus required name="description"></textarea>
+            </md-input-container>
+            <md-input-container>
+                <input type="text" [(ngModel)]="deal.imgUrl" mdInput placeholder="Picture URL" autofocus name="imgUrl">
+            </md-input-container>
+            <md-input-container>
+                <input type="text" [(ngModel)]="deal.url" mdInput placeholder="Website URL" autofocus name="url">
+            </md-input-container>
+            <md-input-container>
+                <input type="text" [(ngModel)]="deal.partner" mdInput placeholder="Partner's name" autofocus name="partner">
+            </md-input-container>
+            <div class="containerX" fxLayout="row">
+                <span class="flex-item" fxFlex></span>
+                <button md-raised-button color="primary">
+                    SAVE
+                </button>
+                <span class="flex-item" fxFlex></span>
+            </div>
+        </form>
+    </div>
+    <div class="flex-item" fxFlex=20></div>
+</div>

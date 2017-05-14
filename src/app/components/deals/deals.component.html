@@ -1,0 +1,14 @@
+<div class="deals">
+    <div class="containerX" fxLayout="row" class="deals__spinner" *ngIf="loading === true">
+        <span class="flex-item" fxFlex></span>
+        <div class="flex-item">
+            <md-spinner></md-spinner>
+        </div>
+        <span class="flex-item" fxFlex></span>
+    </div>
+    <div [@dealsLoadedState]="dealsLoadedState">
+        <div *ngFor="let deal of deals">
+            <app-deal-card class="flex-item" [deal]="deal"></app-deal-card>
+        </div>
+    </div>
+</div>

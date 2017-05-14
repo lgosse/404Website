@@ -45,6 +45,12 @@ import { EventSubscribingComponent } from './components/event-subscribing/event-
 import { SubscriptionsOfficeComponent } from './components/back-office/subscriptions-office/subscriptions-office.component';
 import { EventSubscriptionComponent } from './components/back-office/event-subscription/event-subscription.component';
 import { SubscriptionLoginComponent } from './components/back-office/subscription-login/subscription-login.component';
+import { DealsComponent } from './components/deals/deals.component';
+import { DealCardComponent } from './components/deal-card/deal-card.component';
+import { DealsOfficeComponent } from './components/back-office/deals-office/deals-office.component';
+import { NewDealFormComponent } from './components/back-office/new-deal-form/new-deal-form.component';
+import { DealFormComponent } from './components/back-office/deal-form/deal-form.component';
+import { DealBackCardComponent } from './components/back-office/deal-back-card/deal-back-card.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -81,6 +87,12 @@ Firebase.initializeApp(environment.firebase);
     SubscriptionsOfficeComponent,
     EventSubscriptionComponent,
     SubscriptionLoginComponent,
+    DealsComponent,
+    DealCardComponent,
+    DealsOfficeComponent,
+    NewDealFormComponent,
+    DealFormComponent,
+    DealBackCardComponent,
   ],
   imports: [
     BrowserModule,

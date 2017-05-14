@@ -1,0 +1,12 @@
+<div class="deals">
+    <div *ngFor="let deal of deals">
+        <app-deal-back-card class="flex-item" [deal]="deal"></app-deal-back-card>
+    </div>
+    <div class="containerX" fxLayout="row">
+        <span class="flex-item" fxFlex="fxFLex"></span>
+        <button md-raised-button (click)="newDeal()" color="primary">
+            ADD
+        </button>
+        <span class="flex-item" fxFlex="fxFLex"></span>
+    </div>
+</div>
