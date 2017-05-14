@@ -45,7 +45,7 @@ export class EventCardComponent implements OnInit {
         });
     }
 
-    isPassed(date: string): boolean {
+    isPassed(date: Date): boolean {
         const now       = new Date();
         const eventDate = new Date(date);
 
