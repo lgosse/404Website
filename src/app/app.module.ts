@@ -94,7 +94,7 @@ Firebase.initializeApp(firebaseConfig);
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(firebaseConfig),

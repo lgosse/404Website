@@ -1,4 +1,4 @@
-<md-card class="event__card containerX" fxLayout="row">
+<md-card class="event__card containerX" [ngClass]="{ 'passed' : isPassed(event.date) }" fxLayout="row">
     <!--<div class="event__picture">-->
     <img src="{{event.imgUrl}}" class="event__img" />
     <!--</div>-->
@@ -24,7 +24,7 @@
         </md-card-actions>
     </div>
 </md-card>
-<md-card class="event__card--mobile containerX" fxLayout="column">
+<md-card class="event__card--mobile containerX" [ngClass]="{ 'passed' : isPassed(event.date) }" fxLayout="column">
     <!--<div class="event__picture">-->
     <img src="{{event.imgUrl}}" class="event__img--mobile" />
     <!--</div>-->

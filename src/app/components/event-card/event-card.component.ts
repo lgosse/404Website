@@ -45,4 +45,15 @@ export class EventCardComponent implements OnInit {
         });
     }
 
+    isPassed(date: string): boolean {
+        const now       = new Date();
+        const eventDate = new Date(date);
+
+        if (eventDate.getTime() < now.getTime()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

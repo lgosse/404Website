@@ -38,7 +38,14 @@ export class DialogContactComponent implements OnInit {
         if (this.validateEmail(this.contact.email) === false) {
             this.openSnackBar('L\'adresse email renseignée est invalide.', 'FERMER');
             return ;
-        }        this.contactService.sendContactForm(this.contact);
+        }        
+        if (this.contact.subject.trim() === '' ||
+            this.contact.message.trim() === '') {
+            this.openSnackBar('Tout les champs doivent être rensignés.', 'FERMER');
+            return ;
+        }
+
+        this.contactService.sendContactForm(this.contact);
         this.dialogRef.close('Sent !');
     }
 

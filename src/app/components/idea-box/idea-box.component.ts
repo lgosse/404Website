@@ -34,6 +34,12 @@ export class IdeaBoxComponent implements OnInit {
             this.openSnackBar('L\'adresse email renseignée est invalide.', 'FERMER');
             return ;
         }
+        if (this.contact.subject.trim() === '' ||
+            this.contact.message.trim() === '') {
+            this.openSnackBar('Tout les champs doivent être rensignés.', 'FERMER');
+            return ;
+        }
+
         this.contactService.sendContactForm(this.contact);
         this.contact = {
             email: '',

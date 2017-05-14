@@ -55,3 +55,19 @@
         }
     }
 }
+
+.passed .event__img,
+.passed .event__img--mobile {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+.passed.event__card,
+.passed.event__card--mobile {
+    background-color: #F6F6F6;
+    color: #AAAAAA
+}
+
+.passed .event__action {
+    color: #ff9999 !important;
+}
