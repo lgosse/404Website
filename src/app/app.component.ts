@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        Firebase.auth().onAuthStateChanged((user) => {
+        Firebase.auth(Firebase.app()).onAuthStateChanged((user) => {
             if (user) {
                 this.loggued = true;
                 if (user.email === 'bde42.l404@gmail.com') {
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     };
 
     logout(): void {
-        Firebase.auth().signOut()
+        Firebase.auth(Firebase.app()).signOut()
             .catch((err) => {
                 this.openSnackBar('Une erreur est survenue, veuillez réessayer ultérieurement', 'FERMER');
             })

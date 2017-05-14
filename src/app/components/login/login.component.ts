@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.form = {};
-        Firebase.auth().onAuthStateChanged((user) => {
+        Firebase.auth(Firebase.app()).onAuthStateChanged((user) => {
             if (user && user.email === 'bde42.l404@gmail.com') {
                 this.router.navigate(['back-office']);
             }

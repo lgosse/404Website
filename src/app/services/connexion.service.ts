@@ -10,7 +10,7 @@ export class ConnexionService {
     }
 
     login(email: string, password: string): firebase.Promise<any> {
-        return firebase.auth().signInWithEmailAndPassword(email, password);
+        return firebase.auth(firebase.app()).signInWithEmailAndPassword(email, password);
     }
 
 }

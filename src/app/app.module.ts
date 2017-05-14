@@ -8,7 +8,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import * as Firebase from 'firebase/app';
+import * as Firebase from 'firebase';
+import { environment } from 'environments/environment';
 
 import { AppRoutingModule } from 'app/app-routing.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -45,15 +46,7 @@ import { SubscriptionsOfficeComponent } from './components/back-office/subscript
 import { EventSubscriptionComponent } from './components/back-office/event-subscription/event-subscription.component';
 import { SubscriptionLoginComponent } from './components/back-office/subscription-login/subscription-login.component';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyCcDclzNAmd5NrIK0w1mXrTKg6ABzMsDMQ',
-  authDomain: 'website-d0a07.firebaseapp.com',
-  databaseURL: 'https://website-d0a07.firebaseio.com',
-  storageBucket: 'website-d0a07.appspot.com',
-  messagingSenderId: '10707548851'
-};
-
-Firebase.initializeApp(firebaseConfig);
+Firebase.initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -97,7 +90,7 @@ Firebase.initializeApp(firebaseConfig);
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
