@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MdSnackBar } from '@angular/material';
 import * as Firebase from 'firebase';
+
+import { environment } from 'environments/environment';
 
 @Component({
     selector: 'app-root',
@@ -12,8 +14,11 @@ export class AppComponent implements OnInit {
     title: string = 'T_ERROR 404';
     admin: boolean = false;
     loggued: boolean = false;
+    intraRedirectUrl: string = environment.intraRedirectUrl;
+    params: any;
 
     constructor (
+        private route: ActivatedRoute,
         private router: Router,
         private snackBar: MdSnackBar
     ) {}
@@ -23,6 +28,13 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.route.queryParams
+            .subscribe(params => {
+                this.params = params
+                if (this.params.code) {
+                    console.log(this.params.code);
+                }
+            })
         Firebase.auth(Firebase.app()).onAuthStateChanged((user) => {
             if (user) {
                 this.loggued = true;
