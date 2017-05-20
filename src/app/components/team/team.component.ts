@@ -15,6 +15,13 @@ import { FirebaseListObservable } from 'angularfire2/database';
 import { Member } from 'app/classes/member';
 import { TeamService } from 'app/services/team.service';
 
+/**
+ * 
+ * 
+ * @export
+ * @class TeamComponent
+ * @implements {OnInit}
+ */
 @Component({
     selector: 'app-team',
     templateUrl: './team.component.html',
@@ -59,6 +66,12 @@ export class TeamComponent implements OnInit {
         }
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @memberOf TeamComponent
+     */
     updateGridLayout(): void {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
@@ -71,6 +84,13 @@ export class TeamComponent implements OnInit {
         }
     }
 
+    /**
+     * @param {Member} firstMember
+     * @param {Member} secondMember
+     * @returns {number}
+     * 
+     * @memberOf TeamComponent
+     */
     sortByRank(firstMember: Member, secondMember: Member): number {
         if (firstMember.rank > secondMember.rank) {
             return 1;
@@ -79,6 +99,12 @@ export class TeamComponent implements OnInit {
         }
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @memberOf TeamComponent
+     */
     ngOnInit() {
         this.teamService.getMembers()
             .subscribe(members => {
