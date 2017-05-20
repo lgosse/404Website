@@ -106,7 +106,7 @@ Firebase.initializeApp(environment.firebase);
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
       DialogContactComponent,

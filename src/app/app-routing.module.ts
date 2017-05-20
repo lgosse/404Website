@@ -42,6 +42,10 @@ const routes: Routes = [
             component:  HomeComponent
         },
         {
+            path:       'home/:cid',
+            component:  HomeComponent
+        },
+        {
             path:       'families',
             component:  FamiliesComponent
         },
