@@ -25,7 +25,8 @@ export class EventSubscribingComponent implements OnInit {
 
     onSubmit(event): void {
         event.preventDefault();
-        this.dialogRef.close(this.contact.login);
+
+        this.dialogRef.close(null);
     }
 
 }

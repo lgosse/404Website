@@ -9,13 +9,17 @@
 </md-toolbar>
 <div class="contact">
     <form (ngSubmit)="onSubmit($event)">
-        <md-input-container class="containerX" fxLayout="column">
-            <input [(ngModel)]="contact.login" mdInput type="text" placeholder="Renseigne ton login !" required name="login">
-        </md-input-container>
+        <div class="containerX" fxLayout="row">
+            <span fxFlex></span>
+            <div>
+                Merci pour ton inscription ! Tu vas recevoir un mail de confirmation sous peu
+            </div>
+            <span fxFlex></span>
+        </div>
         <div class="containerX" fxLayout="row">
             <span fxFlex class="flex-item"></span>
             <button type="submit" color="primary" md-raised-button>
-                ENVOYER
+                COMPRIS !
                 <md-icon>mail_outline</md-icon>
             </button>
         </div>

@@ -7,8 +7,10 @@
         <span class="flex-item" fxFlex></span>
     </div>
     <div [@eventsLoadedState]="eventsLoadedState">
-        <div *ngFor="let event of events">
+        <div *ngFor="let event of events" class="containerX" fxLayout="row">
+            <span fxFlex></span>
             <app-event-card class="flex-item" [event]="event"></app-event-card>
+            <span fxFlex></span>
         </div>
     </div>
 </div>

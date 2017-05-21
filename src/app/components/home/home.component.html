@@ -2,6 +2,19 @@
     <div class="home__logo-container center containerX" fxLayout="row">
         <img class="center home__logo" src="visu_logo_site.png" />
     </div>
+    <div class="containerX" fxLayout="row" *ngIf="eventLoaded === true">
+        <span fxFlex></span>
+        <app-event-card [event]="event" [small]="true"></app-event-card>
+        <span fxFlex></span>
+    </div>
+    <div class="containerX padding" fxLayout="row">
+        <span fxFlex></span>
+        <button (click)="navigateTo('/events')" md-raised-button color="primary">
+            <md-icon>event</md-icon>
+            Viens voir nos autres events !
+        </button>
+        <span fxFlex></span>
+    </div>
     <md-card class="center home__card">
         <md-card-content class="containerX" fxLayout="column">
             <div class="containerX home__video-container" fxLayout="row">
