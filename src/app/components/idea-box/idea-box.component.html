@@ -5,13 +5,10 @@
     <div class="contact">
         <form (ngSubmit)="onSubmit($event)">
             <md-input-container class="containerX" fxLayout="column">
-                <input [(ngModel)]="contact.email" mdInput placeholder="Mail" required name="email">
+                <input [(ngModel)]="contact.subject" (focus)="warnNotConnected()" mdInput type="text" placeholder="Objet" required name="subject">
             </md-input-container>
             <md-input-container class="containerX" fxLayout="column">
-                <input [(ngModel)]="contact.subject" mdInput type="text" placeholder="Objet" required name="subject">
-            </md-input-container>
-            <md-input-container class="containerX" fxLayout="column">
-                <textarea [(ngModel)]="contact.message" mdInput type="text" placeholder="Envoie-nous tes idées" required name="message"></textarea>
+                <textarea [(ngModel)]="contact.message" (focus)="warnNotConnected()" mdInput type="text" placeholder="Envoie-nous tes idées" required name="message"></textarea>
             </md-input-container>
             <div class="containerX" fxLayout="row">
                 <span fxFlex class="flex-item"></span>

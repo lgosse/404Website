@@ -67,3 +67,13 @@ md-button-toggle-group {
         }
     }
 }
+
+.welcome {
+    padding-right: 15px;
+}
+
+.logout {
+    &__button {
+        color: #b71c1c;
+    }
+}

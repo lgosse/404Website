@@ -42,7 +42,7 @@ const routes: Routes = [
             component:  HomeComponent
         },
         {
-            path:       'home/:cid',
+            path:       'home:access_token',
             component:  HomeComponent
         },
         {

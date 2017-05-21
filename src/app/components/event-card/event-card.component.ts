@@ -7,10 +7,10 @@ import { EventSubscribingComponent } from 'app/components/event-subscribing/even
 import { SubscriptionService } from 'app/services/subscription.service';
 
 @Component({
-  selector: 'app-event-card',
-  templateUrl: './event-card.component.html',
-  styleUrls: ['./event-card.component.scss'],
-  providers: [SubscriptionService]
+    selector: 'app-event-card',
+    templateUrl: './event-card.component.html',
+    styleUrls: ['./event-card.component.scss'],
+    providers: [ SubscriptionService ]
 })
 
 export class EventCardComponent implements OnInit {
@@ -19,6 +19,13 @@ export class EventCardComponent implements OnInit {
 
     @Input()
     event: EventBde;
+    @Input()
+    small?: boolean = false;
+    userInfos: any;
+    logins: any;
+    sub: boolean = false;
+    eventKey: string;
+    loginKey: string;
 
     constructor(
         public dialog: MdDialog,
@@ -27,16 +34,51 @@ export class EventCardComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.getUserInfos();
+    }
+
+    getUserInfos() {
+        let tErrorSession = window.localStorage.getItem('t_error_session');
+        
+        if (tErrorSession) {
+            this.userInfos = JSON.parse(tErrorSession);
+
+            this.subscriptionService.getSubscriptionsEventLogins(this.event.title)
+                .subscribe(logins => {
+                    this.logins = logins;
+
+                    this.sub = false;
+                    for (let loginsIndex in logins) {
+                        if (logins[loginsIndex].$value === this.userInfos.login) {
+                            this.sub = true;
+                            this.eventKey = this.event.title;
+                            this.loginKey = logins[loginsIndex].$key;
+                        }
+                    }
+                });
+        } else {
+            this.userInfos = null;
+        }
     }
 
     showSubscriptionDialog(): void {
-        let dialogRef = this.dialog.open(EventSubscribingComponent, {disableClose: true});
-            dialogRef.afterClosed().subscribe(result => {
-                if (result !== null) {
-                    this.subscriptionService.subscribe(this.event.title, result);
-                    this.openSnackBar('Merci ! Tu devrais recevoir un mail de confirmation pour ton inscription !', 'FERMER');
-                }
-        });
+        this.getUserInfos();
+
+        if (this.userInfos === null) {
+            this.openSnackBar('Connecte toi pour t\'inscrire à cet event !', 'FERMER');
+
+            return ;
+        }
+
+        this.subscriptionService.subscribe(this.event.title, this.userInfos.login);
+
+        let dialogRef = this.dialog.open(EventSubscribingComponent);
+    }
+
+    unsubscribe(): void {
+        this.subscriptionService.removeSubscriptionsEventLogin(this.loginKey, this.eventKey);
+
+        this.openSnackBar('Tu as bien été désinscrit de l\'évènement', 'FERMER');
     }
 
     openSnackBar(message: string, action: string) {

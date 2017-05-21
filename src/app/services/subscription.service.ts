@@ -26,7 +26,9 @@ export class SubscriptionService {
     }
 
     removeSubscriptionsEventLogin(loginKey: string, eventKey: string): void {
-        this.af.list('/subscriptions/' + eventKey).remove(loginKey);
+        this.af.list('/subscriptions/' + eventKey).remove(loginKey).catch(error => {
+            console.log(error);
+        });
     }
 
 }

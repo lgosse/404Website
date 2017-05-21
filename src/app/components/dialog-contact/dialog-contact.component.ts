@@ -14,8 +14,9 @@ import { ContactService } from 'app/services/contact.service';
 
 export class DialogContactComponent implements OnInit {
 
+    userInfos: any;
+
     contact: ContactForm = {
-        email: '',
         subject: '',
         message: '',
     };
@@ -27,6 +28,13 @@ export class DialogContactComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        let tErrorSession = window.localStorage.getItem('t_error_session');
+        
+        if (tErrorSession) {
+            this.userInfos = JSON.parse(tErrorSession);
+        } else {
+            this.userInfos = null;
+        }
     }
 
     close(): void {
@@ -35,23 +43,32 @@ export class DialogContactComponent implements OnInit {
 
     onSubmit(event): void {
         event.preventDefault();
-        if (this.validateEmail(this.contact.email) === false) {
-            this.openSnackBar('L\'adresse email renseignée est invalide.', 'FERMER');
-            return ;
-        }        
-        if (this.contact.subject.trim() === '' ||
-            this.contact.message.trim() === '') {
-            this.openSnackBar('Tout les champs doivent être rensignés.', 'FERMER');
+
+        if (this.userInfos === null) {
+            this.openSnackBar('Connecte toi pour envoyer ton message !', 'FERMER');
+
             return ;
         }
 
-        this.contactService.sendContactForm(this.contact);
-        this.dialogRef.close('Sent !');
-    }
+        if (this.contact.subject.trim() === '' ||
+            this.contact.message.trim() === '') {
+            this.openSnackBar('Tout les champs doivent être renseignés.', 'FERMER');
 
-    validateEmail(email: string): boolean {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
+            return ;
+        }
+
+        let form = {
+            email: this.userInfos.email,
+            subject: this.contact.subject,
+            message: this.contact.message
+        }
+
+        this.contactService.sendContactForm(form);
+        this.contact = {
+            subject: '',
+            message: '',
+        };
+        this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER')
     }
 
     openSnackBar(message: string, action: string) {
