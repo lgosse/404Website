@@ -10,7 +10,10 @@ export class IntraApiService {
     constructor(private http: Http) { }
 
     getUserInfo(access_token: string): Observable<any> {
-        let headers = new Headers({ 'Authorization': 'Bearer ' + access_token });
+        let headers = new Headers({
+            'Authorization': 'Bearer ' + access_token,
+            'Origin': 'https://bde.42.fr',
+        });
         let options = new RequestOptions({ headers: headers });
 
 
