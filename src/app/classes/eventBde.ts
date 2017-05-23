@@ -5,4 +5,7 @@ export class EventBde {
     location: string;
     description: string;
     subscription: boolean;
+    isParty: boolean;
+    hasTickets: boolean;
+    tickets: string;
 }

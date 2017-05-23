@@ -2,10 +2,12 @@
     <div class="home__logo-container center containerX" fxLayout="row">
         <img class="center home__logo" src="visu_logo_site.png" />
     </div>
-    <div class="containerX" fxLayout="row" *ngIf="eventLoaded === true">
-        <span fxFlex></span>
-        <app-event-card [event]="event" [small]="true"></app-event-card>
-        <span fxFlex></span>
+    <div *ngFor="let event of eventsToShow">
+        <div class="containerX" fxLayout="row" *ngIf="eventLoaded === true">
+            <span fxFlex></span>
+            <app-event-card [event]="event" [small]="true"></app-event-card>
+            <span fxFlex></span>
+        </div>
     </div>
     <div class="containerX padding" fxLayout="row">
         <span fxFlex></span>
@@ -19,12 +21,12 @@
         <md-card-content class="containerX" fxLayout="column">
             <div class="containerX home__video-container" fxLayout="row">
                 <span fxFlex></span>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Wv-bUqO3G8I" frameborder="0" allowfullscreen></iframe>
+                <iframe width="750" height="423" src="https://www.youtube.com/embed/Wv-bUqO3G8I" frameborder="0" allowfullscreen></iframe>
                 <span fxFlex></span>
             </div>
             <div class="containerX" fxLayout="row">
                 <span fxFlex></span>
-                <a href="https://www.youtube.com/channel/UCb5Wq73IorRBqLhxztkKNlg" target="_blank">
+                <a href="https://www.youtube.com/channel/UCb5Wq73IorRBqLhxztkKNlg" target="_blank" class="home__video__button">
                     <button md-raised-button color="primary">
                         <md-icon>ondemand_video</md-icon>
                         Nos autres vidéos

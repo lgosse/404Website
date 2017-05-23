@@ -15,7 +15,7 @@ import { EventBde } from 'app/classes/eventBde';
 export class HomeComponent implements OnInit {
 
     events: FirebaseListObservable<any>;
-    event: EventBde;
+    eventsToShow: EventBde[] = [];
     eventLoaded: boolean = false;
 
     constructor(
@@ -43,7 +43,12 @@ export class HomeComponent implements OnInit {
         this.eventsService.getEvents()
             .subscribe(events => {
                 this.events = events.sort(this.sortByDate);
-                this.event = this.events[0];
+                this.eventsToShow.push(this.events[0]);
+                for (let eventIndex in this.events) {
+                    if (this.events[eventIndex].isParty === true) {
+                        this.eventsToShow.push(this.events[eventIndex]);
+                    }
+                }
                 this.eventLoaded = true;
             })
     }

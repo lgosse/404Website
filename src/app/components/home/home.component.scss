@@ -4,16 +4,18 @@
         width: 100% !important;
         &__container {}
     }
-    &__video-container {
-        @media(min-width: 720px) {
-            padding: 20px;
+    &__video {
+        &__button {
+            margin: 20px;
         }
     }
+    &__video-container {}
     &__card {
+        padding: 0 !important;
+        margin-top: 20px;
+        margin-bottom: 20px;
         @media(min-width: 720px) {
-            width: 70%;
-            margin: 20px auto;
-            margin-bottom: 40px;
+            width: 75%;
         }
         @media(max-width: 720px) {
             width: 90vw;
@@ -21,8 +23,7 @@
     }
     &__logo-container {
         padding: 20px;
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 20px;
     }
     &__logo {
         height: 300px;

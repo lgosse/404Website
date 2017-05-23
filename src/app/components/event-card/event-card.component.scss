@@ -9,6 +9,9 @@
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 0px;
+        &--desktop {
+            max-height: 36px;
+        }
     }
     &__card {
         padding: 0;

@@ -20,6 +20,15 @@
             <md-checkbox [(ngModel)]="event.subscription" name="subscription">
                 Subscriptions ?
             </md-checkbox>
+            <md-checkbox [(ngModel)]="event.isParty" name="isParty">
+                Is party ?
+            </md-checkbox>
+            <md-checkbox [(ngModel)]="event.hasTickets" name="hasTickets">
+                Has tickets ?
+            </md-checkbox>
+            <md-input-container>
+                <input type="text" [(ngModel)]="event.tickets" mdInput placeholder="Tickets url" autofocus name="tickets">
+            </md-input-container>
             <div class="containerX" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
                 <button md-raised-button color="primary">
