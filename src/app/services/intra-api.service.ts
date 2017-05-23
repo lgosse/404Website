@@ -10,14 +10,11 @@ export class IntraApiService {
     constructor(private http: Http) { }
 
     getUserInfo(access_token: string): Observable<any> {
-        let headers = new Headers({
-            'Authorization': 'Bearer ' + access_token,
-            'Origin': 'https://bde.42.fr',
-        });
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         let options = new RequestOptions({ headers: headers });
 
 
-        return this.http.get('https://api.intra.42.fr/v2/me', options)
+        return this.http.get('https://us-central1-website-d0a07.cloudfunctions.net/userinfo?access_token=' + access_token, options)
             .map(response => response.json());
     }
 
