@@ -10,7 +10,11 @@ export class IntraApiService {
     constructor(private http: Http) { }
 
     getUserInfo(access_token: string): Observable<any> {
-        return this.http.get('https://api.intra.42.fr/v2/me?access_token=' + access_token)
+        let headers = new Headers({ 'Authorization': 'Bearer ' + access_token });
+        let options = new RequestOptions({ headers: headers });
+
+
+        return this.http.get('https://api.intra.42.fr/v2/me')
             .map(response => response.json());
     }
 
