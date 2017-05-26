@@ -17,7 +17,7 @@
         <div fxFlex class="flex-item"></div>
         <div class="containerX partner__card__image__container flex-item" fxLayout="row">
             <div class="flex-item" fxFlex></div>
-            <img src="{{partner.imgUrl}}" class="partner__card__image" alt="partner logo">
+            <img src="{{partner.imgUrl}}" class="partner__card__image" alt="partner logo" (load)="loaded = true" [class.lazyloaded]="loaded">
         </div>
     </md-card-content>
 </md-card>
@@ -26,7 +26,7 @@
         <div fxLayout="row" class="containerX partner__card__image">
             <div class="flex-item" fxFlex></div>
             <div class="containerX partner__card--mobile__image__container" fxLayout="row">
-                <img src="{{partner.imgUrl}}" class="partner__card__image" alt="partner logo">
+                <img src="{{partner.imgUrl}}" class="partner__card__image" alt="partner logo" (load)="loaded = true" [class.lazyloaded]="loaded">
             </div>
             <div class="flex-item" fxFlex></div>
         </div>

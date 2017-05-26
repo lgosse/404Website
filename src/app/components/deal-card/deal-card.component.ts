@@ -9,6 +9,8 @@ import { Deal } from 'app/classes/deal';
 })
 export class DealCardComponent implements OnInit {
 
+    loaded: boolean = false;
+
     @Input()
     deal: Deal;
 

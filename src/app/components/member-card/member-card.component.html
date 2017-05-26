@@ -4,7 +4,7 @@
             <span class="flex-item" fxFlex=20></span>
             <div fxFlex="60" class="flex-item team__card__imgcontainer">
                 <a href="https://profile.intra.42.fr/users/{{member.login}}" target="_blank">
-                    <img src="{{member.imgUrl}}" alt="{{member.name}}" class="team__card__img">
+                    <img src="{{member.imgUrl}}" alt="{{member.name}}" class="team__card__img" (load)="loaded = true" [class.lazyloaded]="loaded">
                 </a>
             </div>
             <div class="flex-item containerX" fxFlex="20" fxLayout="row">
@@ -40,7 +40,7 @@
             <span class="flex-item" fxFlex=20></span>
             <div fxFlex="60" class="flex-item team__card__imgcontainer">
                 <a href="https://profile.intra.42.fr/users/{{member.login}}" target="_blank">
-                    <img src="{{member.imgUrl}}" alt="{{member.name}}" class="team__card__img">
+                    <img src="{{member.imgUrl}}" alt="{{member.name}}" class="team__card__img" (load)="loaded = true" [class.lazyloaded]="loaded">
                 </a>
             </div>
             <div class="flex-item containerX" fxFlex="20" fxLayout="row">
@@ -67,14 +67,18 @@
             </div>
             <div class="containerX team__card__content__subcontent" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
-                <div class="subhead">
+                <!--<div class="subhead">
                     {{member.email}}
-                </div>
+                </div>-->
+                <a md-raised-button color="primary" target="_blank" href="mailto:{{ member.email }}">
+                    <md-icon>
+                        email
+                    </md-icon>
+                    <span>
+                        Me contacter
+                    </span>
+                </a>
                 <span class="flex-item" fxFlex></span>
-            </div>
-            <div class="team__card__content__subcontent">
-                <div class="team__card__content__line">
-                </div>
             </div>
         </div>
     </md-card-content>

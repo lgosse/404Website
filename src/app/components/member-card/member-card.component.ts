@@ -77,6 +77,7 @@ export class MemberCardComponent implements OnInit {
   member: Member;
   state: string;
   front: boolean;
+  loaded: boolean = false;
 
   constructor() { }
 

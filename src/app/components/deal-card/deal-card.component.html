@@ -1,6 +1,6 @@
 <md-card class="deal__card containerX" fxLayout="row">
     <!--<div class="deal__picture">-->
-    <img src="{{deal.imgUrl}}" class="deal__img" />
+    <img src="{{deal.imgUrl}}" class="deal__img" (load)="loaded = true" [class.lazyloaded]="loaded" />
     <!--</div>-->
     <div fxLayout="column" fxFlex>
         <md-card-content class="containerX deal__content" fxLayout="column">
@@ -17,7 +17,7 @@
 </md-card>
 <md-card class="deal__card--mobile containerX" fxLayout="column">
     <!--<div class="deal__picture">-->
-    <img src="{{deal.imgUrl}}" class="deal__img--mobile" />
+    <img src="{{deal.imgUrl}}" class="deal__img--mobile" (load)="loaded = true" [class.lazyloaded]="loaded" />
     <!--</div>-->
     <div fxLayout="column">
         <md-card-content class="containerX deal__content" fxLayout="column">

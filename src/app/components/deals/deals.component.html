@@ -6,7 +6,7 @@
         </div>
         <span class="flex-item" fxFlex></span>
     </div>
-    <div [@dealsLoadedState]="dealsLoadedState">
+    <div [@loadedState]="loadedState">
         <div *ngFor="let deal of deals">
             <app-deal-card class="flex-item" [deal]="deal"></app-deal-card>
         </div>

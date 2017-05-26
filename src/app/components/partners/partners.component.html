@@ -5,7 +5,7 @@
     </div>
     <span class="flex-item" fxFlex></span>
 </div>
-<div class="containerX" [@partnersLoadedState]="partnersLoadedState" fxLayout="column">
+<div class="containerX" [@loadedState]="loadedState" fxLayout="column">
     <div class="containerX" *ngFor="let partner of partners" fxLayout="row">
         <span fxFlex class="flex-item"></span>
         <app-partner-card [partner]="partner"></app-partner-card>

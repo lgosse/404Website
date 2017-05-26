@@ -43,3 +43,12 @@
         }
     }
 }
+
+img {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+img.lazyloaded {
+    opacity: 1;
+}
