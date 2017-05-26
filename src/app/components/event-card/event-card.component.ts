@@ -26,6 +26,7 @@ export class EventCardComponent implements OnInit {
     sub: boolean = false;
     eventKey: string;
     loginKey: string;
+    loaded: boolean = false;
 
     constructor(
         public dialog: MdDialog,
@@ -96,6 +97,16 @@ export class EventCardComponent implements OnInit {
         } else {
             return false;
         }
+    }
+
+    generateDates(event: EventBde): string {
+        let date = new Date(event.date);
+        date.setHours(8);
+        let startDate = new Date(date).toISOString().replace(/-|:|\.\d\d\d/g,"");
+        date.setHours(20);
+        let endDate = new Date(date).toISOString().replace(/-|:|\.\d\d\d/g,"")
+
+        return `${startDate}/${endDate}`;
     }
 
 }

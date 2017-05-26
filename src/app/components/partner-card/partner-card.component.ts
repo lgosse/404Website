@@ -9,6 +9,8 @@ import { Partner } from 'app/classes/partner';
 })
 export class PartnerCardComponent implements OnInit {
 
+    loaded: boolean = false;
+
     @Input()
     partner: Partner;
 

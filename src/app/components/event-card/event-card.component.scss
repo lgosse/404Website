@@ -30,6 +30,7 @@
     }
     &__img {
         max-height: 218px;
+        height: 218px;
         width: 218px;
         min-width: 218px;
         overflow: hidden;
@@ -78,4 +79,13 @@
 
 .small {
     max-width: 750px !important;
+}
+
+img {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+img.lazyloaded {
+    opacity: 1;
 }

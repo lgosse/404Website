@@ -14,6 +14,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 import { Member } from 'app/classes/member';
 import { TeamService } from 'app/services/team.service';
+import { LoadedAnimation } from 'app/constants/loaded-animation';
 
 /**
  * 
@@ -27,23 +28,7 @@ import { TeamService } from 'app/services/team.service';
     templateUrl: './team.component.html',
     styleUrls: ['./team.component.scss'],
     providers: [TeamService],
-    animations: [
-        trigger('teamLoadedState', [
-            state('loaded', style({
-                transform: 'translateY(0)'
-            })),
-            state('loading', style({
-                transform: 'translateY(3000px)'
-            })),
-            transition('loading => loaded', [
-                animate(300, keyframes([
-                    style({transform: 'translateY(900px)', offset: 0}),
-                    style({transform: 'translateY(-15px)', offset: 0.7}),
-                    style({transform: 'translateY(0)', offset: 1.0})
-                ]))
-            ])
-        ])
-    ]
+    animations: [ LoadedAnimation ]
 })
 
 export class TeamComponent implements OnInit {
@@ -53,7 +38,7 @@ export class TeamComponent implements OnInit {
     height: number;
     nbCols: number;
     loading: boolean = true;
-    teamLoadedState: string = 'loading';
+    loadedState: string = 'loading';
 
     constructor(
         private teamService: TeamService,
@@ -110,7 +95,7 @@ export class TeamComponent implements OnInit {
             .subscribe(members => {
                 this.members = members.sort(this.sortByRank);
                 this.loading = false;
-                this.teamLoadedState = 'loaded';
+                this.loadedState = 'loaded';
             });
         this.updateGridLayout();
     }

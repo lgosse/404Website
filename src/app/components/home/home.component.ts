@@ -5,18 +5,21 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 import { EventsService } from 'app/services/events.service';
 import { EventBde } from 'app/classes/eventBde';
+import { LoadedAnimation } from 'app/constants/loaded-animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [ EventsService ]
+  providers: [ EventsService ],
+  animations: [ LoadedAnimation ]
 })
 export class HomeComponent implements OnInit {
 
     events: FirebaseListObservable<any>;
     eventsToShow: EventBde[] = [];
-    eventLoaded: boolean = false;
+    loadedState: boolean = false;
+    logoLoaded: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -49,7 +52,7 @@ export class HomeComponent implements OnInit {
                         this.eventsToShow.push(this.events[eventIndex]);
                     }
                 }
-                this.eventLoaded = true;
+                this.loadedState = true;
             })
     }
 
