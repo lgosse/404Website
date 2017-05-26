@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     eventsToShow: EventBde[] = [];
     loadedState: boolean = false;
     logoLoaded: boolean = false;
+    iframeLoaded: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
