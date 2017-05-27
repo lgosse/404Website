@@ -98,6 +98,7 @@ export class AppComponent implements OnInit {
                     });
 
                 this.userService.userChange.subscribe(user => {
+                    console.log(user);
                     this.user = user;
                 })
             }

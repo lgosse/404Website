@@ -56,7 +56,7 @@
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
-            <div *ngIf="user.isAuthenticated" class="welcome">
+            <div *ngIf="user.isAuthenticated === true" class="welcome">
                 Bienvenue {{ user.firstName }}
             </div>
             <button md-raised-button class="logout__button" (click)="logout()" *ngIf="user.isAuthenticated === true">
