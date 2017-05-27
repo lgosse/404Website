@@ -78,11 +78,9 @@ export class AppComponent implements OnInit {
     }
 
     login(): void {
-        console.log('logging in');
         this.route.queryParams.subscribe(params => {
             if (params.access_token) {
                 let accessToken = params.access_token;
-                // params.access_token = null;
                 window.localStorage.setItem('access_token', accessToken);
 
                 this.intraApiService.getUserInfo(accessToken)
@@ -98,6 +96,10 @@ export class AppComponent implements OnInit {
                     }, error => {
                         console.log(error);
                     });
+
+                this.userService.userChange.subscribe(user => {
+                    this.user = user;
+                })
             }
         });
     }

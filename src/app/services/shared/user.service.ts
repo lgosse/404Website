@@ -9,11 +9,11 @@ import { User } from 'app/classes/user';
 export class UserService {
 
     public user: User;
-    public userChange: Observable<User>;
-    public userChangeObserver: Observer<User>;
+    public userChange: Observable<any>;
+    public userChangeObserver: Observer<any>;
 
     constructor() {
-        this.userChange = new Observable((observer: Observer<User>) => {
+        this.userChange = new Observable((observer: Observer<any>) => {
             this.userChangeObserver = observer;
         })
     }
