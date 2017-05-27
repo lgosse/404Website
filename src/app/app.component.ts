@@ -52,6 +52,8 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
 
+        this.login();
+
         Firebase.auth(Firebase.app()).onAuthStateChanged((firebaseUser) => {
             if (firebaseUser) {
                 this.loggued = true;
