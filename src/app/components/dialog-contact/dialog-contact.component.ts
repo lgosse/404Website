@@ -2,19 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 
 import { ContactForm } from 'app/classes/contact-form';
+import { User } from 'app/classes/user';
 
 import { ContactService } from 'app/services/contact.service';
+import { UserService } from 'app/services/shared/user.service';
 
 @Component({
     selector: 'app-dialog-contact',
     templateUrl: './dialog-contact.component.html',
     styleUrls: ['./dialog-contact.component.scss'],
-    providers: [ContactService]
+    providers: [ ContactService ]
 })
 
 export class DialogContactComponent implements OnInit {
 
-    userInfos: any;
+    userInfos: User;
 
     contact: ContactForm = {
         subject: '',
@@ -24,17 +26,14 @@ export class DialogContactComponent implements OnInit {
     constructor(
         public dialogRef: MdDialogRef<DialogContactComponent>,
         private contactService: ContactService,
-        public snackBar: MdSnackBar
+        public snackBar: MdSnackBar,
+        private userService: UserService
     ) { }
 
     ngOnInit() {
-        let tErrorSession = window.localStorage.getItem('t_error_session');
-        
-        if (tErrorSession) {
-            this.userInfos = JSON.parse(tErrorSession);
-        } else {
-            this.userInfos = null;
-        }
+        this.userService.userChange.subscribe((user) => {
+            this.userInfos = user;
+        })
     }
 
     close(): void {
@@ -76,5 +75,4 @@ export class DialogContactComponent implements OnInit {
             duration: 2000
         });
     };
-
 }

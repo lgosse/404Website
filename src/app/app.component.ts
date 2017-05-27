@@ -110,9 +110,4 @@ export class AppComponent implements OnInit {
             duration: 2000
         });
     }
-
-    redirectToLogin(): void {
-        console.log('tm')
-        window.location.href = this.intraRedirectUrl;
-    }
 }

@@ -52,7 +52,7 @@
                 LOGOUT FROM ADMIN
                 <md-icon>exit_to_app</md-icon>
             </button>
-            <a md-button *ngIf="user.isAuthenticated === false" (click)="redirectToLogin()">
+            <a md-button *ngIf="user.isAuthenticated === false" [href]="intraRedirectUrl">
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
