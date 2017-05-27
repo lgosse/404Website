@@ -1,24 +1,21 @@
 <div class="back-office">
     <md-toolbar color="primary" class="containerX">
-        <span class="flex-item" fxFlex=""></span>
-        <md-button-toggle-group class="no-border">
-            <md-button-toggle color="primary" routerLink="messages" routerLinkActive="active" active>
-                MESSAGES
-            </md-button-toggle>
-            <md-button-toggle color="primary" routerLink="events-office" routerLinkActive="active" active>
-                EVENTS
-            </md-button-toggle>
-            <md-button-toggle color="primary" routerLink="subscriptions" routerLinkActive="active" active>
-                SUBSCRIPTIONS
-            </md-button-toggle>
-            <md-button-toggle color="primary" routerLink="deals-office" routerLinkActive="active" active>
-                DEALS
-            </md-button-toggle>
-            <!--<md-button-toggle color="primary" routerLink="" routerLinkActive="active" active>
-                PARTNERS
-            </md-button-toggle>-->
-        </md-button-toggle-group>
-        <span class="flex-item" fxFlex=""></span>
+        <span class="flex-item" fxFlex></span>
+        <md-select class="select" placeholder="Select tab" (change)="navigateTo($event)" [(ngModel)]="selectedRoute" name="menu select">
+            <md-option [value]="1">
+                Messages
+            </md-option>
+            <md-option [value]="2">
+                Events
+            </md-option>
+            <md-option [value]="3">
+                Subscriptions
+            </md-option>
+            <md-option [value]="4">
+                Deals
+            </md-option>
+        </md-select>
+        <span class="flex-item" fxFlex></span>
     </md-toolbar>
     <router-outlet></router-outlet>
 </div>

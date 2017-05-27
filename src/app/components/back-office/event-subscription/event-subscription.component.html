@@ -3,6 +3,16 @@
         <div class="containerX headline" fxLayout="row">
             <span class="flex-item message__text" fxFlex>{{event.$key}}</span>
         </div>
+        <div fxLayout="row" class="containerX">
+            <span fxFlex></span>
+            <md-input-container>
+                <input type="text" mdInput placeholer="login" [(ngModel)]="new.login" name="title">
+            </md-input-container>
+            <button md-button color="primary" (click)="subscribe(event.$key, new.login)">
+                    ADD
+                </button>
+            <span fxFlex></span>
+        </div>
         <div class="message__body">
             <app-subscription-login *ngFor="let login of logins" [login]="login" [event]="event.$key"></app-subscription-login>
         </div>

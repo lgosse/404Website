@@ -14,6 +14,9 @@ export class EventSubscriptionComponent implements OnInit {
 
     @Input()
     event;
+    new: any = {
+        login: ''
+    };
     logins: FirebaseListObservable<any>;
 
     constructor(
@@ -25,6 +28,13 @@ export class EventSubscriptionComponent implements OnInit {
             .subscribe(logins => {
                 this.logins = logins;
             });
+    }
+
+    subscribe(eventTitle: string, login: string): void {
+        if (login === null || login.trim() === '') {
+            return ;
+        }
+        this.subscriptionService.subscribe(eventTitle, login);
     }
 
 }
