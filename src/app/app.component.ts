@@ -78,6 +78,7 @@ export class AppComponent implements OnInit {
     }
 
     login(): void {
+        console.log('logging in');
         this.route.queryParams.subscribe(params => {
             if (params.access_token) {
                 let accessToken = params.access_token;
