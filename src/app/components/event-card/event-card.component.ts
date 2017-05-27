@@ -3,8 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 
 import { EventBde } from 'app/classes/eventBde';
+import { User } from 'app/classes/user';
+
 import { EventSubscribingComponent } from 'app/components/event-subscribing/event-subscribing.component';
+
 import { SubscriptionService } from 'app/services/subscription.service';
+import { UserService } from 'app/services/shared/user.service';
 
 @Component({
     selector: 'app-event-card',
@@ -21,7 +25,7 @@ export class EventCardComponent implements OnInit {
     event: EventBde;
     @Input()
     small?: boolean = false;
-    userInfos: any;
+    userInfos: User;
     logins: any;
     sub: boolean = false;
     eventKey: string;
@@ -31,7 +35,8 @@ export class EventCardComponent implements OnInit {
     constructor(
         public dialog: MdDialog,
         public snackBar: MdSnackBar,
-        public subscriptionService: SubscriptionService
+        public subscriptionService: SubscriptionService,
+        private userService: UserService
     ) { }
 
     ngOnInit() {
@@ -39,10 +44,8 @@ export class EventCardComponent implements OnInit {
     }
 
     getUserInfos() {
-        let tErrorSession = window.localStorage.getItem('t_error_session');
-        
-        if (tErrorSession) {
-            this.userInfos = JSON.parse(tErrorSession);
+        this.userService.userChange.subscribe((user) => {
+            this.userInfos = user;
 
             this.subscriptionService.getSubscriptionsEventLogins(this.event.title)
                 .subscribe(logins => {
@@ -57,15 +60,13 @@ export class EventCardComponent implements OnInit {
                         }
                     }
                 });
-        } else {
-            this.userInfos = null;
-        }
+        })
     }
 
     showSubscriptionDialog(): void {
         this.getUserInfos();
 
-        if (this.userInfos === null) {
+        if (this.userInfos.isAuthenticated === false) {
             this.openSnackBar('Connecte toi pour t\'inscrire à cet event !', 'FERMER');
 
             return ;

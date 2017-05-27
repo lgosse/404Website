@@ -8,15 +8,15 @@ import { SubscriptionService } from 'app/services/subscription.service';
   selector: 'app-subscriptions-office',
   templateUrl: './subscriptions-office.component.html',
   styleUrls: ['./subscriptions-office.component.scss'],
-  providers: [SubscriptionService]
+  providers: [ SubscriptionService ]
 })
 export class SubscriptionsOfficeComponent implements OnInit {
 
   events: FirebaseListObservable<any>;
 
-  constructor(
-    private subscriptionService: SubscriptionService
-  ) { }
+    constructor(
+        private subscriptionService: SubscriptionService
+    ) { }
 
     ngOnInit() {
         this.subscriptionService.getSubscriptions()

@@ -3,18 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
 
 import { ContactForm } from 'app/classes/contact-form';
+import { User } from 'app/classes/user';
 
 import { ContactService } from 'app/services/contact.service';
+import { UserService } from 'app/services/shared/user.service';
 
 @Component({
     selector: 'app-idea-box',
     templateUrl: './idea-box.component.html',
     styleUrls: ['./idea-box.component.scss'],
-    providers: [ContactService]
+    providers: [ ContactService ]
 })
 export class IdeaBoxComponent implements OnInit {
 
-    userInfos: any;
+    userInfos: User;
 
     contact: ContactForm = {
         subject: '',
@@ -23,17 +25,14 @@ export class IdeaBoxComponent implements OnInit {
 
     constructor(
         private contactService: ContactService,
-        public snackBar: MdSnackBar
+        public snackBar: MdSnackBar,
+        private userService: UserService
     ) { }
 
     ngOnInit() {
-        let tErrorSession = window.localStorage.getItem('t_error_session');
-        
-        if (tErrorSession) {
-            this.userInfos = JSON.parse(tErrorSession);
-        } else {
-            this.userInfos = null;
-        }
+        this.userService.userChange.subscribe((user) => {
+            this.userInfos = user;
+        })
     }
 
     onSubmit(event): void {

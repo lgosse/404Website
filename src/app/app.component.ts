@@ -6,6 +6,9 @@ import * as Firebase from 'firebase';
 import { Observable, Subject } from 'rx';
 
 import { IntraApiService } from 'app/services/intra-api.service';
+import { UserService } from 'app/services/shared/user.service';
+
+import { User } from 'app/classes/user';
 
 import { environment } from 'environments/environment';
 
@@ -16,21 +19,32 @@ import { environment } from 'environments/environment';
     providers: [ IntraApiService ]
 })
 export class AppComponent implements OnInit {
+
     title: string = 'T_ERROR 404';
     admin: boolean = false;
     loggued: boolean = false;
+    user: User = {
+                    isAuthenticated: false,
+                    firstName: '',
+                    lastName: '',
+                    login: '',
+                    email: ''
+                };
     userLogguedIn: boolean = false;
     intraRedirectUrl: string = environment.intraRedirectUrl;
     params: any;
-
-    userInfos: any = { isAuthenticated: false };
 
     constructor (
         private route: ActivatedRoute,
         private router: Router,
         private snackBar: MdSnackBar,
-        private intraApiService: IntraApiService
-    ) {}
+        private intraApiService: IntraApiService,
+        private userService: UserService
+    ) {
+        this.userService.userChange.subscribe(user => {
+            this.user = user;
+        })
+    }
 
     navigateTo(route: string): void {
         this.router.navigate([route]);
@@ -38,17 +52,10 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
 
-        let tErrorSession = window.localStorage.getItem('t_error_session');
-        if (tErrorSession) {
-            this.userInfos = JSON.parse(tErrorSession);
-        } else {
-            this.login();
-        }
-
-        Firebase.auth(Firebase.app()).onAuthStateChanged((user) => {
-            if (user) {
+        Firebase.auth(Firebase.app()).onAuthStateChanged((firebaseUser) => {
+            if (firebaseUser) {
                 this.loggued = true;
-                if (user.email === 'bde42.l404@gmail.com') {
+                if (firebaseUser.email === 'bde42.l404@gmail.com') {
                     this.admin = true;
                 } else {
                     this.admin = false;
@@ -72,18 +79,19 @@ export class AppComponent implements OnInit {
         this.route.queryParams.subscribe(params => {
             if (params.access_token) {
                 let accessToken = params.access_token;
+                // params.access_token = null;
                 window.localStorage.setItem('access_token', accessToken);
 
                 this.intraApiService.getUserInfo(accessToken)
                     .subscribe(response => {
-                        this.userInfos = {
+                        let userInfos = {
                             isAuthenticated: true,
                             firstName: response.first_name,
                             lastName: response.last_name,
                             login: response.login,
                             email: response.email
                         };
-                        window.localStorage.setItem('t_error_session', JSON.stringify(this.userInfos));
+                        this.userService.setUserInfos(userInfos);
                     }, error => {
                         console.log(error);
                     });
@@ -93,8 +101,8 @@ export class AppComponent implements OnInit {
 
     logout(): void {
         window.localStorage.clear();
-        this.userInfos.isAuthenticated = false;
-        window.location.href = window.location.pathname
+        this.user.isAuthenticated = false;
+        window.location.href = window.location.pathname;
     }
 
     openSnackBar(message: string, action: string) {

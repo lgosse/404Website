@@ -52,14 +52,14 @@
                 LOGOUT FROM ADMIN
                 <md-icon>exit_to_app</md-icon>
             </button>
-            <a md-button *ngIf="userInfos.isAuthenticated === false" [href]="intraRedirectUrl">
+            <a md-button *ngIf="user.isAuthenticated === false" [href]="intraRedirectUrl">
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
-            <div *ngIf="userInfos.isAuthenticated" class="welcome">
-                Bienvenue {{ userInfos.firstName }}
+            <div *ngIf="user.isAuthenticated" class="welcome">
+                Bienvenue {{ user.firstName }}
             </div>
-            <button md-raised-button class="logout__button" (click)="logout()" *ngIf="userInfos.isAuthenticated === true">
+            <button md-raised-button class="logout__button" (click)="logout()" *ngIf="user.isAuthenticated === true">
                 LOGOUT
                 <md-icon>exit_to_app</md-icon>
             </button>
@@ -91,11 +91,11 @@
                 <img class="logo__header--mobile" src="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F404logo.svg?alt=media&token=d80a83aa-abc8-4311-81da-1086c6f070a6" />
             </span>
             <span fxFlex></span>
-            <a md-button *ngIf="userInfos.isAuthenticated === false" [href]="intraRedirectUrl">
+            <a md-button *ngIf="user.isAuthenticated === false" [href]="intraRedirectUrl">
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
-            <button md-button (click)="logout()" *ngIf="userInfos.isAuthenticated === true">
+            <button md-button (click)="logout()" *ngIf="user.isAuthenticated === true">
                 LOGOUT
                 <md-icon>exit_to_app</md-icon>
             </button>

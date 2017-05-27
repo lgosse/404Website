@@ -52,6 +52,8 @@ import { NewDealFormComponent } from './components/back-office/new-deal-form/new
 import { DealFormComponent } from './components/back-office/deal-form/deal-form.component';
 import { DealBackCardComponent } from './components/back-office/deal-back-card/deal-back-card.component';
 
+import { UserService } from 'app/services/shared/user.service';
+
 Firebase.initializeApp(environment.firebase);
 
 @NgModule({
@@ -106,7 +108,7 @@ Firebase.initializeApp(environment.firebase);
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [ UserService ],
   bootstrap: [AppComponent],
   entryComponents: [
       DialogContactComponent,

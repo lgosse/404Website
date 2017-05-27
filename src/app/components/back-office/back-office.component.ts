@@ -1,15 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-back-office',
-  templateUrl: './back-office.component.html',
-  styleUrls: ['./back-office.component.scss']
+    selector: 'app-back-office',
+    templateUrl: './back-office.component.html',
+    styleUrls: ['./back-office.component.scss']
 })
 export class BackOfficeComponent implements OnInit {
 
-  constructor() { }
+    selectedRoute: any = '';
 
-  ngOnInit() {
-  }
+    private routes: string[] = [
+        'messages',
+        'events-office',
+        'subscriptions',
+        'deals-office'
+    ];
+
+    constructor(
+        private router: Router
+    ) { }
+
+    ngOnInit() {
+    }
+
+    navigateTo(routeIndex): void {
+        this.router.navigate([ 'back-office/' + this.routes[routeIndex.value - 1] ]);
+    }
 
 }
