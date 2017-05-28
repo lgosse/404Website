@@ -39,7 +39,9 @@ export class EventsComponent implements OnInit {
     ) { }
 
     sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
-        if (firstEvent.date > secondEvent.date) {
+        let actDate = new Date();
+
+        if (new Date(firstEvent.date) > new Date(secondEvent.date) && actDate < new Date(secondEvent.date)) {
             return 1;
         } else {
             return -1;

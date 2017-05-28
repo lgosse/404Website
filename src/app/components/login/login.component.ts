@@ -5,6 +5,8 @@ import * as Firebase from 'firebase';
 
 import { ConnexionService } from 'app/services/connexion.service';
 
+import { environment } from 'environments/environment';
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.form = {};
         Firebase.auth(Firebase.app()).onAuthStateChanged((user) => {
-            if (user && user.email === 'bde42.l404@gmail.com') {
+            if (user && user.email === environment.authorizedMail) {
                 this.router.navigate(['back-office']);
             }
         });

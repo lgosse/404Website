@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
         Firebase.auth(Firebase.app()).onAuthStateChanged((firebaseUser) => {
             if (firebaseUser) {
                 this.loggued = true;
-                if (firebaseUser.email === 'bde42.l404@gmail.com') {
+                if (firebaseUser.email === environment.authorizedMail) {
                     this.admin = true;
                 } else {
                     this.admin = false;

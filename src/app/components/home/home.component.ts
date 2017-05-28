@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
         private router: Router
     ) { }
 
-
     sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
         let actDate = new Date();
 
