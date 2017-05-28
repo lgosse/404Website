@@ -41,9 +41,6 @@ export class AppComponent implements OnInit {
         private intraApiService: IntraApiService,
         private userService: UserService
     ) {
-        this.userService.userChange.subscribe(user => {
-            this.user = user;
-        })
     }
 
     navigateTo(route: string): void {
@@ -51,6 +48,10 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
+        this.userService.user.subscribe(user => {
+            this.user = user;
+        })
 
         this.login();
 
@@ -96,11 +97,6 @@ export class AppComponent implements OnInit {
                     }, error => {
                         console.log(error);
                     });
-
-                this.userService.userChange.subscribe(user => {
-                    console.log(user);
-                    this.user = user;
-                })
             }
         });
     }

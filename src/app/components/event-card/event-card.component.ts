@@ -44,7 +44,7 @@ export class EventCardComponent implements OnInit {
     }
 
     getUserInfos() {
-        this.userService.userChange.subscribe((user) => {
+        this.userService.user.subscribe((user) => {
             this.userInfos = user;
 
             this.subscriptionService.getSubscriptionsEventLogins(this.event.title)

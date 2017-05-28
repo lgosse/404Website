@@ -30,7 +30,7 @@ export class IdeaBoxComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.userService.userChange.subscribe((user) => {
+        this.userService.user.subscribe((user) => {
             this.userInfos = user;
         })
     }
