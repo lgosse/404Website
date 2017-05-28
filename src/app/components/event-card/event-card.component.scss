@@ -41,7 +41,12 @@
     }
     &__content {
         min-height: 171px;
-        padding: 24px 30px;
+        @media (min-width: 1000px) {
+            padding: 24px 30px;
+        }
+        @media (max-width: 1000px) {
+            padding: 10px 20px;
+        }
         margin-bottom: 5px;
         border-bottom: 1px solid #F7F7F7;
         &__title {
