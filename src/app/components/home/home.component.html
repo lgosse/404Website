@@ -24,11 +24,11 @@
         </button>
         <span fxFlex></span>
     </div>
-    <md-card class="center home__card">
+    <md-card class="center home__card home__video-container">
         <md-card-content class="containerX" fxLayout="column">
-            <div class="containerX home__video-container" fxLayout="row">
+            <div class="containerX" fxLayout="row">
                 <span fxFlex></span>
-                <iframe width="750" height="422" src="https://www.youtube.com/embed/Wv-bUqO3G8I" frameborder="0" allowfullscreen (load)="iframeLoaded = true" [class.lazyloaded]="iframeLoaded"></iframe>
+                <iframe width="750" height="422" src="https://www.youtube.com/embed/Wv-bUqO3G8I" frameborder="0" allowfullscreen (load)="iframeLoaded = true" [class.lazyloaded]="iframeLoaded" class="home__video"></iframe>
                 <span fxFlex></span>
             </div>
             <div class="containerX" fxLayout="row">

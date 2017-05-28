@@ -5,11 +5,16 @@
         &__container {}
     }
     &__video {
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
         &__button {
             margin: 20px;
         }
     }
-    &__video-container {}
+    &__video-container {
+        border-radius: 10px;
+        overflow: hidden;
+    }
     &__card {
         padding: 0 !important;
         margin-top: 20px;

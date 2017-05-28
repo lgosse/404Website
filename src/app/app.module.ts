@@ -94,7 +94,7 @@ Firebase.initializeApp(environment.firebase);
     DealsOfficeComponent,
     NewDealFormComponent,
     DealFormComponent,
-    DealBackCardComponent,
+    DealBackCardComponent
   ],
   imports: [
     BrowserModule,

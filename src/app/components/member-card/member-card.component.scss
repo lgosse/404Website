@@ -1,12 +1,12 @@
 .team {
     &__card {
+        border-radius: 10px;
         transform: rotateY(0deg);
         transition: 0.6s;
         transform-style: preserve-3d;
         height: 320px !important;
         width: 250px !important;
         background-color: white;
-        border-radius: 3px;
         &__imgcontainer {
             margin-top: 8%;
             width: 150px;
