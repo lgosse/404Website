@@ -4,14 +4,19 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'; 
 
 import { User } from 'app/classes/user';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class UserService {
 
     public userChangeSource = new BehaviorSubject<any>(0);
     public user: Observable<User> = this.userChangeSource.asObservable();
+    public userMailsList: FirebaseListObservable<any>;
+    public userMails: [any];
 
-    constructor() {
+    constructor(
+        private af: AngularFireDatabase
+    ) {
         if (window.localStorage.getItem('t_error_session')) {
             this.userChangeSource.next(JSON.parse(window.localStorage.getItem('t_error_session')));
         } else {
@@ -32,4 +37,22 @@ export class UserService {
         this.userChangeSource.next(userInfos);
     }
 
+    registerUserMail(): void {
+
+        let userInfos: User;
+        this.user.subscribe((user) => {
+            userInfos = user;
+            this.userMailsList = this.af.list('/mails/users');
+            this.userMailsList.subscribe(userMails => {
+                this.userMails = userMails;
+                for (let mail of this.userMails) {
+                    if (userInfos.email === mail.email) {
+                        return;
+                    }
+                }
+
+                this.userMailsList.push(userInfos);
+            })
+        });
+    }
 }

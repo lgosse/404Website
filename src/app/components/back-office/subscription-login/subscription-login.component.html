@@ -2,9 +2,9 @@
     <md-card-content class="logins__card__content containerX" fxLayout="column">
         <div class="containerX headline" fxLayout="row">
             <span class="flex-item login__text" fxFlex *ngIf="login.$value; else elseLogin">{{login.$value}}</span>
-            <template #elseLogin>
+            <ng-template #elseLogin>
                 <span class="flex-item login__text" fxFlex>{{login.login}}</span>
-            </template>
+            </ng-template>
             <button md-icon-button style="color: #A0CE4e" (click)="deleteSubscription()" *ngIf="!login.archived || login.archived === false; else elseBlock">
                 <md-icon>check</md-icon>
             </button>

@@ -79,6 +79,8 @@ export class AppComponent implements OnInit {
     }
 
     login(): void {
+        this.userService.registerUserMail();
+
         this.route.queryParams.subscribe(params => {
             if (params.access_token) {
                 let accessToken = params.access_token;
@@ -97,6 +99,7 @@ export class AppComponent implements OnInit {
                     }, error => {
                         console.log(error);
                     });
+                
             }
         });
     }
