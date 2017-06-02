@@ -42,6 +42,9 @@ export class UserService {
         let userInfos: User;
         this.user.subscribe((user) => {
             userInfos = user;
+            if (!userInfos || userInfos.isAuthenticated === false) {
+                return;
+            }
             this.userMailsList = this.af.list('/mails/users');
             this.userMailsList.subscribe(userMails => {
                 this.userMails = userMails;
