@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 import { SubscriptionService } from 'app/services/subscription.service';
 
@@ -15,16 +15,38 @@ export class SubscriptionLoginComponent implements OnInit {
     login;
     @Input()
     event;
+    loginObservable: FirebaseObjectObservable<any>;
 
     constructor(
         private subscriptionService : SubscriptionService
     ) { }
 
     ngOnInit() {
+        this.loginObservable = this.subscriptionService.getSubscription(this.login.$key, this.event)
     }
 
     deleteSubscription(): void {
-        this.subscriptionService.removeSubscriptionsEventLogin(this.login.$key, this.event);
+        let login: any;
+        if(this.login.$value) {
+            login = {
+                login: this.login.$value,
+                archived: true
+            }
+        } else {
+            login = {
+                login: this.login.login,
+                archived: true
+            }            
+        }
+        this.loginObservable.update(login)
+    }
+
+    rollbackSubscription(): void {
+        const login = {
+            login: this.login.login,
+            archived: false
+        }
+        this.loginObservable.update(login)
     }
 
 }

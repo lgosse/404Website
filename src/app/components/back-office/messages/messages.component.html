@@ -1,5 +1,8 @@
 <div class="messages">
     <div *ngFor="let message of messages">
-        <app-message-card [message]="message"></app-message-card>
+        <app-message-card [message]="message" *ngIf="!message.archived || message.archived === false"></app-message-card>
+    </div>
+    <div *ngFor="let message of messages">
+        <app-message-card [message]="message" *ngIf="message.archived === true"></app-message-card>
     </div>
 </div>

@@ -3,4 +3,5 @@ export class Message {
     email: string;
     message: string;
     subject: string;
+    archived?: boolean;
 }

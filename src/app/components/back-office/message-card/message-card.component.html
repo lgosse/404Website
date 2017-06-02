@@ -1,11 +1,16 @@
-<md-card class="messages__card message">
+<md-card class="messages__card message" [ngClass]="{ 'archived': message.archived === true }">
     <md-card-content class="messages__card__content containerX" fxLayout="column">
         <div class="containerX headline" fxLayout="row" (click)="toggleState()">
             <span class="flex-item message__text" fxFlex>{{message.subject}}</span>
             <span class="flex-item message__text" fxFlex>{{message.email}}</span>
-            <button md-icon-button style="color: #A0CE4e" (click)="deleteMessage()">
+            <button md-icon-button style="color: #A0CE4E" (click)="deleteMessage()" *ngIf="!message.archived || message.archived === false; else elseBlock">
                 <md-icon>check</md-icon>
             </button>
+            <ng-template #elseBlock>
+                <button md-icon-button style="color: #A0CE4E" (click)="rollbackMessage()">
+                    <md-icon>settings_backup_restore</md-icon>
+                </button>
+            </ng-template>
         </div>
         <div *ngIf="cardState === 'expanded'" class="message__body">
             <p class="message__body__text subhead">

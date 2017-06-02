@@ -9,7 +9,7 @@
     <div [@loadedState]="loadedState">
         <div *ngFor="let event of events" class="containerX" fxLayout="row">
             <span fxFlex></span>
-            <app-event-card class="flex-item" [event]="event"></app-event-card>
+            <app-event-card class="flex-item" [event]="event" *ngIf="!event.archived || event.archived === false"></app-event-card>
             <span fxFlex></span>
         </div>
     </div>

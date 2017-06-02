@@ -14,7 +14,12 @@
             <span fxFlex></span>
         </div>
         <div class="message__body">
-            <app-subscription-login *ngFor="let login of logins" [login]="login" [event]="event.$key"></app-subscription-login>
+            <div *ngFor="let login of logins">
+                <app-subscription-login [login]="login" [event]="event.$key" *ngIf="!login.archived || login.archived === false"></app-subscription-login>
+            </div>
+            <div *ngFor="let login of logins">
+                <app-subscription-login [login]="login" [event]="event.$key" *ngIf="login.archived === true"></app-subscription-login>
+            </div>
         </div>
     </md-card-content>
 </md-card>

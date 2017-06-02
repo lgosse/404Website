@@ -1,13 +1,18 @@
-<md-card class="event__card event">
+<md-card class="event__card event" [ngClass]="{'archived': event.archived === true}">
     <md-card-content class="containerX" fxLayout="column">
         <div class="containerX headline" fxLayout="row">
             <span class="flex-item event__text" fxFlex>{{event.title}}</span>
             <button md-button (click)="edit()">
                 MODIFIER
             </button>
-            <button md-button style="margin-left: 5px" (click)="remove()">
-                SUPPRIMER
+            <button md-button style="margin-left: 5px" (click)="remove()" *ngIf="!event.archived || event.archived === false; else elseBlock">
+                ARCHIVER
             </button>
+            <ng-template #elseBlock>
+                <button md-button style="margin-left: 5px" (click)="unarchived()">
+                    DESARCHIVER
+                </button>
+            </ng-template>
         </div>
     </md-card-content>
 </md-card>

@@ -3,6 +3,8 @@ import { MessagesService } from 'app/services/messages.service';
 
 import { Message } from 'app/classes/message';
 
+import { FirebaseObjectObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'app-message-card',
   templateUrl: './message-card.component.html',
@@ -13,13 +15,14 @@ export class MessageCardComponent implements OnInit {
     @Input()
     message: Message;
     cardState: string = 'fold';
+    messageObservable: FirebaseObjectObservable<any>;
 
     constructor(
         private messagesService: MessagesService
     ) { }
 
     ngOnInit() {
-
+        this.messageObservable = this.messagesService.getMessageByKey(this.message.$key);
     }
 
     toggleState(): void {
@@ -31,7 +34,23 @@ export class MessageCardComponent implements OnInit {
     }
 
     deleteMessage(): void {
-        this.messagesService.deleteMessage(this.message.$key);
+        const message = {
+            email: this.message.email,
+            message: this.message.message,
+            subject: this.message.subject,
+            archived: true
+        }
+        this.messageObservable.update(message);
+    }
+
+    rollbackMessage(): void {
+        const message = {
+            email: this.message.email,
+            message: this.message.message,
+            subject: this.message.subject,
+            archived: false            
+        }
+        this.messageObservable.update(message);
     }
 
 }

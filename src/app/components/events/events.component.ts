@@ -38,14 +38,26 @@ export class EventsComponent implements OnInit {
         private eventsServce: EventsService
     ) { }
 
-    sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
-        let actDate = new Date();
+    isPassed(date: Date): boolean {
+        const now       = new Date();
+        const eventDate = new Date(date);
 
-        if (new Date(firstEvent.date) > new Date(secondEvent.date) && actDate < new Date(secondEvent.date)) {
-            return 1;
+        if (eventDate.getTime() < now.getTime()) {
+            return true;
         } else {
+            return false;
+        }
+    }
+
+    sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
+        const now       = new Date();
+        if (new Date(secondEvent.date).getTime() < now.getTime()) {
             return -1;
         }
+        if (secondEvent.isParty === true) {
+            return 1;
+        }
+        return (new Date(firstEvent.date).getTime() - new Date(secondEvent.date).getTime());
     }
 
     ngOnInit() {

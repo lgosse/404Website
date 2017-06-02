@@ -8,4 +8,5 @@ export class EventBde {
     isParty: boolean;
     hasTickets: boolean;
     tickets: string;
+    archived?: boolean;
 }

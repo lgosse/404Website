@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 import { ContactForm } from 'app/classes/contact-form';
 
@@ -19,6 +19,10 @@ export class SubscriptionService {
 
     getSubscriptions(): FirebaseListObservable<any> {
         return this.af.list('/subscriptions');
+    }
+
+    getSubscription(key: string, event: string): FirebaseObjectObservable<any> {
+        return this.af.object('/subscriptions/' + event + '/' + key);
     }
 
     getSubscriptionsEventLogins(event: string): FirebaseListObservable<any> {

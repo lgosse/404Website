@@ -34,7 +34,7 @@ export class EventFormComponent implements OnInit {
     }
 
     update(): void {
-        var update = {
+        var update: EventBde = {
             date: this.event.date,
             title: this.event.title,
             imgUrl: this.event.imgUrl,
@@ -43,7 +43,11 @@ export class EventFormComponent implements OnInit {
             subscription: this.event.subscription,
             isParty: this.event.isParty,
             hasTickets: this.event.hasTickets,
-            tickets: this.event.tickets
+            tickets: this.event.tickets !== undefined ? this.event.tickets : ' ',
+        }
+
+        if (this.event.archived) {
+            update.archived = this.event.archived;
         }
 
         this.eventObservable.update(update);

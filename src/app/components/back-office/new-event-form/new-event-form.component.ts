@@ -49,7 +49,7 @@ export class NewEventFormComponent implements OnInit {
             subscription: this.event.subscription,
             isParty: this.event.isParty,
             hasTickets: this.event.hasTickets,
-            tickets: this.event.tickets
+            tickets: this.event.tickets !== undefined ? this.event.tickets : ' '
         }
 
         this.eventObservable.push(newEvent);
