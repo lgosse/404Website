@@ -5,8 +5,8 @@
     <div fxLayout="column" fxFlex>
         <md-card-content class="containerX event__content" fxLayout="column">
             <p class="event__content__title">{{event.title}}</p>
-            <p *ngIf="small === false">{{event.description | slice:0:500}}</p>
-            <p *ngIf="small === true">
+            <p *ngIf="small == false">{{event.description | slice:0:500}}</p>
+            <p *ngIf="small == true">
                 <span>{{event.description | slice:0:320}}</span>
                 <span *ngIf="event.description.length > 320" mdTooltip="{{ event.description }}">
                     <span>[ . . . ]</span>
@@ -19,23 +19,23 @@
                 <span md-caption>{{event.date | date}}</span>
             </a>
             <span class="flex-item" fxFlex></span>
-            <button md-button (click)="showSubscriptionDialog()" class="event__action event__actions" *ngIf="event.subscription === true && sub === false && event.hasTickets === false">
+            <button md-button (click)="showSubscriptionDialog()" class="event__action event__actions" *ngIf="event.subscription == true && sub == false && event.hasTickets == false">
                 <md-icon>edit</md-icon>
                 <span md-caption class="event__action__text">S'INSCRIRE</span>
             </button>
-            <a md-button [href]="event.tickets" class="event__action" *ngIf="event.subscription === true && event.hasTickets === true">
+            <a md-button [href]="event.tickets" class="event__action" *ngIf="event.subscription == true && event.hasTickets == true">
                 <md-icon>shopping_basket</md-icon>
                 <span md-caption class="event__action__text">BILLETERIE</span>
             </a>
-            <button md-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription === true && sub === true">
+            <button md-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription == true && sub == true">
                 <md-icon>close</md-icon>
                 <span md-caption class="event__action__text">SE DÉSINSCRIRE</span>
             </button>
-            <a *ngIf="small === false" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
+            <a *ngIf="small == false" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
                 <md-icon>location_on</md-icon>
                 <span md-caption>{{event.location}}</span>
             </a>
-            <a *ngIf="small === true" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-icon-button class="event__action">
+            <a *ngIf="small == true" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-icon-button class="event__action">
                 <md-icon>location_on</md-icon>
             </a>
         </md-card-actions>
@@ -55,15 +55,15 @@
             </button>
         </md-card-content>
         <md-card-actions class="containerX padding event__actions" fxLayout="column">
-            <button md-button (click)="showSubscriptionDialog()" class="event__action" *ngIf="event.subscription === true && sub === false && event.hasTickets === false">
+            <button md-button (click)="showSubscriptionDialog()" class="event__action" *ngIf="event.subscription == true && sub == false && event.hasTickets == false">
                 <md-icon>edit</md-icon>
                 <span md-caption class="event__action__text">S'INSCRIRE</span>
             </button>
-            <a md-button [href]="event.tickets" class="event__action" *ngIf="event.subscription === true && event.hasTickets === true">
+            <a md-button [href]="event.tickets" class="event__action" *ngIf="event.subscription == true && event.hasTickets == true">
                 <md-icon>basket</md-icon>
                 <span md-caption class="event__action__text">BILLETERIE</span>
             </a>
-            <button md-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription === true && sub === true">
+            <button md-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription == true && sub == true">
                 <md-icon>close</md-icon>
                 <span md-caption class="event__action__text">SE DÉSINSCRIRE</span>
             </button>

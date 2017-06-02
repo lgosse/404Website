@@ -37,7 +37,7 @@
                     FAQ
                 </a>
             </md-list-item>
-            <md-list-item *ngIf="admin === true">
+            <md-list-item *ngIf="admin == true">
                 <a md-line (click)="navigateTo('/back-office'); sidenav.close()" class="app__sidenav__item">
                     BACK-OFFICE
                 </a>
@@ -48,18 +48,18 @@
         <md-toolbar color="primary" class="box-shadow-2">
             <img class="logo__header" (click)="navigateTo('/home')" src="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F404logo.svg?alt=media&token=d80a83aa-abc8-4311-81da-1086c6f070a6" />
             <span class="flex-item" fxFlex style="width: 100%"></span>
-            <button md-button (click)="logoutFromAdmin()" *ngIf="loggued === true">
+            <button md-button (click)="logoutFromAdmin()" *ngIf="loggued == true">
                 LOGOUT FROM ADMIN
                 <md-icon>exit_to_app</md-icon>
             </button>
-            <a md-button *ngIf="user.isAuthenticated === false" [href]="intraRedirectUrl">
+            <a md-button *ngIf="user.isAuthenticated == false" [href]="intraRedirectUrl">
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
-            <div *ngIf="user.isAuthenticated === true" class="welcome">
+            <div *ngIf="user.isAuthenticated == true" class="welcome">
                 Bienvenue {{ user.firstName }}
             </div>
-            <button md-raised-button class="logout__button" (click)="logout()" *ngIf="user.isAuthenticated === true">
+            <button md-raised-button class="logout__button" (click)="logout()" *ngIf="user.isAuthenticated == true">
                 LOGOUT
                 <md-icon>exit_to_app</md-icon>
             </button>
@@ -72,7 +72,7 @@
                     <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="deals" routerLinkActive="active" active="active">BONS PLANS</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="faq" routerLinkActive="active" active="active">FAQ</md-button-toggle>
-                    <md-button-toggle *ngIf="admin === true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
+                    <md-button-toggle *ngIf="admin == true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
                 </md-button-toggle-group>
                 <div class="flex-item containerX" fxFlex></div>
             </md-toolbar-row>
@@ -91,11 +91,11 @@
                 <img class="logo__header--mobile" src="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F404logo.svg?alt=media&token=d80a83aa-abc8-4311-81da-1086c6f070a6" />
             </span>
             <span fxFlex></span>
-            <a md-button *ngIf="user.isAuthenticated === false" [href]="intraRedirectUrl">
+            <a md-button *ngIf="user.isAuthenticated == false" [href]="intraRedirectUrl">
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
-            <button md-button (click)="logout()" *ngIf="user.isAuthenticated === true">
+            <button md-button (click)="logout()" *ngIf="user.isAuthenticated == true">
                 LOGOUT
                 <md-icon>exit_to_app</md-icon>
             </button>

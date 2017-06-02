@@ -1,5 +1,5 @@
 <md-card class="team__card" [@memberCardState]='state'>
-    <md-card-content class="containerX team__card__front" fxLayout="column" *ngIf="front === true">
+    <md-card-content class="containerX team__card__front" fxLayout="column" *ngIf="front == true">
         <div class="containerX" fxLayout="row">
             <span class="flex-item" fxFlex=20></span>
             <div fxFlex="60" class="flex-item team__card__imgcontainer">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </md-card-content>
-    <md-card-content class="containerX team__card__back" fxLayout="column" *ngIf="front === false">
+    <md-card-content class="containerX team__card__back" fxLayout="column" *ngIf="front == false">
         <div class="containerX" fxLayout="row">
             <span class="flex-item" fxFlex=20></span>
             <div fxFlex="60" class="flex-item team__card__imgcontainer">

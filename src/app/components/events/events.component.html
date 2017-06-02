@@ -1,5 +1,5 @@
 <div class="events">
-    <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading === true">
+    <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading == true">
         <span class="flex-item" fxFlex></span>
         <div class="flex-item">
             <md-spinner></md-spinner>
@@ -9,7 +9,7 @@
     <div [@loadedState]="loadedState">
         <div *ngFor="let event of events" class="containerX" fxLayout="row">
             <span fxFlex></span>
-            <app-event-card class="flex-item" [event]="event" *ngIf="!event.archived || event.archived === false"></app-event-card>
+            <app-event-card class="flex-item" [event]="event" *ngIf="!event.archived || event.archived == false"></app-event-card>
             <span fxFlex></span>
         </div>
     </div>

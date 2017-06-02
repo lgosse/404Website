@@ -15,10 +15,10 @@
         </div>
         <div class="message__body">
             <div *ngFor="let login of logins">
-                <app-subscription-login [login]="login" [event]="event.$key" *ngIf="!login.archived || login.archived === false"></app-subscription-login>
+                <app-subscription-login [login]="login" [event]="event.$key" *ngIf="!login.archived || login.archived == false"></app-subscription-login>
             </div>
             <div *ngFor="let login of logins">
-                <app-subscription-login [login]="login" [event]="event.$key" *ngIf="login.archived === true"></app-subscription-login>
+                <app-subscription-login [login]="login" [event]="event.$key" *ngIf="login.archived == true"></app-subscription-login>
             </div>
         </div>
     </md-card-content>
