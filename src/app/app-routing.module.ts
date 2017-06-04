@@ -31,6 +31,8 @@ import { DealFormComponent } from './components/back-office/deal-form/deal-form.
 
 import { MailingListsComponent } from 'app/components/back-office/mailing-lists/mailing-lists.component';
 
+import { MailingInterfaceComponent } from 'app/components/back-office/mailing-interface/mailing-interface.component';
+
 const routes: Routes = [
 {
     path:       '',
@@ -136,6 +138,10 @@ const routes: Routes = [
                 {
                     path: 'mailing-lists',
                     component: MailingListsComponent
+                },
+                {
+                    path: 'mailbox',
+                    component: MailingInterfaceComponent
                 }
             ]
         },

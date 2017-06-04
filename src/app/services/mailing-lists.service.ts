@@ -38,4 +38,8 @@ export class MailingListsService {
         });
     }
 
+    sendMail(listMails, mailHtml): void {
+        console.log(listMails, mailHtml);
+    }
+
 }

@@ -1,0 +1,16 @@
+.address-bar {
+    &__divider {
+        border-bottom: 1px solid #F0F0F0;
+    }
+    &__addresses {
+        &__chip {
+            margin-bottom: 5px;
+        }
+        &__address {
+            padding-top: 5px;
+            &__button {
+                height: 10px !important;
+            }
+        }
+    }
+}

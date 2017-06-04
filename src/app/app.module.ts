@@ -10,6 +10,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Firebase from 'firebase';
 import { environment } from 'environments/environment';
+import { MarkdownModule } from 'angular2-markdown';
 
 import { AppRoutingModule } from 'app/app-routing.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -55,6 +56,10 @@ import { DealBackCardComponent } from './components/back-office/deal-back-card/d
 import { UserService } from 'app/services/shared/user.service';
 import { MailingListsComponent } from './components/back-office/mailing-lists/mailing-lists.component';
 import { MailingListComponent } from './components/back-office/mailing-lists/mailing-list/mailing-list.component';
+import { MailingInterfaceComponent } from './components/back-office/mailing-interface/mailing-interface.component';
+import { MailingAddressBarComponent } from './components/back-office/mailing-interface/mailing-address-bar/mailing-address-bar.component';
+import { MailingTextInterfaceComponent } from './components/back-office/mailing-interface/mailing-text-interface/mailing-text-interface.component';
+import { MailingRenderInterfaceComponent } from './components/back-office/mailing-interface/mailing-render-interface/mailing-render-interface.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -98,7 +103,11 @@ Firebase.initializeApp(environment.firebase);
     DealFormComponent,
     DealBackCardComponent,
     MailingListsComponent,
-    MailingListComponent
+    MailingListComponent,
+    MailingInterfaceComponent,
+    MailingAddressBarComponent,
+    MailingTextInterfaceComponent,
+    MailingRenderInterfaceComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +119,8 @@ Firebase.initializeApp(environment.firebase);
     FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MarkdownModule.forRoot()
   ],
   providers: [ UserService ],
   bootstrap: [AppComponent],

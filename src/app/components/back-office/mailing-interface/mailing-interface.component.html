@@ -1,0 +1,10 @@
+<app-mailing-address-bar (updateMails)="updateSelectedMails($event)"></app-mailing-address-bar>
+<app-mailing-text-interface (updateMail)="updateMailBody($event)"></app-mailing-text-interface>
+<app-mailing-render-interface [mailBody]="mailBody"></app-mailing-render-interface>
+<div class="containerX" fxLayout="row">
+    <span fxFlex></span>
+    <button md-raised-button color="primary" (click)="sendMail()">
+        SEND MAIL
+    </button>
+    <span fxFlex></span>
+</div>
