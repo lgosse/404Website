@@ -8,6 +8,10 @@ body {
     background-image: url('background.svg');
 }
 
+.hidden {
+    display: none;
+}
+
 .padding {
     padding: 10px;
 }

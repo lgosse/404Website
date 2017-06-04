@@ -53,6 +53,8 @@ import { DealFormComponent } from './components/back-office/deal-form/deal-form.
 import { DealBackCardComponent } from './components/back-office/deal-back-card/deal-back-card.component';
 
 import { UserService } from 'app/services/shared/user.service';
+import { MailingListsComponent } from './components/back-office/mailing-lists/mailing-lists.component';
+import { MailingListComponent } from './components/back-office/mailing-lists/mailing-list/mailing-list.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -94,7 +96,9 @@ Firebase.initializeApp(environment.firebase);
     DealsOfficeComponent,
     NewDealFormComponent,
     DealFormComponent,
-    DealBackCardComponent
+    DealBackCardComponent,
+    MailingListsComponent,
+    MailingListComponent
   ],
   imports: [
     BrowserModule,

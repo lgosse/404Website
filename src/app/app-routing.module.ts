@@ -10,19 +10,26 @@ import { PartnersComponent } from 'app/components/partners/partners.component';
 import { ProgramComponent } from 'app/components/program/program.component';
 import { LoginComponent } from 'app/components/login/login.component';
 import { DealsComponent } from 'app/components/deals/deals.component';
+import { FaqComponent } from 'app/components/faq/faq.component';
+
 import { BackOfficeComponent } from 'app/components/back-office/back-office.component';
 import { MessagesComponent } from 'app/components/back-office/messages/messages.component';
+
 import { ProgramOfficeComponent } from 'app/components/back-office/program-office/program-office.component';
 import { CommitmentFormComponent } from 'app/components/back-office/commitment-form/commitment-form.component';
 import { NewCommitmentFormComponent } from 'app/components/back-office/new-commitment-form/new-commitment-form.component';
+
 import { EventsOfficeComponent } from 'app/components/back-office/events-office/events-office.component';
 import { EventFormComponent } from 'app/components/back-office/event-form/event-form.component';
 import { NewEventFormComponent } from 'app/components/back-office/new-event-form/new-event-form.component';
-import { FaqComponent } from 'app/components/faq/faq.component';
+
 import { SubscriptionsOfficeComponent } from 'app/components/back-office/subscriptions-office/subscriptions-office.component';
+
 import { DealsOfficeComponent } from './components/back-office/deals-office/deals-office.component';
 import { NewDealFormComponent } from './components/back-office/new-deal-form/new-deal-form.component';
 import { DealFormComponent } from './components/back-office/deal-form/deal-form.component';
+
+import { MailingListsComponent } from 'app/components/back-office/mailing-lists/mailing-lists.component';
 
 const routes: Routes = [
 {
@@ -126,6 +133,10 @@ const routes: Routes = [
                     path: 'new-deal',
                     component: NewDealFormComponent
                 },
+                {
+                    path: 'mailing-lists',
+                    component: MailingListsComponent
+                }
             ]
         },
         {

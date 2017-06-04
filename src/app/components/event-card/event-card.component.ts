@@ -8,13 +8,14 @@ import { User } from 'app/classes/user';
 import { EventSubscribingComponent } from 'app/components/event-subscribing/event-subscribing.component';
 
 import { SubscriptionService } from 'app/services/subscription.service';
+import { MailingListsService } from 'app/services/mailing-lists.service';
 import { UserService } from 'app/services/shared/user.service';
 
 @Component({
     selector: 'app-event-card',
     templateUrl: './event-card.component.html',
     styleUrls: ['./event-card.component.scss'],
-    providers: [ SubscriptionService ]
+    providers: [ SubscriptionService, MailingListsService ]
 })
 
 export class EventCardComponent implements OnInit {
@@ -31,16 +32,22 @@ export class EventCardComponent implements OnInit {
     eventKey: string;
     loginKey: string;
     loaded: boolean = false;
+    mailingList: [User];
 
     constructor(
         public dialog: MdDialog,
         public snackBar: MdSnackBar,
         public subscriptionService: SubscriptionService,
+        private mailingListsService: MailingListsService,
         private userService: UserService
     ) { }
 
     ngOnInit() {
         this.getUserInfos();
+
+        this.mailingListsService.getMailingListByName(this.event.title).subscribe(list => {
+            this.mailingList = list;
+        })
     }
 
     getUserInfos() {
@@ -64,6 +71,8 @@ export class EventCardComponent implements OnInit {
     }
 
     showSubscriptionDialog(): void {
+        let user: any;
+
         this.getUserInfos();
 
         if (this.userInfos.isAuthenticated === false) {
@@ -73,12 +82,41 @@ export class EventCardComponent implements OnInit {
         }
 
         this.subscriptionService.subscribe(this.event.title, this.userInfos.login);
-
         let dialogRef = this.dialog.open(EventSubscribingComponent);
+
+        for (user of this.mailingList) {
+            if (user.login === this.userInfos.login) {
+                this.mailingListsService.updateMail(this.event.title, user.$key, {
+                    isAuthenticated: true,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    login: user.login,
+                    email: user.email
+                })
+                return ;
+            }
+        };
+
+        this.mailingListsService.addMailComplete(this.event.title, this.userInfos);
     }
 
     unsubscribe(): void {
+        let user: any;
+
         this.subscriptionService.removeSubscriptionsEventLogin(this.loginKey, this.eventKey);
+
+        for (user of this.mailingList) {
+            if (user.login === this.userInfos.login) {
+                this.mailingListsService.updateMail(this.event.title, user.$key, {
+                    isAuthenticated: false,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    login: user.login,
+                    email: user.email
+                })
+                break ;
+            }
+        };
 
         this.openSnackBar('Tu as bien été désinscrit de l\'évènement', 'FERMER');
     }

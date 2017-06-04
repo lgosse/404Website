@@ -14,7 +14,8 @@ export class BackOfficeComponent implements OnInit {
         'messages',
         'events-office',
         'subscriptions',
-        'deals-office'
+        'deals-office',
+        'mailing-lists'
     ];
 
     constructor(
