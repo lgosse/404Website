@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-mailing-text-interface',
@@ -9,15 +9,24 @@ export class MailingTextInterfaceComponent implements OnInit {
 
     @Output()
     updateMail = new EventEmitter<string>();
+    @Input()
     mailBody: string;
+    @Output()
+    updateSubject = new EventEmitter<string>();
+    @Input()
+    subject: string;
 
     constructor() { }
 
     ngOnInit() {
     }
 
-    onType(): void {
+    onTypeBody(): void {
         this.updateMail.emit(this.mailBody);
+    }
+
+    onTypeSubject(): void {
+        this.updateSubject.emit(this.subject);
     }
 
 }

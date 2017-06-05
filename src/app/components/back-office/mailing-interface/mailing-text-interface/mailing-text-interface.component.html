@@ -1,7 +1,17 @@
 <md-card class="text-interface margin">
     <md-card-content>
-        <md-input-container class="text-interface__textarea">
-            <textarea mdInput class="text-interface__textarea" placeholder="Enter your text here" required name="mail body" [(ngModel)]="mailBody" (ngModelChange)="onType()"></textarea>
+        <md-input-container class="text-interface__subject">
+            <input type="text" mdInput class="text-interface__subject" placeholder="Subject" required name="mail subject" [(ngModel)]="subject" (ngModelChange)="onTypeSubject()">
         </md-input-container>
+        <md-input-container class="text-interface__textarea">
+            <textarea mdInput class="text-interface__textarea" placeholder="Enter your markdown text here" required name="mail body" [(ngModel)]="mailBody" (ngModelChange)="onTypeBody()"></textarea>
+        </md-input-container>
+        <div class="containerX" fxLayout="row">
+            <span fxFlex></span>
+            <a md-raised-button color="primary" href="https://dimpu.github.io/angular2-markdown/" target="_blank">
+                MARKDOWN CHEATSHEET
+            </a>
+            <span fxFlex></span>
+        </div>
     </md-card-content>
 </md-card>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MdSnackBar } from '@angular/material'
+
 import { User } from 'app/classes/user';
 
 import { MailingListsService } from 'app/services/mailing-lists.service';
@@ -13,10 +15,13 @@ import { MailingListsService } from 'app/services/mailing-lists.service';
 export class MailingInterfaceComponent implements OnInit {
 
     mailBody: string = '';
-    mails: User[];
+    mails: User[] = [];
+    fromEmail: string = 'noreply@bde.42.fr';
+    subject: string = '';
 
     constructor(
-        private mailingListsService: MailingListsService
+        private mailingListsService: MailingListsService,
+        private snackBar: MdSnackBar
     ) { }
 
     ngOnInit() {
@@ -30,19 +35,61 @@ export class MailingInterfaceComponent implements OnInit {
         this.mails = event;
     }
 
+    updateFrom(event: string): void {
+        this.fromEmail = event;
+    }
+
+    updateSubject(event: string): void {
+        this.subject = event;
+    }
+
     sendMail(): void {
         let mails: string[] = [];
         let html: string = document.getElementById('markdown').innerHTML;
+        let from: string = '';
 
         for (let mail of this.mails) {
             mails.push(mail.email);
         }
 
-        if (html === '' || mails === []) {
+        if (this.fromEmail === '') {
+            this.fromEmail = 'noreply@bde.42.fr';
+        }
+
+        if (html === '') {
+            this.openSnackBar('The mail body cannot be empty', 'CLOSE');
+
             return ;
         }
 
-        this.mailingListsService.sendMail(mails, html);
+        if (this.subject === '') {
+            this.openSnackBar('The mail subject cannot be empty', 'CLOSE');
+
+            return ;
+        }
+
+        if (mails === []) {
+            this.openSnackBar('You haven\'t selected any email address', 'CLOSE');
+
+            return ;
+        }
+
+        if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.fromEmail) === false) {
+            this.openSnackBar('The \'from\' email is invalid', 'CLOSE');
+
+            return ;
+        }
+
+        from = this.fromEmail;
+
+        this.mailingListsService.sendMail(from, this.subject, mails, html);
+
+        this.mailBody = '';
     }
 
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message, action, {
+            duration: 2000
+        });
+    };
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { User } from 'app/classes/user';
@@ -6,7 +7,10 @@ import { User } from 'app/classes/user';
 @Injectable()
 export class MailingListsService {
 
-    constructor(private af: AngularFireDatabase) { }
+    constructor(
+        private af: AngularFireDatabase,
+        private http: Http
+    ) { }
 
     getMailingsLists(): FirebaseListObservable<[[User]]> {
         return this.af.list('/mails');
@@ -38,8 +42,17 @@ export class MailingListsService {
         });
     }
 
-    sendMail(listMails, mailHtml): void {
-        console.log(listMails, mailHtml);
+    sendMail(from: string, subject: string, listMails: string[], mailHtml: string): void {
+        this.http.post('https://us-central1-website-d0a07.cloudfunctions.net/sendmail', {
+            from: from,
+            subject: subject,
+            bcc: listMails.join(),
+            text: mailHtml
+        }).subscribe(res => {
+        }, error => {
+            console.log(error);
+        });
+        console.log(from, listMails, mailHtml);
     }
 
 }

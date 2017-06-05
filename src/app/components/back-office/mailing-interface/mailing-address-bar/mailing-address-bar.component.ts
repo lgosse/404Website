@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+
+import { MdSnackBar } from '@angular/material';
 
 import { User } from 'app/classes/user';
 
@@ -14,12 +16,18 @@ export class MailingAddressBarComponent implements OnInit {
 
     mailingLists: [User[]];
     selectedLists: string[] = [];
+    @Input()
     mails: User[] = [];
     @Output()
     updateMails = new EventEmitter<User[]>();
+    @Output()
+    updateFrom = new EventEmitter<string>();
+    @Input()
+    fromEmail: string;
 
     constructor(
-        private mailingListsService: MailingListsService
+        private mailingListsService: MailingListsService,
+        private snackBar: MdSnackBar
     ) { }
 
     ngOnInit() {
@@ -30,6 +38,10 @@ export class MailingAddressBarComponent implements OnInit {
 
     keys(list) : Array<string> {
         return Object.keys(list);
+    }
+
+    updateFromField(): void {
+        this.updateFrom.emit(this.fromEmail);
     }
 
     isMailSelected(email: string): boolean {
@@ -74,9 +86,13 @@ export class MailingAddressBarComponent implements OnInit {
     }
 
     addMail(mail: any): void {
-        if (this.isMailSelected(mail.value)) {
+        if (this.isMailSelected(mail.value) ||
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail.value) === false) {
+            this.openSnackBar('The mail you entered is invalid or is already selected', 'CLOSE');
+
             return ;
         }
+
         this.mails.push({
             email: mail.value,
             isAuthenticated: true,
@@ -84,7 +100,13 @@ export class MailingAddressBarComponent implements OnInit {
             firstName: 'anon',
             lastName: 'anon'
         });
+
         this.updateMails.emit(this.mails);
     }
 
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message, action, {
+            duration: 2000
+        });
+    };
 }

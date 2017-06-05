@@ -1,5 +1,5 @@
-<app-mailing-address-bar (updateMails)="updateSelectedMails($event)"></app-mailing-address-bar>
-<app-mailing-text-interface (updateMail)="updateMailBody($event)"></app-mailing-text-interface>
+<app-mailing-address-bar [mails]="mails" [fromEmail]="fromEmail" (updateMails)="updateSelectedMails($event)" (updateFrom)="updateFrom($event)"></app-mailing-address-bar>
+<app-mailing-text-interface [mailBody]="mailBody" (updateSubject)="updateSubject($event)" (updateMail)="updateMailBody($event)"></app-mailing-text-interface>
 <app-mailing-render-interface [mailBody]="mailBody"></app-mailing-render-interface>
 <div class="containerX" fxLayout="row">
     <span fxFlex></span>

@@ -1,5 +1,8 @@
 <md-card class="address-bar margin">
     <md-card-content>
+        <md-input-container>
+            <input type="email" mdInput [(ngModel)]="fromEmail" (ngModelChange)="updateFromField()" placeholder="From">
+        </md-input-container>
         <div class="containerX" fxLayout="row">
             <md-input-container>
                 <input mdInput ngModel #newMail="ngModel" name="new mail" placeholder="New mail">
