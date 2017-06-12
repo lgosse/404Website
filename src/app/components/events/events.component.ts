@@ -35,7 +35,7 @@ export class EventsComponent implements OnInit {
 
     constructor(
         private ngZone: NgZone,
-        private eventsServce: EventsService
+        private eventsService: EventsService
     ) { }
 
     isPassed(date: Date): boolean {
@@ -51,17 +51,30 @@ export class EventsComponent implements OnInit {
 
     sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
         const now       = new Date();
-        if (new Date(secondEvent.date).getTime() < now.getTime()) {
+        let date1 = new Date(firstEvent.date);
+        let date2 = new Date(secondEvent.date);
+
+        if (firstEvent.isParty === true) {
             return -1;
         }
         if (secondEvent.isParty === true) {
             return 1;
         }
-        return (new Date(firstEvent.date).getTime() - new Date(secondEvent.date).getTime());
+        if (date1.getTime() < now.getTime()) {
+            if (date2.getTime() < now.getTime()) {
+                return (date2.getTime() - date1.getTime());
+            } else {
+                return 1;
+            }
+        }
+        if (date2.getTime() < now.getTime()) {
+            return -1;
+        }
+        return (date1.getTime() - date2.getTime());
     }
 
     ngOnInit() {
-        this.eventsServce.getEvents()
+        this.eventsService.getEvents()
             .subscribe(events => {
                 this.events = events.sort(this.sortByDate);
                 this.loading = false;
