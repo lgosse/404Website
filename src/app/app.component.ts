@@ -58,11 +58,15 @@ export class AppComponent implements OnInit {
         Firebase.auth(Firebase.app()).onAuthStateChanged((firebaseUser) => {
             if (firebaseUser) {
                 this.loggued = true;
-                if (firebaseUser.email === environment.authorizedMail) {
-                    this.admin = true;
-                } else {
+       
+                this.userService.getAdmins().subscribe(admins => {
                     this.admin = false;
-                }
+                    for (let admin of admins) {
+                        if (firebaseUser.email === admin.$value) {
+                            this.admin = true;                            
+                        }
+                    }
+                });
             } else {
                 this.admin = false;
                 this.loggued = false;
@@ -72,6 +76,7 @@ export class AppComponent implements OnInit {
     };
 
     logoutFromAdmin(): void {
+        this.router.navigate(['home']);
         Firebase.auth(Firebase.app()).signOut()
             .catch((err) => {
                 this.openSnackBar('Une erreur est survenue, veuillez réessayer ultérieurement', 'FERMER');
