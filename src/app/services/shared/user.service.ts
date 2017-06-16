@@ -37,6 +37,10 @@ export class UserService {
         this.userChangeSource.next(userInfos);
     }
 
+    getAdmins(): any {
+        return this.af.list('/admins');
+    }
+
     registerUserMail(): void {
 
         let userInfos: User;

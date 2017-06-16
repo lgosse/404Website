@@ -4,6 +4,7 @@ import { MdSnackBar } from '@angular/material';
 import * as Firebase from 'firebase';
 
 import { ConnexionService } from 'app/services/connexion.service';
+import{ UserService } from 'app/services/shared/user.service';
 
 import { environment } from 'environments/environment';
 
@@ -20,15 +21,20 @@ export class LoginComponent implements OnInit {
     constructor(
         private connexionService: ConnexionService,
         private router: Router,
-        private snackBar: MdSnackBar
+        private snackBar: MdSnackBar,
+        private userService: UserService
     ) { }
 
     ngOnInit() {
         this.form = {};
         Firebase.auth(Firebase.app()).onAuthStateChanged((user) => {
-            if (user && user.email === environment.authorizedMail) {
-                this.router.navigate(['back-office']);
-            }
+            this.userService.getAdmins().subscribe(admins => {
+                for (let admin of admins) {
+                    if (user && user.email === admin.$value) {
+                        this.router.navigate(['back-office']);
+                    }
+                }
+            });
         });
     }
 
