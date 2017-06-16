@@ -59,6 +59,9 @@ export class MailingAddressBarComponent implements OnInit {
             if (this.isMailSelected(list[key].email)) {
                 continue;
             }
+            if (list[key].isAuthenticated === false) {
+                continue;
+            }
             this.mails.push(list[key]);
         }
         this.updateMails.emit(this.mails);
