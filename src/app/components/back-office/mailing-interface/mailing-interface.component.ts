@@ -16,7 +16,6 @@ export class MailingInterfaceComponent implements OnInit {
 
     mailBody: string = '';
     mails: User[] = [];
-    fromEmail: string = 'noreply@bde.42.fr';
     subject: string = '';
 
     constructor(
@@ -35,25 +34,30 @@ export class MailingInterfaceComponent implements OnInit {
         this.mails = event;
     }
 
-    updateFrom(event: string): void {
-        this.fromEmail = event;
-    }
-
+    /**
+     * Receives the event emitted by MailingInterfacAddressBar to update the subject
+     * 
+     * @param {string} event 
+     * 
+     * @memberOf MailingInterfaceComponent
+     */
     updateSubject(event: string): void {
         this.subject = event;
     }
 
+    /**
+     * Validate email an then send it
+     * 
+     * @returns {void} 
+     * 
+     * @memberOf MailingInterfaceComponent
+     */
     sendMail(): void {
         let mails: string[] = [];
         let html: string = document.getElementById('markdown').innerHTML;
-        let from: string = '';
 
         for (let mail of this.mails) {
             mails.push(mail.email);
-        }
-
-        if (this.fromEmail === '') {
-            this.fromEmail = 'noreply@bde.42.fr';
         }
 
         if (html === '') {
@@ -74,15 +78,8 @@ export class MailingInterfaceComponent implements OnInit {
             return ;
         }
 
-        if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.fromEmail) === false) {
-            this.openSnackBar('The \'from\' email is invalid', 'CLOSE');
-
-            return ;
-        }
-
-        from = this.fromEmail;
-
-        this.mailingListsService.sendMail(from, this.subject, mails, html);
+        this.mailingListsService.sendMail(this.subject, mails, html);
+        this.openSnackBar('Email sent !', 'CLOSE');
 
         this.mailBody = '';
     }

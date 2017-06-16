@@ -20,10 +20,6 @@ export class MailingAddressBarComponent implements OnInit {
     mails: User[] = [];
     @Output()
     updateMails = new EventEmitter<User[]>();
-    @Output()
-    updateFrom = new EventEmitter<string>();
-    @Input()
-    fromEmail: string;
 
     constructor(
         private mailingListsService: MailingListsService,
@@ -38,10 +34,6 @@ export class MailingAddressBarComponent implements OnInit {
 
     keys(list) : Array<string> {
         return Object.keys(list);
-    }
-
-    updateFromField(): void {
-        this.updateFrom.emit(this.fromEmail);
     }
 
     isMailSelected(email: string): boolean {

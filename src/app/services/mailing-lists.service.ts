@@ -42,9 +42,8 @@ export class MailingListsService {
         });
     }
 
-    sendMail(from: string, subject: string, listMails: string[], mailHtml: string): void {
+    sendMail(subject: string, listMails: string[], mailHtml: string): void {
         this.http.post('https://us-central1-website-d0a07.cloudfunctions.net/sendmail', {
-            from: from,
             subject: subject,
             bcc: listMails.join(),
             text: mailHtml
@@ -52,7 +51,6 @@ export class MailingListsService {
         }, error => {
             console.log(error);
         });
-        console.log(from, listMails, mailHtml);
     }
 
 }
