@@ -13,8 +13,8 @@ import { UserService } from 'app/services/shared/user.service';
 })
 export class OrdersComponent implements OnInit {
 
-    private orders: FirebaseOrder[];
-    private user:   User;
+    public orders: FirebaseOrder[];
+    public user:   User;
 
     constructor(
         private shopService: ShopService,

@@ -15,11 +15,11 @@ import { SnacksService } from 'app/services/snacks.service';
 export class ArticleCardComponent implements OnInit {
 
     @Input()
-    private article: Article;
+    public article: Article;
     @Input()
-    private basket: Basket;
-    private imgIndex: number = 0;
-    private mouseHover: string = 'nothovered';
+    public basket: Basket;
+    public imgIndex: number = 0;
+    public mouseHover: string = 'nothovered';
 
     constructor(
         private snacksService: SnacksService

@@ -2,7 +2,6 @@
     <md-tab-group>
         <md-tab label="SHOP" fxFlex>
             <div class="shop">
-                <app-article-card [article]="testArticle" [basket]="basket"></app-article-card>
                 <div *ngFor="let article of articles">
                     <app-article-card [article]="article" [basket]="basket"></app-article-card>
                 </div>

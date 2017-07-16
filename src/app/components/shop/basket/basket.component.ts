@@ -17,12 +17,12 @@ import { MdDialog } from '@angular/material';
 export class BasketComponent implements OnInit {
 
     @Input()
-    private basket: Basket;
-    private order: Order;
+    public basket: Basket;
+    public order: Order;
 
     constructor(
         private dialog:        MdDialog,
-        private shopService:   ShopService,
+        public  shopService:   ShopService,
         private snacksService: SnacksService
     ) { }
 

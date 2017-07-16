@@ -14,20 +14,9 @@ import { User } from 'app/classes/user';
 })
 export class ShopComponent implements OnInit {
 
-    private articles:    Article[];
-    private basket:      Basket;
-    private user:        User;
-    private testArticle: Article =
-        new Article({
-            title: 'test article',
-            description: 'lorem ipsum dolor sit amet',
-            price: 45,
-            imgUrls: [
-                'https://s-media-cache-ak0.pinimg.com/736x/55/8a/49/558a4916a26c10a1b548a876cc1efcb2--loose-sweater-green-sweater.jpg',
-                'https://cdn.shopify.com/s/files/1/0209/1522/products/sweatshirts-watermelon-sweater-1_1024x1024.jpg?v=1496810964',
-                'https://uniqlo.scene7.com/is/image/UNIQLO/goods_08_400621?$prod$'
-            ]
-        });
+    public articles:    Article[];
+    public basket:      Basket;
+    public user:        User;
 
     constructor(
         private shopService: ShopService,
