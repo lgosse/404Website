@@ -8,8 +8,26 @@ body {
     background-image: url('background.svg');
 }
 
+@-webkit-keyframes fadeinout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeinout {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .padding {
@@ -130,10 +148,18 @@ body {
     width: 100%;
 }
 
+.full-width {
+    width: 100% !important;
+}
+
 *:focus {
     outline: none;
 }
 
 .mat-tooltip {
     font-size: 12px !important;
+}
+
+.color__white {
+    color: white !important;
 }

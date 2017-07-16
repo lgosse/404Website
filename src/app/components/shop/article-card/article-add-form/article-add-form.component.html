@@ -1,0 +1,16 @@
+<div class="containerX" fxLayout="row">
+    <div class="flex-item" fxFlex>
+        <md-select placeholder="Taille" [(ngModel)]="article.selectedSize" class="article__content__order__select">
+            <div *ngFor="let size of sizes">
+                <md-option [value]="size">
+                    {{ size }}
+                </md-option>
+            </div>
+        </md-select>
+    </div>
+    <div class="flex-item" fxFlex>
+        <md-input-container class="full-width">
+            <input class="full-width" mdInput min="0" placeholder="Quantité" [(ngModel)]="article.quantity" type="number" [disabled]="!article.selectedSize" name="Quantité">
+        </md-input-container>
+    </div>
+</div>

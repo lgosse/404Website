@@ -1,0 +1,19 @@
+<div fxLayout="column" class="order">
+    <h3 class="mat-subheading-2" mdDialogTitle>
+        Merci de passer commande !
+    </h3>
+
+    <md-dialog-content>
+        Pour des raisons de stock, il te faut payer d'avance, nous nous chargerons de te tenir informé de l'état d'avancement de la commande. Nous allons revenir vers toi pour les détails de paiement, liquide ou carte bancaire.
+    </md-dialog-content>
+
+    <md-dialog-actions class="containerX" fxLayout="row">
+        <span fxFlex class="flex-item"></span>
+        <button md-raised-button (click)="cancelOrder()" class="order__action">
+            ANNULER
+        </button>
+        <button md-raised-button (click)="validateOrder()" color="primary">
+            PASSER COMMANDE
+        </button>
+    </md-dialog-actions>
+</div>

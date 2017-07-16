@@ -54,12 +54,21 @@ import { DealFormComponent } from './components/back-office/deal-form/deal-form.
 import { DealBackCardComponent } from './components/back-office/deal-back-card/deal-back-card.component';
 
 import { UserService } from 'app/services/shared/user.service';
+import { ShopService } from 'app/services/shop.service';
+import { SnacksService } from 'app/services/snacks.service';
+
 import { MailingListsComponent } from './components/back-office/mailing-lists/mailing-lists.component';
 import { MailingListComponent } from './components/back-office/mailing-lists/mailing-list/mailing-list.component';
 import { MailingInterfaceComponent } from './components/back-office/mailing-interface/mailing-interface.component';
 import { MailingAddressBarComponent } from './components/back-office/mailing-interface/mailing-address-bar/mailing-address-bar.component';
 import { MailingTextInterfaceComponent } from './components/back-office/mailing-interface/mailing-text-interface/mailing-text-interface.component';
 import { MailingRenderInterfaceComponent } from './components/back-office/mailing-interface/mailing-render-interface/mailing-render-interface.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { ArticleCardComponent } from './components/shop/article-card/article-card.component';
+import { BasketComponent } from './components/shop/basket/basket.component';
+import { ArticleAddFormComponent } from './components/shop/article-card/article-add-form/article-add-form.component';
+import { OrderDialogComponent } from './components/shop/basket/order-dialog/order-dialog.component';
+import { OrdersComponent } from './components/shop/orders/orders.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -107,7 +116,13 @@ Firebase.initializeApp(environment.firebase);
     MailingInterfaceComponent,
     MailingAddressBarComponent,
     MailingTextInterfaceComponent,
-    MailingRenderInterfaceComponent
+    MailingRenderInterfaceComponent,
+    ShopComponent,
+    ArticleCardComponent,
+    BasketComponent,
+    ArticleAddFormComponent,
+    OrderDialogComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -122,11 +137,16 @@ Firebase.initializeApp(environment.firebase);
     AngularFireAuthModule,
     MarkdownModule.forRoot()
   ],
-  providers: [ UserService ],
+  providers: [
+    UserService,
+    ShopService,
+    SnacksService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
       DialogContactComponent,
-      EventSubscribingComponent      
+      EventSubscribingComponent,
+      OrderDialogComponent      
   ]
 })
 export class AppModule { }

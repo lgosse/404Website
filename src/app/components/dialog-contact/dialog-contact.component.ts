@@ -24,9 +24,9 @@ export class DialogContactComponent implements OnInit {
     };
 
     constructor(
-        public dialogRef: MdDialogRef<DialogContactComponent>,
+        public  dialogRef: MdDialogRef<DialogContactComponent>,
         private contactService: ContactService,
-        public snackBar: MdSnackBar,
+        public  snackBar: MdSnackBar,
         private userService: UserService
     ) { }
 

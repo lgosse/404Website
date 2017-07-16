@@ -1,0 +1,39 @@
+// Import theming functions
+@import '~@angular/material/theming';
+// Import your custom theme
+@import 'src/app/theme.scss';
+.order {
+    padding: 20px;
+    &__card {
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border-top: 2px solid mat-color($bde-app-primary);
+        &__line {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        &__total-amount {}
+        &__status {
+            &__text {
+                padding-top: 3px;
+                padding-right: 5px;
+            }
+            &__green {
+                color: #82CA9D;
+            }
+            &__grey {
+                color: #757575;
+            }
+        }
+    }
+    &__no-items {
+        margin-top: 20px;
+        color: #A0A0A0;
+        &__icon {
+            margin-top: 16px;
+            font-size: 40px;
+            margin-left: 5px;
+            color: #A0A0A0;
+        }
+    }
+}

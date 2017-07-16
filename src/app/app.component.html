@@ -33,6 +33,14 @@
                 </a>
             </md-list-item>
             <md-list-item>
+                <a md-line *ngIf="user.isAuthenticated" (click)="navigateTo('/shop'); sidenav.close()" class="app__sidenav__item">
+                    SHOP
+                </a>
+                <a md-line *ngIf="!user.isAuthenticated" [href]="intraRedirectUrl" class="app__sidenav__item">
+                    SHOP
+                </a>
+            </md-list-item>
+            <md-list-item>
                 <a md-line (click)="navigateTo('/faq'); sidenav.close()" class="app__sidenav__item">
                     FAQ
                 </a>
@@ -56,6 +64,7 @@
                 LOGIN
                 <md-icon>account_box</md-icon>
             </a>
+
             <div *ngIf="user.isAuthenticated == true" class="welcome">
                 Bienvenue {{ user.firstName }}
             </div>
@@ -71,6 +80,8 @@
                     <md-button-toggle class="md-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
                     <md-button-toggle class="md-button" color="primary" routerLink="deals" routerLinkActive="active" active="active">BONS PLANS</md-button-toggle>
+                    <md-button-toggle class="md-button" *ngIf="user.isAuthenticated" color="primary" routerLink="shop" routerLinkActive="active" active="active">SHOP</md-button-toggle>
+                    <a class="md-button mat-button-toggle app__shop-button" *ngIf="!user.isAuthenticated" color="primary" [href]="intraRedirectUrl">SHOP</a>
                     <md-button-toggle class="md-button" color="primary" routerLink="faq" routerLinkActive="active" active="active">FAQ</md-button-toggle>
                     <md-button-toggle *ngIf="admin == true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
                 </md-button-toggle-group>

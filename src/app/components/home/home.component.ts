@@ -16,11 +16,11 @@ import { LoadedAnimation } from 'app/constants/loaded-animation';
 })
 export class HomeComponent implements OnInit {
 
-    events: FirebaseListObservable<any>;
-    eventsToShow: EventBde[] = [];
-    loadedState: boolean = false;
-    logoLoaded: boolean = false;
-    iframeLoaded: boolean = false;
+    events:         FirebaseListObservable<any>;
+    eventsToShow:   EventBde[] = [];
+    loadedState:    boolean = false;
+    logoLoaded:     boolean = false;
+    iframeLoaded:   boolean = false;
 
     constructor(
         private route: ActivatedRoute,

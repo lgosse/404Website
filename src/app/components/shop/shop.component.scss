@@ -1,0 +1,25 @@
+.shop {
+    @media (max-width: 1000px) {
+        padding: 10px 10px 0px 10px;
+    }
+    @media (min-width: 1000px) {
+        padding: 10px 20px 10px 20px;
+    }
+    &__no-items {
+        margin-top: 20px;
+        color: #A0A0A0;
+        &__icon {
+            margin-top: 16px;
+            font-size: 40px;
+            margin-left: 5px;
+            color: #A0A0A0;
+        }
+    }
+}
+
+.basket {
+    &__button {
+        margin: 20px;
+        margin-bottom: 0;
+    }
+}

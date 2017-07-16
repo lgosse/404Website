@@ -11,6 +11,7 @@ import { ProgramComponent } from 'app/components/program/program.component';
 import { LoginComponent } from 'app/components/login/login.component';
 import { DealsComponent } from 'app/components/deals/deals.component';
 import { FaqComponent } from 'app/components/faq/faq.component';
+import { ShopComponent } from 'app/components/shop/shop.component';
 
 import { BackOfficeComponent } from 'app/components/back-office/back-office.component';
 import { MessagesComponent } from 'app/components/back-office/messages/messages.component';
@@ -75,6 +76,10 @@ const routes: Routes = [
             component:  LoginComponent
         },
         {
+            path:       'shop',
+            component:  ShopComponent
+        },
+        {
             path:       'faq',
             component:  FaqComponent
         },
@@ -99,18 +104,6 @@ const routes: Routes = [
                     path: 'subscriptions',
                     component: SubscriptionsOfficeComponent
                 },
-                // {
-                //     path: 'program-office',
-                //     component: ProgramOfficeComponent
-                // },
-                // {
-                //     path: 'commitment/:id',
-                //     component: CommitmentFormComponent
-                // },
-                // {
-                //     path: 'new-commitment',
-                //     component: NewCommitmentFormComponent
-                // },
                 {
                     path: 'events-office',
                     component: EventsOfficeComponent

@@ -61,7 +61,7 @@
         }
     }
     &__action {
-        color: mat-color($bde-app-primary, 400) !important;
+        color: mat-color($bde-app-primary) !important;
         &__text {
             @media (max-width: 720px) {
                 font-size: 15px;
@@ -84,7 +84,7 @@
 }
 
 .passed .event__action {
-    color: #ff9999 !important;
+    color: mat-color($bde-app-primary) !important;
 }
 
 .small {
