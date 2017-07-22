@@ -3,57 +3,47 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { FirebaseListObservable } from 'angularfire2/database';
 
-import { EventsService } from 'app/services/events.service';
-import { EventBde } from 'app/classes/eventBde';
 import { LoadedAnimation } from 'app/constants/loaded-animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [ EventsService ],
   animations: [ LoadedAnimation ]
 })
 export class HomeComponent implements OnInit {
 
-    events:         FirebaseListObservable<any>;
-    eventsToShow:   EventBde[] = [];
-    loadedState:    boolean = false;
-    logoLoaded:     boolean = false;
-    iframeLoaded:   boolean = false;
+    public testCard = {
+        imgUrl: 'https://rokyroxane.com/wp-content/uploads/2016/12/events-heavenly-header.jpg',
+        icon: 'person',
+        title: 'THIS IS A TEST',
+        textContent: 'Tu aimes les pizzas et tu aimes la bière ? Le 20 juin à partir de 18h, nous te proposons un afterwork-rencontre avec notre partenaire Side dans une ambiance chill et décontractée. Notre partenaire Gunnar sera aussi présent. Nous vous organisons un petit concours avec cadeaux à gagner alors ne manquez pas ça !',
+        actionLabel: 'TEST CLICK',
+        titleOverPicture: true,
+        links: [
+            {
+                icon: 'event',
+                name: '27 Mai 2017',
+                href: 'testLink'
+            },
+            {
+                icon: 'location_on',
+                name: 'École 42',
+                href: 'testLink'
+            }
+        ]
+    };
 
     constructor(
         private route: ActivatedRoute,
-        private eventsService: EventsService,
         private router: Router
     ) { }
-
-    sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
-        let actDate = new Date();
-
-        if (new Date(firstEvent.date) > new Date(secondEvent.date) && actDate < new Date(secondEvent.date)) {
-            return 1;
-        } else {
-            return -1;
-        }
-    }
 
     navigateTo(route: string): void {
         this.router.navigate([route]);
     }
 
     ngOnInit() {
-        this.eventsService.getEvents()
-            .subscribe(events => {
-                this.events = events.sort(this.sortByDate);
-                this.eventsToShow.push(this.events[0]);
-                for (let eventIndex in this.events) {
-                    if (this.events[eventIndex].isParty === true) {
-                        this.eventsToShow.push(this.events[eventIndex]);
-                    }
-                }
-                this.loadedState = true;
-            })
     }
 
 }

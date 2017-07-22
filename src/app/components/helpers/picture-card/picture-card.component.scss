@@ -1,0 +1,66 @@
+// Import theming functions
+@import '~@angular/material/theming';
+// Import your custom theme
+@import 'src/app/theme.scss';
+@import 'src/app/global.scss';
+
+.card {
+    margin: $md-mat-spacing;
+    width    : 400px;
+    overflow : hidden !important;
+
+    &__picture {
+        height : 175px;
+    }
+
+    &__title {
+        font-size      : 20px;
+        color          : mat-color($bde-app-primary);
+        padding-bottom : $sm-mat-spacing;
+        
+        &__label {
+            bottom   : 4px;
+            position : relative;
+        }
+
+        &__alt {
+            background-color : black;
+            opacity          : 0.5;
+            position         : absolute;
+            margin-top       : -63px;
+            width            : 100%;
+            right            : 0;
+            height           : 24px;
+
+            &__label {
+                color      : white;
+                left       : 0;
+                position   : absolute;
+                margin-top : -62px;
+                padding    : 12px 24px;
+
+                &__title {
+                    bottom   : 4px;
+                    position : relative;
+                }
+            }
+        }
+    }
+
+    &__content {
+        font-size : 16px;
+        color     : black;
+        opacity   : 0.54;
+    }
+
+    &__action {
+        margin : $sm-mat-spacing !important;
+        color  : white !important;
+    }
+
+    &__links {
+        padding        : 0 !important;
+        margin-bottom  : $md-mat-spacing !important;
+        padding-right  : $sm-mat-spacing !important;
+    }
+}

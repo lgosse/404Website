@@ -1,49 +1,121 @@
-<div class="home containerX" fxLayout="column">
-    <div class="home__logo-container center containerX" fxLayout="row">
-        <img class="center home__logo" src="visu_logo_site.png" (load)="logoLoaded = true" [class.lazyloaded]="logoLoaded" />
+<div class="containerX home" fxLayout="column">
+    <div class="home__container-main-picture">
+        <img src="" class="home__main-picture"/>
     </div>
-    <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loadedState == false">
-        <span class="flex-item" fxFlex></span>
-        <div class="flex-item">
-            <md-spinner></md-spinner>
+    <div class="containerX home__cards" fxHide.lt-xl fxLayout="row">
+        <div class="containerX flex-item" fxLayout="row" fxFlex>
+            <span fxFlex class="flex-item"></span>
+            <app-picture-card
+                [imgUrl]="testCard.imgUrl"
+                [icon]="'event'"
+                [title]="'ÉVÈNEMENTS'"
+                [textContent]="testCard.textContent"
+                [actionLabel]="'ALLER VOIR'"
+                (cardClickEvent)="navigateTo('/events')">
+            </app-picture-card>
+            <span fxFlex class="flex-item"></span>
         </div>
-        <span class="flex-item" fxFlex></span>
-    </div>
-    <div *ngFor="let event of eventsToShow">
-        <div class="containerX" fxLayout="row" *ngIf="loadedState == true">
-            <span fxFlex></span>
-            <app-event-card [event]="event" [small]="true"></app-event-card>
-            <span fxFlex></span>
+        <div class="containerX flex-item" fxLayout="row" fxFlex>
+            <span fxFlex class="flex-item"></span>
+                <app-picture-card
+                    [imgUrl]="testCard.imgUrl"
+                    [icon]="'lightbulb_outline'"
+                    [title]="'BONS PLANS'"
+                    [textContent]="testCard.textContent"
+                    [actionLabel]="'ALLER VOIR'"
+                    (cardClickEvent)="navigateTo('/deals')">
+                </app-picture-card>
+            <span fxFlex class="flex-item"></span>
+        </div>
+        <div class="containerX flex-item" fxLayout="row" fxFlex>
+            <span fxFlex class="flex-item"></span>
+                <app-picture-card
+                    [imgUrl]="testCard.imgUrl"
+                    [icon]="'shopping_cart'"
+                    [title]="'SHOP'"
+                    [textContent]="testCard.textContent"
+                    [actionLabel]="'ALLER VOIR'"
+                    (cardClickEvent)="navigateTo('/shop')">
+                </app-picture-card>
+            <span fxFlex class="flex-item"></span>
         </div>
     </div>
-    <div class="containerX padding" fxLayout="row">
-        <span fxFlex></span>
-        <button (click)="navigateTo('/events')" md-raised-button color="primary" class="home__events__button">
-            <md-icon>event</md-icon>
-            Viens voir nos autres events !
-        </button>
-        <span fxFlex></span>
+    <div class="containerX home__cards" fxHide.lt-lg fxHide.gt-lg>
+        <div class="containerX full-width" fxLayout="row">
+            <div class="containerX flex-item full-width" fxLayout="row">
+                <span fxFlex class="flex-item"></span>
+                <app-picture-card
+                    [imgUrl]="testCard.imgUrl"
+                    [icon]="'event'"
+                    [title]="'ÉVÈNEMENTS'"
+                    [textContent]="testCard.textContent"
+                    [actionLabel]="'ALLER VOIR'"
+                    (cardClickEvent)="navigateTo('/events')">
+                </app-picture-card>
+                <span fxFlex class="flex-item"></span>
+            </div>
+            <div class="containerX flex-item full-width" fxLayout="row">
+                <span fxFlex class="flex-item"></span>
+                    <app-picture-card
+                        [imgUrl]="testCard.imgUrl"
+                        [icon]="'lightbulb_outline'"
+                        [title]="'BONS PLANS'"
+                        [textContent]="testCard.textContent"
+                        [actionLabel]="'ALLER VOIR'"
+                        (cardClickEvent)="navigateTo('/deals')">
+                    </app-picture-card>
+                <span fxFlex class="flex-item"></span>
+            </div>
+        </div>
+        <div class="containerX flex-item full-width" fxLayout="row">
+            <span fxFlex class="flex-item"></span>
+                <app-picture-card
+                    [imgUrl]="testCard.imgUrl"
+                    [icon]="'shopping_cart'"
+                    [title]="'SHOP'"
+                    [textContent]="testCard.textContent"
+                    [actionLabel]="'ALLER VOIR'"
+                    (cardClickEvent)="navigateTo('/shop')">
+                </app-picture-card>
+            <span fxFlex class="flex-item"></span>
+        </div>
     </div>
-    <md-card class="center home__card home__video-container">
-        <md-card-content class="containerX" fxLayout="column">
-            <div class="containerX" fxLayout="row">
-                <span fxFlex></span>
-                <iframe width="750" height="422" src="https://www.youtube.com/embed/O5UpNJEbFzs" frameborder="0" allowfullscreen (load)="iframeLoaded = true" [class.lazyloaded]="iframeLoaded" class="home__video"></iframe>
-                <span fxFlex></span>
-            </div>
-            <div class="containerX" fxLayout="row">
-                <span fxFlex></span>
-                <a href="https://www.youtube.com/channel/UCb5Wq73IorRBqLhxztkKNlg" target="_blank">
-                    <button md-raised-button color="primary">
-                        <md-icon>ondemand_video</md-icon>
-                        Nos autres vidéos
-                    </button>
-                </a>
-                <span fxFlex></span>
-            </div>
-        </md-card-content>
-    </md-card>
-    <div class="containerX" fxLayout="row">
-        <app-idea-box fxFlex></app-idea-box>
+    <div class="home__cards" fxHide.gt-md>
+        <div class="containerX flex-item full-width" fxLayout="row">
+            <span fxFlex class="flex-item"></span>
+            <app-picture-card
+                [imgUrl]="testCard.imgUrl"
+                [icon]="'event'"
+                [title]="'ÉVÈNEMENTS'"
+                [textContent]="testCard.textContent"
+                [actionLabel]="'ALLER VOIR'"
+                (cardClickEvent)="navigateTo('/events')">
+            </app-picture-card>
+            <span fxFlex class="flex-item"></span>
+        </div>
+        <div class="containerX flex-item full-width" fxLayout="row">
+            <span fxFlex class="flex-item"></span>
+                <app-picture-card
+                    [imgUrl]="testCard.imgUrl"
+                    [icon]="'lightbulb_outline'"
+                    [title]="'BONS PLANS'"
+                    [textContent]="testCard.textContent"
+                    [actionLabel]="'ALLER VOIR'"
+                    (cardClickEvent)="navigateTo('/deals')">
+                </app-picture-card>
+            <span fxFlex class="flex-item"></span>
+        </div>
+        <div class="containerX flex-item full-width" fxLayout="row">
+            <span fxFlex class="flex-item"></span>
+                <app-picture-card
+                    [imgUrl]="testCard.imgUrl"
+                    [icon]="'shopping_cart'"
+                    [title]="'SHOP'"
+                    [textContent]="testCard.textContent"
+                    [actionLabel]="'ALLER VOIR'"
+                    (cardClickEvent)="navigateTo('/shop')">
+                </app-picture-card>
+            <span fxFlex class="flex-item"></span>
+        </div>
     </div>
 </div>

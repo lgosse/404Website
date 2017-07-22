@@ -1,0 +1,49 @@
+<md-card class="card">
+    <img class="card__picture" mdCardImage [src]="imgUrl">
+    <div class="card__title__alt" *ngIf="titleOverPicture === true">
+    </div>
+    <span class="card__title__alt__label" *ngIf="titleOverPicture === true">
+        <md-icon *ngIf="icon">
+            {{ icon }}
+        </md-icon>
+        <span class="card__title__alt__label__title" *ngIf="icon">
+            {{ title }}
+        </span>
+        <span *ngIf="!icon">
+            {{ title }}
+        </span>
+    </span>
+    <div class="containerX" fxLayout="row" *ngIf="links">
+        <div *ngFor="let link of links">
+            <a md-button color="primary" class="card__links" [href]="link.href">
+                <md-icon *ngIf="link.icon">
+                    {{ link.icon }}
+                </md-icon>
+                <span class="card__links__label" *ngIf="link.name">
+                    {{ link.name }}
+                </span>
+            </a>
+        </div>
+    </div>
+    <md-card-content *ngIf="title || textContent || actionLabel">
+        <div class="card__title" *ngIf="titleOverPicture === false && title">
+            <md-icon *ngIf="icon">
+                {{ icon }}
+            </md-icon>
+            <span *ngIf="icon" class="card__title__label">
+                {{ title }}
+            </span>
+            <span *ngIf="!icon">
+                {{ title }}
+            </span>
+        </div>
+        <div class="card__content" *ngIf="textContent">
+            {{ textContent }}
+        </div>
+    </md-card-content>
+    <md-card-actions align="end" *ngIf="actionLabel">
+        <button md-raised-button color="primary" class="card__action" (click)="transmitEvent(event)">
+            {{ actionLabel }}
+        </button>
+    </md-card-actions>
+</md-card>

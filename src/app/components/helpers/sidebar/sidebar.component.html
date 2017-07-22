@@ -1,0 +1,54 @@
+<div class="sidebar containerX" fxLayout="column">
+    <div class="logo__container">
+        <img
+            class="logo__header"
+            (load)="loaded = true"
+            [class.lazyloaded]="loaded"
+            (click)="navigateTo('/home')"
+            src="404logo.svg"
+        />
+    </div>
+    <div class="menu__main">
+        <md-button-toggle-group class="menu__main__toggle-group no-border" vertical="true">
+            <div *ngFor="let menuItem of mainMenus" class="menu__main__menu-item">
+                <md-button-toggle class="md-button" [routerLink]="menuItem.link" routerLinkActive="active" active="active">
+                    <span class="mat-title menu__main__menu-item__label">
+                        {{ menuItem.name }}
+                    </span>
+                </md-button-toggle>
+            </div>
+        </md-button-toggle-group>
+    </div>
+    <div class="menu__bottom">
+        <div class="menu__bottom__welcome" *ngIf="user">
+            <span class="mat-title menu__bottom__welcome__label">
+                Bonjour {{ user.firstName }} !
+            </span>
+        </div>
+        <button class="menu__bottom__login" (click)="login()" *ngIf="!user" md-raised-button>
+            <md-icon class="menu__bottom__login__icon">
+                person
+            </md-icon>
+            <span class="mat-title menu__bottom__login__label">
+                LOGIN
+            </span>
+        </button>
+        <button class="menu__bottom__login" (click)="logout()" *ngIf="user" md-raised-button>
+            <md-icon class="menu__bottom__login__icon">
+                exit_to_app
+            </md-icon>
+            <span class="mat-title menu__bottom__login__label">
+                LOGOUT
+            </span>
+        </button>
+        <div class="wrapper containerX" fxLayout="row">
+            <span fxFlex class="flex-item"></span>
+            <a href="https://www.facebook.com/bde42/" target="_blank"><i class="fa fa-2x fa-facebook-square facebook"></i></a>
+            <span fxFlex class="flex-item"></span>
+            <i (click)="openDialog()" class="fa fa-2x fa-envelope-o"></i>
+            <span fxFlex class="flex-item"></span>
+            <a href="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fsnapchat.jpg?alt=media&token=b46b9645-1f83-46d6-a389-29aa00e0760c" target="_blank"><i class="fa fa-2x fa-snapchat-square snapchat"></i></a>
+            <span fxFlex class="flex-item"></span>
+        </div>
+    </div>
+</div>

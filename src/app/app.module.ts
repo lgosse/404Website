@@ -69,6 +69,9 @@ import { BasketComponent } from './components/shop/basket/basket.component';
 import { ArticleAddFormComponent } from './components/shop/article-card/article-add-form/article-add-form.component';
 import { OrderDialogComponent } from './components/shop/basket/order-dialog/order-dialog.component';
 import { OrdersComponent } from './components/shop/orders/orders.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { SidebarComponent } from './components/helpers/sidebar/sidebar.component';
+import { PictureCardComponent } from './components/helpers/picture-card/picture-card.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -122,7 +125,10 @@ Firebase.initializeApp(environment.firebase);
     BasketComponent,
     ArticleAddFormComponent,
     OrderDialogComponent,
-    OrdersComponent
+    OrdersComponent,
+    LayoutComponent,
+    SidebarComponent,
+    PictureCardComponent
   ],
   imports: [
     BrowserModule,

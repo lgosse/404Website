@@ -5,7 +5,6 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Roboto;
-    background-image: url('background.svg');
 }
 
 @-webkit-keyframes fadeinout {
@@ -31,7 +30,7 @@ body {
 }
 
 .padding {
-    padding: 10px;
+    padding: 16px;
 }
 
 .margin {
@@ -45,12 +44,6 @@ body {
 .center {
     margin-right: auto;
     margin-left: auto;
-}
-
-.logo__header {
-    width: 170px;
-    margin-left: 15px;
-    margin-top: 60px;
 }
 
 .logo__header--mobile {
@@ -162,4 +155,19 @@ body {
 
 .color__white {
     color: white !important;
+}
+
+.mat-button-toggle-label-content {
+    padding        : 0 !important;
+    padding-top    : 5px !important;
+    padding-bottom : 5px !important;
+    border-radius  : 0 !important;
+}
+
+.active .mat-button-toggle-label-content {
+    background-color: white;
+}
+
+.mat-button-toggle-label-content:hover {
+    background-color: white !important;
 }

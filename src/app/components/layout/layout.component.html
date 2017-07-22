@@ -1,0 +1,10 @@
+<div class="containerX app__content" fxLayout="row">
+    <md-sidenav-container class="app__content">
+        <md-sidenav [mode]="sidenavMode" opened="sidenavOpen" class="mat-elevation-z8">
+            <app-sidebar></app-sidebar>
+        </md-sidenav>
+        <div class="app__content_view">
+            <router-outlet></router-outlet>
+        </div>
+    </md-sidenav-container>
+</div>

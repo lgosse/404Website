@@ -9,7 +9,8 @@
         "assets": [
             "assets",
             "favicon.ico",
-            "visu_logo_site.png"
+            "visu_logo_site.png",
+            "404logo.svg"
         ],
         "index": "index.html",
         "main": "main.ts",
