@@ -1,121 +1,71 @@
-<div class="containerX home" fxLayout="column">
+<ng-template #firstCard>
+    <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
+        <span fxFlex class="flex-item"></span>
+        <app-picture-card
+            [imgUrl]="testCard.imgUrl"
+            [icon]="'event'"
+            [title]="'ÉVÈNEMENTS'"
+            [textContent]="testCard.textContent"
+            [actionLabel]="'ALLER VOIR'"
+            (cardClickEvent)="navigateTo('/events')">
+        </app-picture-card>
+        <span fxFlex class="flex-item"></span>
+    </div>
+</ng-template>
+
+<ng-template #secondCard>
+    <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
+        <span fxFlex class="flex-item"></span>
+        <app-picture-card
+            [imgUrl]="testCard.imgUrl"
+            [icon]="'lightbulb_outline'"
+            [title]="'BONS PLANS'"
+            [textContent]="testCard.textContent"
+            [actionLabel]="'ALLER VOIR'"
+            (cardClickEvent)="navigateTo('/deals')">
+        </app-picture-card>
+        <span fxFlex class="flex-item"></span>
+    </div>
+</ng-template>
+
+<ng-template #thirdCard>
+    <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
+        <span fxFlex class="flex-item"></span>
+        <app-picture-card
+            [imgUrl]="testCard.imgUrl"
+            [icon]="'shopping_cart'"
+            [title]="'SHOP'"
+            [textContent]="testCard.textContent"
+            [actionLabel]="'ALLER VOIR'"
+            (cardClickEvent)="navigateTo('/shop')">
+        </app-picture-card>
+        <span fxFlex class="flex-item"></span>
+    </div>
+</ng-template>
+
+<div class="containerX home full-width" fxLayout="column">
+
     <div class="home__container-main-picture">
         <img src="" class="home__main-picture"/>
     </div>
-    <div class="containerX home__cards" fxHide.lt-xl fxLayout="row">
-        <div class="containerX flex-item" fxLayout="row" fxFlex>
-            <span fxFlex class="flex-item"></span>
-            <app-picture-card
-                [imgUrl]="testCard.imgUrl"
-                [icon]="'event'"
-                [title]="'ÉVÈNEMENTS'"
-                [textContent]="testCard.textContent"
-                [actionLabel]="'ALLER VOIR'"
-                (cardClickEvent)="navigateTo('/events')">
-            </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
-        <div class="containerX flex-item" fxLayout="row" fxFlex>
-            <span fxFlex class="flex-item"></span>
-                <app-picture-card
-                    [imgUrl]="testCard.imgUrl"
-                    [icon]="'lightbulb_outline'"
-                    [title]="'BONS PLANS'"
-                    [textContent]="testCard.textContent"
-                    [actionLabel]="'ALLER VOIR'"
-                    (cardClickEvent)="navigateTo('/deals')">
-                </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
-        <div class="containerX flex-item" fxLayout="row" fxFlex>
-            <span fxFlex class="flex-item"></span>
-                <app-picture-card
-                    [imgUrl]="testCard.imgUrl"
-                    [icon]="'shopping_cart'"
-                    [title]="'SHOP'"
-                    [textContent]="testCard.textContent"
-                    [actionLabel]="'ALLER VOIR'"
-                    (cardClickEvent)="navigateTo('/shop')">
-                </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
+
+    <div class="containerX home__cards" class.lt-xl="home__cards__hidden" fxLayout="row">
+        <ng-container *ngTemplateOutlet="firstCard"></ng-container>
+        <ng-container *ngTemplateOutlet="secondCard"></ng-container>
+        <ng-container *ngTemplateOutlet="thirdCard"></ng-container>
     </div>
-    <div class="containerX home__cards" fxHide.lt-lg fxHide.gt-lg>
+
+    <div class="containerX home__cards display__block" class.lt-lg="home__cards__hidden" class.gt-lg="hidden">
         <div class="containerX full-width" fxLayout="row">
-            <div class="containerX flex-item full-width" fxLayout="row">
-                <span fxFlex class="flex-item"></span>
-                <app-picture-card
-                    [imgUrl]="testCard.imgUrl"
-                    [icon]="'event'"
-                    [title]="'ÉVÈNEMENTS'"
-                    [textContent]="testCard.textContent"
-                    [actionLabel]="'ALLER VOIR'"
-                    (cardClickEvent)="navigateTo('/events')">
-                </app-picture-card>
-                <span fxFlex class="flex-item"></span>
-            </div>
-            <div class="containerX flex-item full-width" fxLayout="row">
-                <span fxFlex class="flex-item"></span>
-                    <app-picture-card
-                        [imgUrl]="testCard.imgUrl"
-                        [icon]="'lightbulb_outline'"
-                        [title]="'BONS PLANS'"
-                        [textContent]="testCard.textContent"
-                        [actionLabel]="'ALLER VOIR'"
-                        (cardClickEvent)="navigateTo('/deals')">
-                    </app-picture-card>
-                <span fxFlex class="flex-item"></span>
-            </div>
+            <ng-container *ngTemplateOutlet="firstCard"></ng-container>
+            <ng-container *ngTemplateOutlet="secondCard"></ng-container>
         </div>
-        <div class="containerX flex-item full-width" fxLayout="row">
-            <span fxFlex class="flex-item"></span>
-                <app-picture-card
-                    [imgUrl]="testCard.imgUrl"
-                    [icon]="'shopping_cart'"
-                    [title]="'SHOP'"
-                    [textContent]="testCard.textContent"
-                    [actionLabel]="'ALLER VOIR'"
-                    (cardClickEvent)="navigateTo('/shop')">
-                </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
+        <ng-container *ngTemplateOutlet="thirdCard"></ng-container>
     </div>
-    <div class="home__cards" fxHide.gt-md>
-        <div class="containerX flex-item full-width" fxLayout="row">
-            <span fxFlex class="flex-item"></span>
-            <app-picture-card
-                [imgUrl]="testCard.imgUrl"
-                [icon]="'event'"
-                [title]="'ÉVÈNEMENTS'"
-                [textContent]="testCard.textContent"
-                [actionLabel]="'ALLER VOIR'"
-                (cardClickEvent)="navigateTo('/events')">
-            </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
-        <div class="containerX flex-item full-width" fxLayout="row">
-            <span fxFlex class="flex-item"></span>
-                <app-picture-card
-                    [imgUrl]="testCard.imgUrl"
-                    [icon]="'lightbulb_outline'"
-                    [title]="'BONS PLANS'"
-                    [textContent]="testCard.textContent"
-                    [actionLabel]="'ALLER VOIR'"
-                    (cardClickEvent)="navigateTo('/deals')">
-                </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
-        <div class="containerX flex-item full-width" fxLayout="row">
-            <span fxFlex class="flex-item"></span>
-                <app-picture-card
-                    [imgUrl]="testCard.imgUrl"
-                    [icon]="'shopping_cart'"
-                    [title]="'SHOP'"
-                    [textContent]="testCard.textContent"
-                    [actionLabel]="'ALLER VOIR'"
-                    (cardClickEvent)="navigateTo('/shop')">
-                </app-picture-card>
-            <span fxFlex class="flex-item"></span>
-        </div>
+
+    <div class="home__cards display__block" class.gt-md="home__cards__hidden">
+        <ng-container *ngTemplateOutlet="firstCard"></ng-container>
+        <ng-container *ngTemplateOutlet="secondCard"></ng-container>
+        <ng-container *ngTemplateOutlet="thirdCard"></ng-container>
     </div>
 </div>

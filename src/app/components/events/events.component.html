@@ -1,4 +1,5 @@
 <div class="events">
+
     <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading == true">
         <span class="flex-item" fxFlex></span>
         <div class="flex-item">
@@ -6,11 +7,50 @@
         </div>
         <span class="flex-item" fxFlex></span>
     </div>
+
     <div [@loadedState]="loadedState">
-        <div *ngFor="let event of events" class="containerX" fxLayout="row">
-            <span fxFlex></span>
-            <app-event-card class="flex-item" [event]="event" *ngIf="!event.archived || event.archived == false"></app-event-card>
-            <span fxFlex></span>
+
+        <div *ngIf="passedEvents.length !== 0">
+            <div class="events__section__title">
+                PROCHAINEMENT
+            </div>
+            <div class="containerX events__container" fxLayout="row">
+                <div *ngFor="let event of passedEvents" id="current-events" class="events__card">
+                    <app-picture-card
+                        [links]="event.links"
+                        [imgUrl]="event.imgUrl"
+                        [title]="event.title"
+                        [textContent]="event.description"
+                        [actionLabel]="event.sub ? 'SE DÉSINSCRIRE' : 'S\'INSCRIRE'"
+                        [expandable]="true"
+                        [expandState]="'collapsed'"
+                        [titleOverPicture]="true"
+                        (cardClickEvent)="event.sub ? unsubscribe(event) : showSubscriptionDialog(event)">
+                    </app-picture-card>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="passedEvents.length !== 0">
+            <div class="events__section__title">
+                ÉVÈNEMENTS PASSÉS
+            </div>
+            <div class="containerX events__container" id="passed-events" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
+                <div *ngFor="let event of passedEvents" class="events__card flex-item containerX" fxFlex fxLayout="row">
+                    <span fxFlex class="flex-item"></span>
+                    <app-picture-card
+                        [links]="event.links"
+                        [imgUrl]="event.imgUrl"
+                        [title]="event.title"
+                        [textContent]="event.description"
+                        [expandable]="true"
+                        [expandState]="'collapsed'"
+                        [titleOverPicture]="true">
+                    </app-picture-card>
+                    <span fxFlex class="flex-item"></span>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>

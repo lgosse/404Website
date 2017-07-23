@@ -4,20 +4,24 @@
 @import 'src/app/theme.scss';
 @import 'src/app/global.scss';
 
+.small {
+    width    : 91% !important;
+}
+
+.small .card__title {
+    font-size      : 16px;    
+}
+
 .card {
-    margin: $md-mat-spacing;
     width    : 400px;
     overflow : hidden !important;
-
-    &__picture {
-        height : 175px;
-    }
 
     &__title {
         font-size      : 20px;
         color          : mat-color($bde-app-primary);
         padding-bottom : $sm-mat-spacing;
-        
+        white-space    : nowrap;
+
         &__label {
             bottom   : 4px;
             position : relative;
@@ -30,7 +34,7 @@
             margin-top       : -63px;
             width            : 100%;
             right            : 0;
-            height           : 24px;
+            height           : 43px;
 
             &__label {
                 color      : white;
@@ -47,10 +51,29 @@
         }
     }
 
+    &__container {
+        margin : 0 !important;
+    }
+
     &__content {
         font-size : 16px;
         color     : black;
         opacity   : 0.54;
+    }
+
+    &__toggle-button {
+        margin     : 5px 10px !important;
+        opacity    : 0.8;
+
+        &__icon {
+            margin-left  : -20px !important;
+            margin-top   : 5px !important;
+            font-size    : 45px;            
+        }
+    }
+
+    &__actions {
+        max-height : 66px !important;
     }
 
     &__action {
@@ -63,4 +86,13 @@
         margin-bottom  : $md-mat-spacing !important;
         padding-right  : $sm-mat-spacing !important;
     }
+}
+
+img {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+img.lazyloaded {
+    opacity: 1;
 }

@@ -72,6 +72,7 @@ import { OrdersComponent } from './components/shop/orders/orders.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/helpers/sidebar/sidebar.component';
 import { PictureCardComponent } from './components/helpers/picture-card/picture-card.component';
+import { LayoutService } from './services/shared/layout.service';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -146,7 +147,8 @@ Firebase.initializeApp(environment.firebase);
   providers: [
     UserService,
     ShopService,
-    SnacksService
+    SnacksService,
+    LayoutService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

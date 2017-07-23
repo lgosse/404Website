@@ -10,9 +10,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class UserService {
 
     public userChangeSource = new BehaviorSubject<any>(0);
-    public user: Observable<User> = this.userChangeSource.asObservable();
-    public userMailsList: FirebaseListObservable<any>;
-    public userMails: [any];
+    public user             : Observable<User> = this.userChangeSource.asObservable();
+    public userMailsList    : FirebaseListObservable<any>;
+    public userMails        : [any];
 
     constructor(
         private af: AngularFireDatabase

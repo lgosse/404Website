@@ -1,6 +1,7 @@
 @import 'src/app/global.scss';
 
 .home {
+
     &__container-main-picture {
         width : 100%;
         min-height       : 700px;
@@ -11,6 +12,19 @@
     }
     &__cards {
         padding : $gt-mat-spacing;
+
+        &__hidden {
+            display : none !important;
+        }
+    }
+    &__card {
+        margin: $gt-mat-spacing;
+    }
+}
+
+.display {
+    &__block {
+        display : block !important;
     }
 }
 

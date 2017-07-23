@@ -32,7 +32,7 @@ export class EventCardComponent implements OnInit {
     eventKey: string;
     loginKey: string;
     loaded: boolean = false;
-    mailingList: [User];
+    mailingList: any[];
 
     constructor(
         public dialog: MdDialog,

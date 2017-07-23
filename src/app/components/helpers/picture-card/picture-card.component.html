@@ -1,5 +1,5 @@
-<md-card class="card">
-    <img class="card__picture" mdCardImage [src]="imgUrl">
+<md-card class="card" class.xs="small">
+    <img class="card__picture" mdCardImage [src]="imgUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded' : loaded }">
     <div class="card__title__alt" *ngIf="titleOverPicture === true">
     </div>
     <span class="card__title__alt__label" *ngIf="titleOverPicture === true">
@@ -13,7 +13,7 @@
             {{ title }}
         </span>
     </span>
-    <div class="containerX" fxLayout="row" *ngIf="links">
+    <div class="containerX" fxLayout="row" *ngIf="links" fxLayoutWrap>
         <div *ngFor="let link of links">
             <a md-button color="primary" class="card__links" [href]="link.href">
                 <md-icon *ngIf="link.icon">
@@ -25,7 +25,7 @@
             </a>
         </div>
     </div>
-    <md-card-content *ngIf="title || textContent || actionLabel">
+    <md-card-content class="card__container" *ngIf="title || textContent || actionLabel">
         <div class="card__title" *ngIf="titleOverPicture === false && title">
             <md-icon *ngIf="icon">
                 {{ icon }}
@@ -37,12 +37,18 @@
                 {{ title }}
             </span>
         </div>
-        <div class="card__content" *ngIf="textContent">
+        <div class="card__content" *ngIf="textContent" [@expand]="expandState">
             {{ textContent }}
         </div>
     </md-card-content>
-    <md-card-actions align="end" *ngIf="actionLabel">
-        <button md-raised-button color="primary" class="card__action" (click)="transmitEvent(event)">
+    <md-card-actions align="end" *ngIf="actionLabel || expandable" class="containerX card__actions">
+        <button md-icon-button (click)="toggleCard()" class="card__toggle-button" *ngIf="expandable">
+            <md-icon class="card__toggle-button__icon">
+                {{ arrowIcon }}
+            </md-icon>
+        </button>
+        <span fxFlex class="flex-item"></span>
+        <button md-raised-button color="primary" class="card__action" (click)="transmitEvent(event)" *ngIf="actionLabel">
             {{ actionLabel }}
         </button>
     </md-card-actions>
