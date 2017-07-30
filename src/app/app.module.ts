@@ -22,7 +22,6 @@ import { EventsComponent } from 'app/components/events/events.component';
 import { FamiliesComponent } from 'app/components/families/families.component';
 import { MemberCardComponent } from './components/member-card/member-card.component';
 import { PartnersComponent } from './components/partners/partners.component';
-import { PartnerCardComponent } from './components/partner-card/partner-card.component';
 import { ProgramComponent } from './components/program/program.component';
 import { ProgramCardComponent } from './components/program-card/program-card.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -47,7 +46,6 @@ import { SubscriptionsOfficeComponent } from './components/back-office/subscript
 import { EventSubscriptionComponent } from './components/back-office/event-subscription/event-subscription.component';
 import { SubscriptionLoginComponent } from './components/back-office/subscription-login/subscription-login.component';
 import { DealsComponent } from './components/deals/deals.component';
-import { DealCardComponent } from './components/deal-card/deal-card.component';
 import { DealsOfficeComponent } from './components/back-office/deals-office/deals-office.component';
 import { NewDealFormComponent } from './components/back-office/new-deal-form/new-deal-form.component';
 import { DealFormComponent } from './components/back-office/deal-form/deal-form.component';
@@ -69,6 +67,12 @@ import { BasketComponent } from './components/shop/basket/basket.component';
 import { ArticleAddFormComponent } from './components/shop/article-card/article-add-form/article-add-form.component';
 import { OrderDialogComponent } from './components/shop/basket/order-dialog/order-dialog.component';
 import { OrdersComponent } from './components/shop/orders/orders.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { SidebarComponent } from './components/helpers/sidebar/sidebar.component';
+import { PictureCardComponent } from './components/helpers/picture-card/picture-card.component';
+import { LayoutService } from './services/shared/layout.service';
+import { VideosComponent } from './components/videos/videos.component';
+import { VideoCardComponent } from './components/helpers/video-card/video-card.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -81,7 +85,6 @@ Firebase.initializeApp(environment.firebase);
     FamiliesComponent,
     MemberCardComponent,
     PartnersComponent,
-    PartnerCardComponent,
     ProgramComponent,
     ProgramCardComponent,
     FooterComponent,
@@ -106,7 +109,6 @@ Firebase.initializeApp(environment.firebase);
     EventSubscriptionComponent,
     SubscriptionLoginComponent,
     DealsComponent,
-    DealCardComponent,
     DealsOfficeComponent,
     NewDealFormComponent,
     DealFormComponent,
@@ -122,7 +124,12 @@ Firebase.initializeApp(environment.firebase);
     BasketComponent,
     ArticleAddFormComponent,
     OrderDialogComponent,
-    OrdersComponent
+    OrdersComponent,
+    LayoutComponent,
+    SidebarComponent,
+    PictureCardComponent,
+    VideosComponent,
+    VideoCardComponent
   ],
   imports: [
     BrowserModule,
@@ -140,7 +147,8 @@ Firebase.initializeApp(environment.firebase);
   providers: [
     UserService,
     ShopService,
-    SnacksService
+    SnacksService,
+    LayoutService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

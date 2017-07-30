@@ -1,0 +1,160 @@
+// Import theming functions
+@import '~@angular/material/theming';
+// Import your custom theme
+@import 'src/app/theme.scss';
+@import 'src/app/global.scss';
+
+.sidebar {
+    background-color : mat-color($bde-app-primary);
+    width            : 100%;
+    min-width        : 220px;
+    max-width        : 220px;
+    height           : 100%;
+    min-height       : 650px;
+}
+
+.logo {
+    &__container {
+        height         : 132px;
+    }
+
+    &__header {
+        max-height     : 88px;
+        padding        : $md-mat-spacing;
+        padding-bottom : $gt-mat-spacing;
+    }
+}
+
+.menu {
+    &__main {
+
+        &__toggle-group {
+            width      : 100%;
+            box-shadow : none !important;
+        }
+
+        &__menu-item {
+            padding-bottom: 6px;
+            :hover {
+                .menu__main__menu-item__label {
+                    color :  mat-color($bde-app-primary) !important;
+                }
+            }
+
+            &__label {
+                padding-left : 30px;
+                color        : white;
+            }
+        }
+    }
+
+    &__bottom {
+        position       : fixed;
+        bottom         : 0;
+        padding-bottom : $gt-mat-spacing;
+
+        &__login {
+            text-align : left;
+            width      : 188px;
+            margin     : $md-mat-spacing;
+
+            &__label {
+                color : mat-color($bde-app-primary);
+            }
+
+            &__icon {
+                color : mat-color($bde-app-primary);
+            }
+        }
+
+        &__welcome {
+            padding-left: $md-mat-spacing;
+            &__label {
+                color : white;
+            }
+        }
+    }
+}
+
+.active {
+    .menu__main {
+
+        &__menu-item {
+
+            &__label {
+                color : mat-color($bde-app-primary); 
+            }
+        }
+    }
+}
+
+img {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+img.lazyloaded {
+    opacity: 1;
+}
+
+/**
+ * footer styles
+ */
+.wrapper i:nth-child(1).facebook {
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all ease-in-out 150ms;
+}
+
+.wrapper i:nth-child(1).snapchat {
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all ease-in-out 150ms;
+}
+
+.wrapper i:nth-child(1):hover {
+    margin-top: -10px;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transform: translate(0, -8);
+}
+
+.wrapper i:nth-child(2) {
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all ease-in-out 150ms;
+}
+
+.wrapper i:nth-child(2):hover {
+    margin-top: -10px;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transform: translate(0, -8);
+}
+
+.wrapper i:nth-child(3) {
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all ease-in-out 150ms;
+}
+
+.wrapper i:nth-child(3):hover {
+    margin-top: -10px;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transform: translate(0, -8);
+}
+
+.wrapper i:nth-child(4) {
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all ease-in-out 150ms;
+}
+
+.wrapper i:nth-child(4):hover {
+    margin-top: -10px;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transform: translate(0, -8);
+}

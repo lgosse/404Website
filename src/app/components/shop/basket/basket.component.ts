@@ -34,7 +34,6 @@ export class BasketComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             if (result === 'validate order') {
                 this.order = new Order(this.basket, this.shopService);
-                console.log(this.order);
                 this.shopService.sendOrder(this.order);
                 this.basket.removeArticles();
                 this.basket.updateFirebase();

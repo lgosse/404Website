@@ -1,0 +1,13 @@
+<div class="containerX app__content" fxLayout="row">
+    <md-sidenav-container class="app__content">
+        <md-sidenav [mode]="sidenavMode" [opened]="sidenavOpen" class="mat-elevation-z8" #sidenav>
+            <app-sidebar></app-sidebar>
+        </md-sidenav>
+        <div class="app__content_view">
+            <button md-fab (click)="sidenav.open()" color="primary" class="layout__fab" *ngIf="showFab">
+                <md-icon class="md-24">menu</md-icon>
+            </button>
+            <router-outlet></router-outlet>
+        </div>
+    </md-sidenav-container>
+</div>

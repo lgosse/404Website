@@ -1,5 +1,19 @@
+@import 'src/app/global.scss';
+// Import theming functions
+@import '~@angular/material/theming';
+// Import your custom theme
+@import 'src/app/theme.scss';
+
 .partner {
     &__spinner {
-        padding-top: 100px;
+        padding-top : 100px;
+    }
+
+    &__container {
+        padding : $md-mat-spacing;
+    }
+
+    &__card {
+        padding   : $md-mat-spacing;
     }
 }

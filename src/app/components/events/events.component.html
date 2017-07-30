@@ -1,4 +1,5 @@
 <div class="events">
+
     <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading == true">
         <span class="flex-item" fxFlex></span>
         <div class="flex-item">
@@ -6,11 +7,53 @@
         </div>
         <span class="flex-item" fxFlex></span>
     </div>
+
     <div [@loadedState]="loadedState">
-        <div *ngFor="let event of events" class="containerX" fxLayout="row">
-            <span fxFlex></span>
-            <app-event-card class="flex-item" [event]="event" *ngIf="!event.archived || event.archived == false"></app-event-card>
-            <span fxFlex></span>
+
+        <div>
+            <div class="events__section__title">
+                PROCHAINEMENT
+            </div>
+            <div class="events__waiting">
+                Reviens régulièrement pour voir les nouveaux évènements qu'on vous propose !
+            </div>
+            <div class="containerX events__container" fxLayout="row" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
+                <div *ngFor="let event of currentEvents" id="current-events" class="events__card">
+                    <app-picture-card
+                        [links]="event.links"
+                        [imgUrl]="event.imgUrl"
+                        [title]="event.title"
+                        [textContent]="event.description"
+                        [actionLabel]="isSubbedAtEvent(event) ? 'SE DÉSINSCRIRE' : 'S\'INSCRIRE'"
+                        [expandable]="true"
+                        [expandState]="'collapsed'"
+                        [titleOverPicture]="true"
+                        [isEvent]="true"
+                        (cardClickEvent)="isSubbedAtEvent(event) ? unsubscribe(event) : subscribe(event)">
+                    </app-picture-card>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="passedEvents.length !== 0">
+            <div class="events__section__title">
+                ÉVÈNEMENTS PASSÉS
+            </div>
+            <div class="containerX events__container" id="passed-events" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
+                <div *ngFor="let event of passedEvents" class="events__card">
+                    <app-picture-card
+                        [links]="event.links"
+                        [imgUrl]="event.imgUrl"
+                        [title]="event.title"
+                        [textContent]="event.description"
+                        [expandable]="true"
+                        [expandState]="'collapsed'"
+                        [isEvent]="true"
+                        [titleOverPicture]="true">
+                    </app-picture-card>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>

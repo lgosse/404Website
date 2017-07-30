@@ -9,4 +9,6 @@ export class EventBde {
     hasTickets: boolean;
     tickets: string;
     archived?: boolean;
+    sub?: boolean;
+    links?: any;
 }

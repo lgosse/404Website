@@ -22,7 +22,6 @@ export class ShopService {
 
     public sendOrder(order: Order): void {
         let firebaseOrder = new FirebaseOrder(order);
-        console.log(firebaseOrder);
 
         this.af.list(`/orders/${order.getCustomerId()}`)
             .push(firebaseOrder);

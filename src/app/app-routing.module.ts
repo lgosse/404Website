@@ -12,6 +12,8 @@ import { LoginComponent } from 'app/components/login/login.component';
 import { DealsComponent } from 'app/components/deals/deals.component';
 import { FaqComponent } from 'app/components/faq/faq.component';
 import { ShopComponent } from 'app/components/shop/shop.component';
+import { IdeaBoxComponent } from 'app/components/idea-box/idea-box.component';
+import { VideosComponent } from 'app/components/videos/videos.component';
 
 import { BackOfficeComponent } from 'app/components/back-office/back-office.component';
 import { MessagesComponent } from 'app/components/back-office/messages/messages.component';
@@ -48,6 +50,10 @@ const routes: Routes = [
             component:  TeamComponent
         },
         {
+            path:       'idea',
+            component:  IdeaBoxComponent
+        },
+        {
             path:       'home',
             component:  HomeComponent
         },
@@ -62,6 +68,10 @@ const routes: Routes = [
         {
             path:       'events',
             component:  EventsComponent
+        },
+        {
+            path:       'videos',
+            component:  VideosComponent
         },
         {
             path:       'partners',

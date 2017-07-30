@@ -12,15 +12,15 @@ export class MailingListsService {
         private http: Http
     ) { }
 
-    getMailingsLists(): FirebaseListObservable<[[User]]> {
+    getMailingsLists(): FirebaseListObservable<[any[]]> {
         return this.af.list('/mails');
     }
 
-    getMailingListByName(listKey: string): FirebaseListObservable<[User]> {
+    getMailingListByName(listKey: string): FirebaseListObservable<any[]> {
         return this.af.list('/mails/' + listKey);
     }
 
-    getMailingListUser(listKey: string, user: string): FirebaseObjectObservable<User> {
+    getMailingListUser(listKey: string, user: string): FirebaseObjectObservable<any> {
         return this.af.object('/mails/' + listKey + '/' + user);
     }
 
