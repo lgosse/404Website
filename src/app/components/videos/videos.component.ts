@@ -17,6 +17,7 @@ export class VideosComponent implements OnInit {
 
     public youtubePlayer;
 
+    public loadedState   : string = 'loading';
     public videos       : Video[];
     public currentVideo : Video;
 
@@ -34,6 +35,7 @@ export class VideosComponent implements OnInit {
         this.videosService.getVideos().subscribe(videos => {
             this.videos = videos;
             this.playVideo(this.videos[0]);
+            this.loadedState   = 'loaded';
         });
     }
 
