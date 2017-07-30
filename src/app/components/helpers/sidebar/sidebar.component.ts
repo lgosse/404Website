@@ -12,6 +12,7 @@ import { DialogContactComponent } from 'app/components/dialog-contact/dialog-con
 import { IntraApiService } from 'app/services/intra-api.service';
 import { UserService } from 'app/services/shared/user.service';
 import { SnacksService } from 'app/services/snacks.service';
+import { LayoutService } from 'app/services/shared/layout.service';
 import { User } from 'app/classes/user';
 import { environment } from 'environments/environment';
 
@@ -70,6 +71,7 @@ export class SidebarComponent implements OnInit {
             name: 'UNE IDÉE ?'
         }
     ];
+    private mq: string;
 
     constructor(
         public dialog           : MdDialog,
@@ -77,7 +79,8 @@ export class SidebarComponent implements OnInit {
         private route           : ActivatedRoute,
         private router          : Router,
         private intraApiService : IntraApiService,
-        private userService     : UserService
+        private userService     : UserService,
+        private layoutService   : LayoutService
     ) { }
 
     ngOnInit() {
@@ -104,6 +107,9 @@ export class SidebarComponent implements OnInit {
             }
         });
     
+        this.layoutService.layout.subscribe(layout => {
+            this.mq = layout;
+        });
     }
 
     openDialog(): void {
@@ -147,6 +153,12 @@ export class SidebarComponent implements OnInit {
                 
             }
         });
+    }
+
+    public closeSidenav(): void {
+        if (this.mq === 'xs' || this.mq === 'sm') {
+            this.sidenav.close()
+        }
     }
 
     logout(): void {
