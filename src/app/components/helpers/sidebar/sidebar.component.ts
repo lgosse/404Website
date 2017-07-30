@@ -42,6 +42,10 @@ export class SidebarComponent implements OnInit {
             name: 'L\'ÉQUIPE'
         },
         {
+            link: 'videos',
+            name: 'VIDÉOS'
+        },
+        {
             link: 'partners',
             name: 'PARTNERAIRES'
         },
@@ -56,6 +60,10 @@ export class SidebarComponent implements OnInit {
         {
             link: 'faq',
             name: 'FAQ'
+        },
+        {
+            link: 'idea',
+            name: 'UNE IDÉE ?'
         }
     ];
 
@@ -72,6 +80,7 @@ export class SidebarComponent implements OnInit {
 
         this.userService.user.subscribe(user => {
             this.user = user;
+            console.log(user);
         })
 
         this.login();

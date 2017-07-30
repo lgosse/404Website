@@ -20,20 +20,20 @@
         </md-button-toggle-group>
     </div>
     <div class="menu__bottom">
-        <div class="menu__bottom__welcome" *ngIf="user">
+        <div class="menu__bottom__welcome" *ngIf="user.isAuthenticated">
             <span class="mat-title menu__bottom__welcome__label">
                 Bonjour {{ user.firstName }} !
             </span>
         </div>
-        <button class="menu__bottom__login" (click)="login()" *ngIf="!user" md-raised-button>
+        <a class="menu__bottom__login" [href]="intraRedirectUrl" *ngIf="!user.isAuthenticated" md-raised-button>
             <md-icon class="menu__bottom__login__icon">
                 person
             </md-icon>
             <span class="mat-title menu__bottom__login__label">
                 LOGIN
             </span>
-        </button>
-        <button class="menu__bottom__login" (click)="logout()" *ngIf="user" md-raised-button>
+        </a>
+        <button class="menu__bottom__login" (click)="logout()" *ngIf="user.isAuthenticated" md-raised-button>
             <md-icon class="menu__bottom__login__icon">
                 exit_to_app
             </md-icon>

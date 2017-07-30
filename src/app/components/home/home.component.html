@@ -2,11 +2,11 @@
     <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
         <span fxFlex class="flex-item"></span>
         <app-picture-card
-            [imgUrl]="testCard.imgUrl"
-            [icon]="'event'"
-            [title]="'ÉVÈNEMENTS'"
-            [textContent]="testCard.textContent"
-            [actionLabel]="'ALLER VOIR'"
+            [imgUrl]="eventCard.imgUrl"
+            [icon]="eventCard.icon"
+            [title]="eventCard.title"
+            [textContent]="eventCard.textContent"
+            [actionLabel]="eventCard.actionLabel"
             (cardClickEvent)="navigateTo('/events')">
         </app-picture-card>
         <span fxFlex class="flex-item"></span>
@@ -17,11 +17,11 @@
     <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
         <span fxFlex class="flex-item"></span>
         <app-picture-card
-            [imgUrl]="testCard.imgUrl"
-            [icon]="'lightbulb_outline'"
-            [title]="'BONS PLANS'"
-            [textContent]="testCard.textContent"
-            [actionLabel]="'ALLER VOIR'"
+            [imgUrl]="dealCard.imgUrl"
+            [icon]="dealCard.icon"
+            [title]="dealCard.title"
+            [textContent]="dealCard.textContent"
+            [actionLabel]="dealCard.actionLabel"
             (cardClickEvent)="navigateTo('/deals')">
         </app-picture-card>
         <span fxFlex class="flex-item"></span>
@@ -32,11 +32,11 @@
     <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
         <span fxFlex class="flex-item"></span>
         <app-picture-card
-            [imgUrl]="testCard.imgUrl"
-            [icon]="'shopping_cart'"
-            [title]="'SHOP'"
-            [textContent]="testCard.textContent"
-            [actionLabel]="'ALLER VOIR'"
+            [imgUrl]="shopCard.imgUrl"
+            [icon]="shopCard.icon"
+            [title]="shopCard.title"
+            [textContent]="shopCard.textContent"
+            [actionLabel]="shopCard.actionLabel"
             (cardClickEvent)="navigateTo('/shop')">
         </app-picture-card>
         <span fxFlex class="flex-item"></span>
@@ -46,7 +46,7 @@
 <div class="containerX home full-width" fxLayout="column">
 
     <div class="home__container-main-picture">
-        <img src="" class="home__main-picture"/>
+        <img [src]="homeMainPicUrl" class="home__main-picture" (load)="loaded = true" [ngClass]="{ 'lazyloaded': loaded }"/>
     </div>
 
     <div class="containerX home__cards" class.lt-xl="home__cards__hidden" fxLayout="row">

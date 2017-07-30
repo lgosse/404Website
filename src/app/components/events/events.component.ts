@@ -34,6 +34,7 @@ export class EventsComponent implements OnInit {
     public passedEvents  : EventBde[] = [];
     public currentEvents : EventBde[] = [];
     public party         : EventBde = null;
+    public subscriptions : any;
 
     constructor(
         private datePipe            : DatePipe,
@@ -46,9 +47,13 @@ export class EventsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.getUserInfos();
-
         this.getEvents();
+        this.userService.user.subscribe((user) => {
+            this.user = user;
+        });
+        this.subscriptionService.getSubscriptions().subscribe(subscriptions => {
+            this.subscriptions = subscriptions;
+        });
     }
 
     public isPassed(date: Date): boolean {
@@ -62,43 +67,12 @@ export class EventsComponent implements OnInit {
         }
     }
 
-    private sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
-        const now       = new Date();
-        let date1 = new Date(firstEvent.date);
-        let date2 = new Date(secondEvent.date);
-
-        return (date1.getTime() - date2.getTime());
-    }
-
-    private getUserInfos(): void {
-        this.userService.user.subscribe((user) => {
-            this.user = user;
-
-            if (!user || !user.isAuthenticated) {
-                return ;
-            }
-
-            for (let event of this.currentEvents) {
-                this.subscriptionService.getSubscriptionsEventLogins(event.title)
-                    .subscribe(logins => {
-
-                        for (let login of logins) {
-                            if (login.$value === this.user.login) {
-                                event.sub      = true;
-                            } else {
-                                event.sub      = false;
-                            }
-                        }
-
-                    });
-            }
-        });
-    }
-
     private getEvents(): void {
         this.eventsService.getEvents()
             .subscribe(events => {
 
+                this.passedEvents.length = 0;
+                this.currentEvents.length = 0;
                 for (let event of events) {
 
                     event.links = [
@@ -138,57 +112,92 @@ export class EventsComponent implements OnInit {
         return `${startDate}/${endDate}`;
     }
 
-    showSubscriptionDialog(event: EventBde): void {
+    private sortByDate(firstEvent: EventBde, secondEvent: EventBde): number {
+        const now       = new Date();
+        let date1 = new Date(firstEvent.date);
+        let date2 = new Date(secondEvent.date);
 
-        if (this.user.isAuthenticated === false) {
-            this.snacksService.openSnackBar('Connecte toi pour t\'inscrire à cet event !', 'FERMER');
+        return (date1.getTime() - date2.getTime());
+    }
 
-            return ;
+    isSubbedAtEvent(event: EventBde): boolean {
+        if (!this.subscriptions) {
+            return false;
         }
 
-        this.mailingListsService.getMailingListByName(event.title).subscribe(list => {
-            this.subscriptionService.subscribe(event.title, this.user.login);
-            event.sub = true;
+        let eventSubs = null;
+        for (let sub of this.subscriptions) {
+            if (sub.$key === event.title) {
+                eventSubs = sub;
+            }
+        }
+        if (!eventSubs) {
+            return false;
+        }
 
-            let dialogRef = this.dialog.open(EventSubscribingComponent);
+        for (let subKey of Object.keys(eventSubs)) {
+            if (eventSubs[subKey].login &&
+                eventSubs[subKey].login === this.user.login &&
+                eventSubs[subKey].archived === false) {
+                return true;
+            }
 
-            for (let user of list) {
-                if (user.login === this.user.login) {
-                    this.mailingListsService.updateMail(event.title, user.$key, {
-                        isAuthenticated: true,
-                        firstName: user.firstName,
-                        lastName: user.lastName,
-                        login: user.login,
-                        email: user.email
-                    })
-                    return ;
+            if (eventSubs[subKey] === this.user.login) {
+                return true;
+            }
+        };
+
+        return false;
+    };
+
+    public async subscribe(event: EventBde) {
+        let mailKey = '';
+        await this.mailingListsService.getMailingListByName(event.title).subscribe(list => {
+            list.map(mail => {
+                if (mail.login === this.user.login) {
+                    mailKey = mail.$key;
                 }
-            };
-
+            })
+        }).unsubscribe();
+        if (mailKey !== '') {
             this.mailingListsService.addMailComplete(event.title, this.user);
-        })
+        } else {
+            this.mailingListsService.updateMail(event.title, mailKey, this.user);
+        }
+
+        this.subscriptionService.subscribe(event.title, this.user.login);
+        let dialogRef = this.dialog.open(EventSubscribingComponent);
     }
 
-    unsubscribe(event: EventBde): void {
-        this.subscriptionService.removeSubscriptionsEventLogin(this.user.login, event.title);
-
-        this.mailingListsService.getMailingListByName(event.title).subscribe(list => {
-            for (let user of list) {
-                if (user.login === this.user.login) {
-                    this.mailingListsService.updateMail(event.title, user.$key, {
-                        isAuthenticated: false,
-                        firstName: user.firstName,
-                        lastName: user.lastName,
-                        login: user.login,
-                        email: user.email
-                    })
-                    break ;
+    public async unsubscribe(event: EventBde) {
+        let mailKey = '';
+        await this.mailingListsService.getMailingListByName(event.title).subscribe(list => {
+            list.map(mail => {
+                if (mail.login === this.user.login) {
+                    mailKey = mail.$key;
                 }
-            };
-        });
+            })
+        }).unsubscribe();
+        if (mailKey !== '') {
+            this.mailingListsService.updateMail(event.title, mailKey, { isAuthenticated: false });
+        }
 
-        this.snacksService.openSnackBar('Tu as bien été désinscrit de l\'évènement', 'FERMER');
+        let subKey = '';
+        await this.subscriptionService.getSubscriptionsEventLogins(event.title).subscribe(list => {
+            list.map(user => {
+                if (user.$value === this.user.login) {
+                    subKey = user.$key;
+                }
+
+                if (user.login && user.login === this.user.login) {
+                    subKey = user.$key;
+                }
+            });
+        }).unsubscribe();
+        if (subKey !== '') {
+            this.subscriptionService.removeSubscriptionsEventLogin(subKey, event.title);
+            this.snacksService.openSnackBar('Tu as bien été désinscrit de l\'évènement.');
+        }
     }
-
 
 }

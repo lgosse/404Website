@@ -1,5 +1,5 @@
-<md-card class="card" class.xs="small">
-    <img class="card__picture" mdCardImage [src]="imgUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded' : loaded }">
+<md-card class="card" class.xs="small" [ngClass]="{ 'card__partner' : isPartner }">
+    <img class="card__picture" mdCardImage [src]="imgUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded' : loaded, 'card__picture__250px': isEvent, 'card__picture__348px': isPartner }">
     <div class="card__title__alt" *ngIf="titleOverPicture === true">
     </div>
     <span class="card__title__alt__label" *ngIf="titleOverPicture === true">

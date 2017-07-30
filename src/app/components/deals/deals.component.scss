@@ -1,3 +1,8 @@
+@import 'src/app/global.scss';
 .deals {
     padding: 10px 20px 10px 20px;
+
+    &__card {
+        margin : $md-mat-spacing;
+    }
 }

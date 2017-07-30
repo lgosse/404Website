@@ -13,26 +13,34 @@ import { LoadedAnimation } from 'app/constants/loaded-animation';
 })
 export class HomeComponent implements OnInit {
 
-    public testCard = {
-        imgUrl: 'https://rokyroxane.com/wp-content/uploads/2016/12/events-heavenly-header.jpg',
-        icon: 'person',
-        title: 'THIS IS A TEST',
-        textContent: 'Tu aimes les pizzas et tu aimes la bière ? Le 20 juin à partir de 18h, nous te proposons un afterwork-rencontre avec notre partenaire Side dans une ambiance chill et décontractée. Notre partenaire Gunnar sera aussi présent. Nous vous organisons un petit concours avec cadeaux à gagner alors ne manquez pas ça !',
-        actionLabel: 'TEST CLICK',
-        titleOverPicture: true,
-        links: [
-            {
-                icon: 'event',
-                name: '27 Mai 2017',
-                href: 'testLink'
-            },
-            {
-                icon: 'location_on',
-                name: 'École 42',
-                href: 'testLink'
-            }
-        ]
+    public homeMainPicUrl : string = 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fphotosoiree.jpg?alt=media&token=03709f38-1d99-415f-bd3b-8178a84c3f59';
+
+    public eventCard = {
+        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fsoiree_home.jpg?alt=media&token=8935ad7d-e0ba-4fe0-8cd5-ba1bce86f2ed',
+        icon             : 'event',
+        title            : 'ÉVÈNEMENTS',
+        textContent      : 'En plus des quatre soirées de mars, juin, octobre et décembre, nous avons l’intention d‘organiser davantage de petits évènements aux thèmes divers et variés : une soirée détente par mois dans un bar privatisé, des sorties type paintball ou encore laser game et deux voyages : l’intégration et un voyage au ski en mars.',
+        actionLabel      : 'ALLER VOIR',
+        titleOverPicture : true
     };
+
+    public dealCard = {
+        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fbonsplans_home.jpg?alt=media&token=3efa7b73-466d-4c51-bff5-b448c88baa4d',
+        icon             : 'lightbulb_outline',
+        title            : 'BONS PLANS',
+        textContent      : 'Ton BDE te négocie aussi pleins de bons plans pour agrémenter ton quotidien d\'étudiant: pizzas, permis, lunettes, taxis de fin de soirée à prix réduits...',
+        actionLabel      : 'J\'EN PROFITE',
+        titleOverPicture : true
+    }
+
+    public shopCard = {
+        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F42_pull.jpg?alt=media&token=836a22d9-d588-4d88-8cfc-99a835f60ee6',
+        icon             : 'shopping_cart',
+        title            : 'SHOP',
+        textContent      : 'Ici tu pourras trouver des pulls, t-shirts accessoires et autres estampillés 42',
+        actionLabel      : 'J\'EN VEUX UN',
+        titleOverPicture : true
+     }
 
     constructor(
         private route: ActivatedRoute,

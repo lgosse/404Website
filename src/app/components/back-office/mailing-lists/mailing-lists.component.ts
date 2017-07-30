@@ -13,7 +13,7 @@ import { User } from 'app/classes/user';
 })
 export class MailingListsComponent implements OnInit {
 
-    mailingLists: [[User]];
+    mailingLists: [User[]];
     listTyped: string = '';
     mailTyped: string = '';
 

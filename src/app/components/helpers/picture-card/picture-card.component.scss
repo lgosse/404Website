@@ -16,6 +16,19 @@
     width    : 400px;
     overflow : hidden !important;
 
+    &__partner {
+        max-width : 300px !important;
+    }
+
+    &__picture__348px {
+        height : 348px
+    }
+
+    &__picture__250px {
+        height     : 250px !important;
+        max-height : 250px !important;
+    }
+
     &__title {
         font-size      : 20px;
         color          : mat-color($bde-app-primary);
@@ -85,6 +98,11 @@
         padding        : 0 !important;
         margin-bottom  : $md-mat-spacing !important;
         padding-right  : $sm-mat-spacing !important;
+
+        &__label {
+            white-space : initial;
+            word-wrap   : break-word;
+        }
     }
 }
 

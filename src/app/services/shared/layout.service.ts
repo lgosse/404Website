@@ -14,7 +14,6 @@ export class LayoutService {
 
     constructor(media: ObservableMedia) {
         this.watcher = media.subscribe((change: MediaChange) => {
-            console.log(change.mqAlias);
             this.activeMediaQuery = change ? `'${change.mqAlias}' = (${change.mediaQuery})` : "";
             this.layoutChangeSource.next(change.mqAlias);
         });

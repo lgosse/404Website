@@ -28,6 +28,10 @@ export class PictureCardComponent implements OnInit {
     public expandable       : boolean = false;
     @Input()
     public expandState      : string = 'expanded';
+    @Input()
+    public isEvent          : boolean = false;
+    @Input()
+    public isPartner        : boolean = false;
     @Output()
     private cardClickEvent  = new EventEmitter<string>();
 
