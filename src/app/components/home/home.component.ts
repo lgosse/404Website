@@ -13,6 +13,7 @@ import { LoadedAnimation } from 'app/constants/loaded-animation';
 })
 export class HomeComponent implements OnInit {
 
+    public loaded         : boolean = false;
     public homeMainPicUrl : string = 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fphotosoiree.jpg?alt=media&token=03709f38-1d99-415f-bd3b-8178a84c3f59';
 
     public eventCard = {

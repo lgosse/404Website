@@ -36,6 +36,7 @@ export class PictureCardComponent implements OnInit {
     private cardClickEvent  = new EventEmitter<string>();
 
     public arrowIcon        : string = 'keyboard_arrow_down';
+    public loaded           : boolean = false;
 
     constructor() { }
 
