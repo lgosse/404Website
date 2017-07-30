@@ -1,7 +1,7 @@
 <div class="containerX app__content" fxLayout="row">
     <md-sidenav-container class="app__content">
-        <md-sidenav [mode]="sidenavMode" [opened]="sidenavOpen" class="mat-elevation-z8" #sidenav>
-            <app-sidebar></app-sidebar>
+        <md-sidenav [mode]="sidenavMode" [opened]="sidenavOpen" class="mat-elevation-z8" style="background-color: #f9a825" #sidenav>
+            <app-sidebar [sidenav]="sidenav"></app-sidebar>
         </md-sidenav>
         <div class="app__content_view">
             <button md-fab (click)="sidenav.open()" color="primary" class="layout__fab" *ngIf="showFab">

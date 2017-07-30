@@ -1,9 +1,9 @@
 // Angular core dependencies
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 // Other dependencies
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { MdDialog, MdDialogRef, MdSnackBar, MdSidenav } from '@angular/material';
 import { Observable, Subject } from 'rx';
 import * as Firebase from 'firebase';
 
@@ -28,6 +28,9 @@ export class SidebarComponent implements OnInit {
     public user             : User = null;
     public intraRedirectUrl : string = environment.intraRedirectUrl;
     public params           : any;
+
+    @Input()
+    public sidenav: MdSidenav;
 
     public mainMenus = [
         {
