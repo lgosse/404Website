@@ -10,7 +10,7 @@
     <div class="menu__main">
         <md-button-toggle-group class="menu__main__toggle-group no-border" vertical="true">
             <div *ngFor="let menuItem of mainMenus" class="menu__main__menu-item">
-                <md-button-toggle class="md-button" [routerLink]="menuItem.link" (click)="sidenav.close()" routerLinkActive="active" active="active">
+                <md-button-toggle class="md-button" [routerLink]="menuItem.link" (click)="closeSidenav()" routerLinkActive="active" active="active">
                     <span class="mat-title menu__main__menu-item__label">
                         {{ menuItem.name }}
                     </span>
