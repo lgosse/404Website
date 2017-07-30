@@ -23,6 +23,7 @@ import { environment } from 'environments/environment';
 })
 export class SidebarComponent implements OnInit {
 
+    public loaded           : boolean = false;
     public admin            : boolean = false;
     public user             : User = null;
     public intraRedirectUrl : string = environment.intraRedirectUrl;
