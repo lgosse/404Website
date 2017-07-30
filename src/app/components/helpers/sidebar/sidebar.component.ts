@@ -152,4 +152,8 @@ export class SidebarComponent implements OnInit {
         window.location.href = window.location.pathname;
     }
 
+    navigateTo(route: string): void {
+        this.router.navigate([route]);
+    }
+
 }
