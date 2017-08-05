@@ -52,7 +52,7 @@ export class SidebarComponent implements OnInit {
         },
         {
             link: 'partners',
-            name: 'PARTNERAIRES'
+            name: 'PARTENAIRES'
         },
         {
             link: 'deals',
