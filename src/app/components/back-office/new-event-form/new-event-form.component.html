@@ -1,6 +1,5 @@
 <div class="event-form containerX" fxLayout="row">
-    <div class="flex-item" fxFlex=20></div>
-    <div class="event-form__content" *ngIf="event" class="flex-item" fxFlex=60>
+    <div class="event-form__content" *ngIf="event" class="flex-item padding" fxFlex>
         <form (ngSubmit)="onSubmit($event)" class="containerX" fxLayout="column">
             <md-input-container>
                 <input type="text" [(ngModel)]="event.title" mdInput placeholder="Title" autofocus required name="title">
@@ -38,5 +37,14 @@
             </div>
         </form>
     </div>
-    <div class="flex-item" fxFlex=20></div>
+    <app-picture-card
+        [imgUrl]="event.imgUrl"
+        [title]="event.title"
+        [textContent]="event.description"
+        [actionLabel]="isSubbedAtEvent(event) ? 'SE DÉSINSCRIRE' : 'S\'INSCRIRE'"
+        [expandable]="true"
+        [expandState]="'collapsed'"
+        [titleOverPicture]="true"
+        [isEvent]="true">
+    </app-picture-card>
 </div>
