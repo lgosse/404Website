@@ -138,11 +138,11 @@ export class EventsComponent implements OnInit {
         for (let subKey of Object.keys(eventSubs)) {
             if (eventSubs[subKey].login &&
                 eventSubs[subKey].login === this.user.login &&
-                eventSubs[subKey].archived === false) {
+                eventSubs[subKey].archived === false && this.user.login != '') {
                 return true;
             }
 
-            if (eventSubs[subKey] === this.user.login) {
+            if (eventSubs[subKey] === this.user.login && this.user.login != '') {
                 return true;
             }
         };
@@ -151,6 +151,10 @@ export class EventsComponent implements OnInit {
     };
 
     public async subscribe(event: EventBde) {
+        if (this.user.isAuthenticated === false) {
+            this.snacksService.openSnackBar('Connecte toi pour pouvoir t\'inscrire !');
+            return ;
+        }
         let mailKey = '';
         await this.mailingListsService.getMailingListByName(event.title).subscribe(list => {
             list.map(mail => {
