@@ -98,7 +98,8 @@ export class SidebarComponent implements OnInit {
                     this.admin = false;
                     for (let admin of admins) {
                         if (firebaseUser.email === admin.$value) {
-                            this.admin = true;                            
+                            this.admin = true;
+                            this.mainMenus.push({ link: 'back-office', name: 'BACK-OFFICE' });                         
                         }
                     }
                 });
