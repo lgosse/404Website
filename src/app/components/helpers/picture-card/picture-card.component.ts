@@ -32,6 +32,8 @@ export class PictureCardComponent implements OnInit {
     public isEvent          : boolean = false;
     @Input()
     public isPartner        : boolean = false;
+    @Input()
+    public contentMinHeight : any = 0;
     @Output()
     private cardClickEvent  = new EventEmitter<string>();
 

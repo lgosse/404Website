@@ -6,6 +6,7 @@ import { UserService } from 'app/services/shared/user.service';
 import { Article } from 'app/classes/article';
 import { Basket } from 'app/classes/basket';
 import { User } from 'app/classes/user';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-shop',
@@ -27,6 +28,9 @@ export class ShopComponent implements OnInit {
         this.userService.user
             .subscribe(user => {
                 this.user = user;
+                if (this.user.isAuthenticated === false) {
+                    window.location.href = environment.intraRedirectUrl;
+                }
                 this.shopService.getArticles()
                     .subscribe(articles => this.articles = articles);
                 this.basket = new Basket(this.shopService.getCustomerBasket(this.user.login));

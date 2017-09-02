@@ -163,7 +163,7 @@ export class EventsComponent implements OnInit {
                 }
             })
         }).unsubscribe();
-        if (mailKey !== '') {
+        if (mailKey === '') {
             this.mailingListsService.addMailComplete(event.title, this.user);
         } else {
             this.mailingListsService.updateMail(event.title, mailKey, this.user);

@@ -7,6 +7,7 @@
             [title]="eventCard.title"
             [textContent]="eventCard.textContent"
             [actionLabel]="eventCard.actionLabel"
+            [contentMinHeight]="'155px'"
             (cardClickEvent)="navigateTo('/events')">
         </app-picture-card>
         <span fxFlex class="flex-item"></span>
@@ -17,12 +18,13 @@
     <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
         <span fxFlex class="flex-item"></span>
         <app-picture-card
-            [imgUrl]="dealCard.imgUrl"
-            [icon]="dealCard.icon"
-            [title]="dealCard.title"
-            [textContent]="dealCard.textContent"
-            [actionLabel]="dealCard.actionLabel"
-            (cardClickEvent)="navigateTo('/deals')">
+            [imgUrl]="shopCard.imgUrl"
+            [icon]="shopCard.icon"
+            [title]="shopCard.title"
+            [textContent]="shopCard.textContent"
+            [actionLabel]="shopCard.actionLabel"
+            [contentMinHeight]="'155px'"
+            (cardClickEvent)="navigateTo('/shop')">
         </app-picture-card>
         <span fxFlex class="flex-item"></span>
     </div>
@@ -32,12 +34,13 @@
     <div class="containerX flex-item home__card" fxLayout="row" fxFlex>
         <span fxFlex class="flex-item"></span>
         <app-picture-card
-            [imgUrl]="shopCard.imgUrl"
-            [icon]="shopCard.icon"
-            [title]="shopCard.title"
-            [textContent]="shopCard.textContent"
-            [actionLabel]="shopCard.actionLabel"
-            (cardClickEvent)="navigateTo('/shop')">
+            [imgUrl]="dealCard.imgUrl"
+            [icon]="dealCard.icon"
+            [title]="dealCard.title"
+            [textContent]="dealCard.textContent"
+            [actionLabel]="dealCard.actionLabel"
+            [contentMinHeight]="'155px'"
+            (cardClickEvent)="navigateTo('/deals')">
         </app-picture-card>
         <span fxFlex class="flex-item"></span>
     </div>

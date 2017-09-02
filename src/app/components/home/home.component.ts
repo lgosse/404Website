@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     public homeMainPicUrl : string = 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fphotosoiree.jpg?alt=media&token=03709f38-1d99-415f-bd3b-8178a84c3f59';
 
     public eventCard = {
-        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fsoiree_home.jpg?alt=media&token=8935ad7d-e0ba-4fe0-8cd5-ba1bce86f2ed',
+        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/assets%2Fsoiree_home.jpg?alt=media&token=d886862a-2b93-4ace-ba89-50da973c3107',
         icon             : 'event',
         title            : 'ÉVÈNEMENTS',
         textContent      : 'En plus des quatre soirées de mars, juin, octobre et décembre, nous avons l’intention d‘organiser davantage de petits évènements aux thèmes divers et variés : une soirée détente par mois dans un bar privatisé, des sorties type paintball ou encore laser game et deux voyages : l’intégration et un voyage au ski en mars.',
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     };
 
     public dealCard = {
-        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fbonsplans_home.jpg?alt=media&token=3efa7b73-466d-4c51-bff5-b448c88baa4d',
+        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/assets%2Fbonsplans_home.jpg?alt=media&token=227e4f35-1836-4684-b327-a3a41a9fbe5e',
         icon             : 'lightbulb_outline',
         title            : 'BONS PLANS',
         textContent      : 'Ton BDE te négocie aussi pleins de bons plans pour agrémenter ton quotidien d\'étudiant: pizzas, permis, lunettes, taxis de fin de soirée à prix réduits...',
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     }
 
     public shopCard = {
-        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F42_pull.jpg?alt=media&token=836a22d9-d588-4d88-8cfc-99a835f60ee6',
+        imgUrl           : 'https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/assets%2F42_pull.jpg?alt=media&token=405820aa-7a17-4587-8f11-a70c84fb4f5e',
         icon             : 'shopping_cart',
         title            : 'SHOP',
         textContent      : 'Ici tu pourras trouver des pulls, t-shirts accessoires et autres estampillés 42',

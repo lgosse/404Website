@@ -25,7 +25,7 @@
             </a>
         </div>
     </div>
-    <md-card-content class="card__container" *ngIf="title || textContent || actionLabel">
+    <md-card-content class="card__container" *ngIf="title || textContent || actionLabel" [ngStyle]="{ 'min-height': contentMinHeight }">
         <div class="card__title" *ngIf="titleOverPicture === false && title">
             <md-icon *ngIf="icon">
                 {{ icon }}
