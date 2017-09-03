@@ -1,0 +1,29 @@
+<div class="associations">
+  <md-card *ngFor="let association of associations" class="associations__card">
+    <div fxLayout="row" fxFlex class="containerX">
+      <span class="associations__card__title">
+        {{ association.name }}
+      </span>
+      <span fxFlex class="flex-item"></span>
+      <button md-icon-button (click)="redirectToModificationPage(association)">
+          <md-icon>link</md-icon>
+      </button>
+      <button md-icon-button (click)="unpublishAssociation(association)" *ngIf="association.published === true">
+          <md-icon>visibility_off</md-icon>
+      </button>
+      <button md-icon-button (click)="removeAssociation(association)">
+          <md-icon>close</md-icon>
+      </button>
+    </div>
+  </md-card>
+  <form (ngSubmit)="createAssociation()" class="associations__form">
+    <div fxLayout="row" class="containerX">
+      <span fxFlex class="flex-item"></span>
+      <md-input-container>
+        <input mdInput type="text" required placeholder="Association name" [(ngModel)]="newAssociation.name" name="name">
+      </md-input-container>
+      <button md-raised-button class="color__white associations__form__button" color="primary">ADD</button>
+      <span fxFlex class="flex-item"></span>
+    </div>
+  </form>
+</div>

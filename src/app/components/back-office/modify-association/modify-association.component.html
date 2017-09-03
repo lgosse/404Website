@@ -1,0 +1,110 @@
+<div class="form" fxLayout="row">
+  <md-card *ngIf="association" class="association-card">
+    <md-card-header>
+      <md-card-title>{{ association.name }}</md-card-title>
+      <md-card-subtitle>{{ association.description }}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <div fLayout="column">
+        <div *ngIf="association.firstContact">
+          <app-contact-info [contact]="association.firstContact"></app-contact-info>
+        </div>
+        <div *ngIf="association.secondContact">
+          <app-contact-info [contact]="association.secondContact"></app-contact-info>
+        </div>
+        <div *ngIf="association.thirdContact">
+          <app-contact-info [contact]="association.thirdContact"></app-contact-info>
+        </div>
+      </div>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button *ngIf="association.facebookURL" (click)="navigateToURL(association.facebookURL.toString())">
+          FACEBOOK PAGE
+      </button>
+      <button md-button *ngIf="association.websiteURL" (click)="navigateToURL(association.websiteURL.toString())">
+          WEBSITE
+      </button>
+    </md-card-actions>
+  </md-card>
+  <md-card class="padding">
+    <form (submit)="onSubmit($association)" class="form__form" *ngIf="association">
+      <div fxLayout="column" class="containerX">
+        <md-input-container class="form__form__input">
+          <input mdInput type="text" required [(ngModel)]="association.description" placeholder="Description" name="description">
+        </md-input-container>
+        <md-input-container class="form__form__input">
+          <input mdInput type="text" [(ngModel)]="association.websiteUrl" placeholder="Website URL" name="websiteURL">
+        </md-input-container>
+        <md-input-container class="form__form__input">
+          <input mdInput type="text" [(ngModel)]="association.facebookUrl" placeholder="Facebook URL" name="facebookURL">
+        </md-input-container>
+      </div>
+      <div class="form__form__contact" fxLayout="column">
+        <span class="form__form__contact__label">
+          Président (requis)
+        </span>
+        <div class="containerX" fxLayout="row">
+          <md-input-container class="form__form__input">
+            <input mdInput type="text" required [(ngModel)]="association.firstContact.firstName" placeholder="Prénom" name="firstContactFirstName">
+          </md-input-container>
+          <md-input-container class="form__form__input">
+            <input mdInput type="text" required [(ngModel)]="association.firstContact.lastName" placeholder="Nom de famille" name="firstContactLastName">
+          </md-input-container>
+        </div>
+        <md-input-container class="form__form__input">
+          <input mdInput type="text" required [(ngModel)]="association.firstContact.login" placeholder="Login" name="firstContactLogin">
+        </md-input-container>
+        <md-input-container class="form__form__input">
+          <input mdInput type="text" required [(ngModel)]="association.firstContact.email" placeholder="Email" name="firstContactEmail">
+        </md-input-container>
+        <md-input-container class="form__form__input">
+          <input mdInput type="text" [(ngModel)]="association.firstContact.phone" placeholder="Téléphone" name="firstContactPhone">
+        </md-input-container>
+      </div>
+      <div class="form__form__contact" fxLayout="column">
+        <span class="form__form__contact__label">
+          Trésorier (optionnel)
+        </span>
+        <div class="containerX" fxLayout="row">
+          <md-input-container>
+            <input mdInput type="text" required [(ngModel)]="association.secondContact.firstName" placeholder="Prénom" name="secondContactFirstName">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput type="text" required [(ngModel)]="association.secondContact.lastName" placeholder="Nom de famille" name="secondContactLastName">
+          </md-input-container>
+        </div>
+        <md-input-container>
+          <input mdInput type="text" required [(ngModel)]="association.secondContact.login" placeholder="Login" name="secondContactLogin">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput type="text" required [(ngModel)]="association.secondContact.email" placeholder="Email" name="secondContactEmail">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput type="text" [(ngModel)]="association.secondContact.phone" placeholder="Téléphone" name="secondContactPhone">
+        </md-input-container>
+      </div>
+      <div class="form__form__contact" fxLayout="column">
+        <span class="form__form__contact__label">
+          Secrétaire (optionnel)
+        </span>
+        <div class="containerX" fxLayout="row">
+          <md-input-container>
+            <input mdInput type="text" required [(ngModel)]="association.thirdContact.firstName" placeholder="Prénom" name="thirdContactFirstName">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput type="text" required [(ngModel)]="association.thirdContact.lastName" placeholder="Nom de famille" name="thirdContactLastName">
+          </md-input-container>
+        </div>
+        <md-input-container>
+          <input mdInput type="text" required [(ngModel)]="association.thirdContact.login" placeholder="Login" name="thirdContactLogin">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput type="text" required [(ngModel)]="association.thirdContact.email" placeholder="Email" name="thirdContactEmail">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput type="text" [(ngModel)]="association.thirdContact.phone" placeholder="Téléphone" name="thirdContactPhone">
+        </md-input-container>
+      </div>
+    </form>
+  </md-card>
+</div>

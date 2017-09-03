@@ -58,6 +58,10 @@ export class SidebarComponent implements OnInit {
       name: "PARTENAIRES"
     },
     {
+      link: "associations",
+      name: "ASSOCIATIONS"
+    },
+    {
       link: "deals",
       name: "BONS PLANS"
     },
