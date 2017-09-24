@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { MyMaterialModule } from "app/modules/my-material/my-material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -83,7 +83,8 @@ import { ContactCardComponent } from "./components/helpers/contact-card/contact-
 import { AssociationFormComponent } from "./components/back-office/association-form/association-form.component";
 import { ModifyAssociationComponent } from "./components/back-office/modify-association/modify-association.component";
 import { ContactInfoComponent } from "./component/back-office/association-form/contact-info/contact-info.component";
-import { AssociationCardComponent } from './components/associations/association-card/association-card.component';
+import { AssociationCardComponent } from "./components/associations/association-card/association-card.component";
+import { AssociationContactFormComponent } from './components/back-office/modify-association/association-contact-form/association-contact-form.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -146,11 +147,13 @@ Firebase.initializeApp(environment.firebase);
     AssociationFormComponent,
     ModifyAssociationComponent,
     ContactInfoComponent,
-    AssociationCardComponent
+    AssociationCardComponent,
+    AssociationContactFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     MyMaterialModule,
@@ -161,6 +164,7 @@ Firebase.initializeApp(environment.firebase);
     AngularFireAuthModule,
     MarkdownModule.forRoot()
   ],
+  exports: [FormsModule, ReactiveFormsModule],
   providers: [
     UserService,
     ShopService,

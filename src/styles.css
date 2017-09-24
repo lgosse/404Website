@@ -175,3 +175,7 @@ body {
 .mat-form-field {
   width: unset !important;
 }
+
+md-error {
+  color: #fe7e79 !important;
+}
