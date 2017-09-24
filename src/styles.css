@@ -1,173 +1,177 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Roboto;
+  margin: 0;
+  min-height: 100vh;
+  font-family: Roboto;
 }
 
 @-webkit-keyframes fadeinout {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeinout {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .padding {
-    padding: 16px;
+  padding: 16px;
 }
 
 .margin {
-    margin: 10px;
+  margin: 10px;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .center {
-    margin-right: auto;
-    margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .logo__header--mobile {
-    width: 100px;
-    height: 52px;
-    padding-top: 5px;
+  width: 100px;
+  height: 52px;
+  padding-top: 5px;
 }
 
 .mat-button-toggle-label-content {
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    border-radius: 3px;
-    font-size: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 3px;
+  font-size: 16px;
 }
 
 .mat-button-toggle-checked {
-    background-color: unset !important;
-    color: rgba(0, 0, 0, 0.38) !important;
+  background-color: unset !important;
+  color: rgba(0, 0, 0, 0.38) !important;
 }
 
 .mat-button-toggle-checked.active {
-    color: white !important;
+  color: white !important;
 }
 
 .mat-button-toggle-label-content:hover {
-    background-color: rgba(0, 0, 0, 0.05) !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .box-shadow-1 {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .box-shadow-1-selected {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .box-shadow-2 {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .box-shadow-3 {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .box-shadow-4 {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .box-shadow-5 {
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 .mat-focused {
-    color: #ffca28 !important;
+  color: #ffca28 !important;
 }
 
 .mat-input-ripple {
-    background-color: #ffca28 !important;
+  background-color: #ffca28 !important;
 }
 
 .display-3 {
-    font-size: 56px !important;
+  font-size: 56px !important;
 }
 
 .display-2 {
-    font-size: 45px !important;
+  font-size: 45px !important;
 }
 
 .display-1 {
-    font-size: 34px !important;
+  font-size: 34px !important;
 }
 
 .headline {
-    font-size: 24px !important;
+  font-size: 24px !important;
 }
 
 .title {
-    font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 .subhead {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .no-border {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .mat-dialog-container {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .mat-toolbar-layout {
-    width: 100%;
+  width: 100%;
 }
 
 .full-width {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 .mat-tooltip {
-    font-size: 12px !important;
+  font-size: 12px !important;
 }
 
 .color__white {
-    color: white !important;
+  color: white !important;
 }
 
 .mat-button-toggle-label-content {
-    padding        : 0 !important;
-    padding-top    : 5px !important;
-    padding-bottom : 5px !important;
-    border-radius  : 0 !important;
+  padding: 0 !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  border-radius: 0 !important;
 }
 
 .active .mat-button-toggle-label-content {
-    background-color: white;
+  background-color: white;
 }
 
 .mat-button-toggle-label-content:hover {
-    background-color: white !important;
+  background-color: white !important;
+}
+
+.mat-form-field {
+  width: unset !important;
 }

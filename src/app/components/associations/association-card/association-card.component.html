@@ -1,0 +1,13 @@
+<md-expansion-panel *ngIf="association" class="association-card">
+  <md-expansion-panel-header>
+    <md-panel-title>
+      {{ association.name }}
+    </md-panel-title>
+    <md-panel-description *ngIf="association.description">
+      {{ association.description }}
+    </md-panel-description>
+  </md-expansion-panel-header>
+  <div class="association-card__content">
+
+  </div>
+</md-expansion-panel>

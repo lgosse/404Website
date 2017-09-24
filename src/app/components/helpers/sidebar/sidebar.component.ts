@@ -9,7 +9,7 @@ import {
   MdSnackBar,
   MdSidenav
 } from "@angular/material";
-import { Observable, Subject } from "rx";
+import { Observable, Subject } from "rxjs/Rx";
 import * as Firebase from "firebase";
 
 // App dependencies

@@ -4,11 +4,12 @@
     </md-toolbar>
     <div class="contact">
         <form (ngSubmit)="onSubmit($event)">
-            <md-input-container class="containerX" fxLayout="column">
+            <md-input-container class="containerX full-width" fxLayout="column">
                 <input [(ngModel)]="contact.subject" (focus)="warnNotConnected()" mdInput type="text" placeholder="Objet" required name="subject">
             </md-input-container>
-            <md-input-container class="containerX" fxLayout="column">
-                <textarea [(ngModel)]="contact.message" (focus)="warnNotConnected()" mdInput type="text" placeholder="Envoie-nous tes idées" required name="message"></textarea>
+            <md-input-container class="containerX full-width" fxLayout="column">
+                <textarea [(ngModel)]="contact.message" (focus)="warnNotConnected()" mdInput type="text" placeholder="Envoie-nous tes idées"
+                    required name="message"></textarea>
             </md-input-container>
             <div class="containerX" fxLayout="row">
                 <span fxFlex class="flex-item"></span>
