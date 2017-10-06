@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { MdSnackBar } from "@angular/material";
+import { MatSnackBar } from "@angular/material";
 import * as Firebase from "firebase";
 
 import { Observable, Subject } from "rxjs/Rx";
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private snackBar: MdSnackBar,
+    private snackBar: MatSnackBar,
     private intraApiService: IntraApiService,
     private userService: UserService
   ) {}

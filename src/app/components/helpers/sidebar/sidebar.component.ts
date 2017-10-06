@@ -3,12 +3,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 
 // Other dependencies
-import {
-  MdDialog,
-  MdDialogRef,
-  MdSnackBar,
-  MdSidenav
-} from "@angular/material";
+import { MatDialog, MatDialogRef, MatSidenav } from "@angular/material";
 import { Observable, Subject } from "rxjs/Rx";
 import * as Firebase from "firebase";
 
@@ -35,7 +30,7 @@ export class SidebarComponent implements OnInit {
   public intraRedirectUrl: string = environment.intraRedirectUrl;
   public params: any;
 
-  @Input() public sidenav: MdSidenav;
+  @Input() public sidenav: MatSidenav;
 
   public mainMenus = [
     {
@@ -80,7 +75,7 @@ export class SidebarComponent implements OnInit {
   private associationsLink = { link: "associations", name: "ASSOCIATIONS" };
 
   constructor(
-    public dialog: MdDialog,
+    public dialog: MatDialog,
     public snacksService: SnacksService,
     private route: ActivatedRoute,
     private router: Router,

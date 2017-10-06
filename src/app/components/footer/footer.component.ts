@@ -1,36 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
+import { Component, OnInit } from "@angular/core";
+import { MatDialog, MatDialogRef, MatSnackBar } from "@angular/material";
 
-import { DialogContactComponent } from 'app/components/dialog-contact/dialog-contact.component';
+import { DialogContactComponent } from "app/components/dialog-contact/dialog-contact.component";
 
 @Component({
-    selector: 'app-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
+  selector: "app-footer",
+  templateUrl: "./footer.component.html",
+  styleUrls: ["./footer.component.scss"]
 })
 export class FooterComponent implements OnInit {
-    selectedOption: string;
-    constructor(
-        public dialog: MdDialog,
-        public snackBar: MdSnackBar
-    ) { }
+  selectedOption: string;
+  constructor(public dialog: MatDialog, public snackBar: MatSnackBar) {}
 
-    ngOnInit() {
-    }
+  ngOnInit() {}
 
-    openDialog(): void {
-        let dialogRef = this.dialog.open(DialogContactComponent, {disableClose: true});
-        dialogRef.afterClosed().subscribe(result => {
-            if (result !== null) {
-                this.openSnackBar('Merci pour ton message ! On te recontacte vite !', 'FERMER');
-            }
-        });
-    }
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DialogContactComponent, {
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== null) {
+        this.openSnackBar(
+          "Merci pour ton message ! On te recontacte vite !",
+          "FERMER"
+        );
+      }
+    });
+  }
 
-    openSnackBar(message: string, action: string) {
-        this.snackBar.open(message, action, {
-            duration: 2000
-        });
-    }
-
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    });
+  }
 }
