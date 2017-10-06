@@ -6,6 +6,9 @@
 
 .form {
   padding: $md-mat-spacing;
+  &__button {
+    margin: 10px;
+  }
 
   &__accordion {
     width: 500px;

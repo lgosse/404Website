@@ -1,8 +1,12 @@
 <div class="form" *ngIf="association && associationForm" fxLayout="column">
-  <div class="containerX" fxLayout="row">
-    <app-association-card [association]="associationForm.value"></app-association-card>
-  </div>
+
   <form [formGroup]="associationForm" class="containerX" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="containerX" fxLayout="row">
+      <span fxFlex></span>
+      <app-association-card [association]="associationForm.value"></app-association-card>
+      <span fxFlex></span>
+    </div>
 
     <div fxLayout="row" class="full-width">
       <span fxFlex class="flex-item"></span>
@@ -21,20 +25,20 @@
               <md-hint align="end">{{associationForm.value.description.length}} / 50</md-hint>
             </md-form-field>
             <md-form-field>
+              <input mdInput formControlName="facebookURL" type="text" placeholder="Facebook URL" required>
+              <md-error *ngIf="associationForm.get('facebookURL').valid === false">
+                URL is invalid
+              </md-error>
+            </md-form-field>
+            <md-form-field>
               <input mdInput formControlName="websiteURL" type="text" placeholder="Website URL">
               <md-error *ngIf="associationForm.get('websiteURL').valid === false">
                 URL is invalid
               </md-error>
             </md-form-field>
-            <md-form-field>
-              <input mdInput formControlName="facebookURL" type="text" placeholder="Facebook URL">
-              <md-error *ngIf="associationForm.get('facebookURL').valid === false">
-                URL is invalid
-              </md-error>
-            </md-form-field>
           </div>
           <md-action-row>
-            <button md-button color="primary" (click)="nextStep()">
+            <button type="button" md-button color="primary" (click)="nextStep()">
               Suivant
             </button>
           </md-action-row>
@@ -46,9 +50,9 @@
               Coordonnées du président (requis)
             </mat-panel-title>
           </md-expansion-panel-header>
-          <app-association-contact-form [group]="associationForm.controls['president']"></app-association-contact-form>
+          <app-association-contact-form [group]="associationForm.controls['firstContact']"></app-association-contact-form>
           <md-action-row>
-            <button md-button color="primary" (click)="nextStep()">
+            <button type="button" md-button color="primary" (click)="nextStep()">
               Suivant
             </button>
           </md-action-row>
@@ -61,9 +65,9 @@
               Coordonnées du Trésorier (optionnel)
             </mat-panel-title>
           </md-expansion-panel-header>
-          <app-association-contact-form [group]="associationForm.controls['treasurer']"></app-association-contact-form>
+          <app-association-contact-form [group]="associationForm.controls['secondContact']"></app-association-contact-form>
           <md-action-row>
-            <button md-button color="primary" (click)="nextStep()">
+            <button type="button" md-button color="primary" (click)="nextStep()">
               Suivant
             </button>
           </md-action-row>
@@ -75,7 +79,7 @@
               Coordonnées du Secrétaire (optionnel)
             </mat-panel-title>
           </md-expansion-panel-header>
-          <app-association-contact-form [group]="associationForm.controls['secretary']"></app-association-contact-form>
+          <app-association-contact-form [group]="associationForm.controls['thirdContact']"></app-association-contact-form>
         </md-expansion-panel>
       </md-accordion>
       <span fxFlex class="flex-item"></span>
@@ -84,10 +88,15 @@
 
     <div fxLayout="row" class="containerX">
       <span fxFlex></span>
-      <button md-raised-button color="primary">Envoyer</button>
+      <button md-raised-button class="form__button color__white" color="primary" [disabled]="!associationForm.valid">
+        Sauvegarder
+      </button>
+      <button md-raised-button class="form__button color__white" type="button" color="primary" [disabled]="!associationForm.valid"
+        (click)="toggleAssociationPublication()">
+        {{ association.published ? 'Retirer du site' : 'Publier sur le site' }}
+      </button>
       <span fxFlex></span>
     </div>
 
   </form>
-
 </div>

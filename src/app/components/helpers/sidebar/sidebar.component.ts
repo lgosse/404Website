@@ -18,6 +18,7 @@ import { IntraApiService } from "app/services/intra-api.service";
 import { UserService } from "app/services/shared/user.service";
 import { SnacksService } from "app/services/snacks.service";
 import { LayoutService } from "app/services/shared/layout.service";
+import { AssociationsService } from "app/services/associations.service";
 import { User } from "app/classes/user";
 import { environment } from "environments/environment";
 
@@ -25,7 +26,7 @@ import { environment } from "environments/environment";
   selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
   styleUrls: ["./sidebar.component.scss"],
-  providers: [IntraApiService]
+  providers: [IntraApiService, AssociationsService]
 })
 export class SidebarComponent implements OnInit {
   public loaded: boolean = false;
@@ -58,10 +59,6 @@ export class SidebarComponent implements OnInit {
       name: "PARTENAIRES"
     },
     {
-      link: "associations",
-      name: "ASSOCIATIONS"
-    },
-    {
       link: "deals",
       name: "BONS PLANS"
     },
@@ -80,6 +77,7 @@ export class SidebarComponent implements OnInit {
   ];
   private mq: string;
   private backOfficeLink = { link: "back-office", name: "BACK-OFFICE" };
+  private associationsLink = { link: "associations", name: "ASSOCIATIONS" };
 
   constructor(
     public dialog: MdDialog,
@@ -88,7 +86,8 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     private intraApiService: IntraApiService,
     private userService: UserService,
-    private layoutService: LayoutService
+    private layoutService: LayoutService,
+    private associationsService: AssociationsService
   ) {}
 
   ngOnInit() {
@@ -113,6 +112,20 @@ export class SidebarComponent implements OnInit {
         });
       } else {
         this.admin = false;
+      }
+    });
+
+    this.associationsService.getAssociations().subscribe(associations => {
+      let publishedAssociations = associations.filter(
+        association => association.published === true
+      );
+
+      if (publishedAssociations.length > 0) {
+        this.mainMenus.splice(5, 0, this.associationsLink);
+      } else {
+        this.mainMenus = this.mainMenus.filter(
+          link => link.link !== "associations"
+        );
       }
     });
 

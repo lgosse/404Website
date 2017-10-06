@@ -1,13 +1,63 @@
 <md-expansion-panel *ngIf="association" class="association-card">
-  <md-expansion-panel-header>
-    <md-panel-title>
-      {{ association.name }}
-    </md-panel-title>
-    <md-panel-description *ngIf="association.description">
-      {{ association.description }}
-    </md-panel-description>
+  <md-expansion-panel-header collapsedHeight="80px" class="association-card__header">
+    <div>
+      <md-panel-title class="association-card__header__title">
+        {{ association.name }}
+      </md-panel-title>
+      <md-panel-description>
+        {{ association.description ? association.description : 'Votre description ici' }}
+      </md-panel-description>
+      <div class="containerX association-card__header__container" fxLayout="row">
+        <a md-button class="association-card__header__url-button" color="primary" [href]="association.facebookURL" target="_blank">
+          FACEBOOK
+        </a>
+        <a md-button class="association-card__header__url-button" color="primary" *ngIf="association.websiteURL" [href]="association.websiteURL"
+          target="_blank">
+          WEBSITE
+        </a>
+      </div>
+    </div>
   </md-expansion-panel-header>
   <div class="association-card__content">
-
+    <div class="association-card__content__contact" *ngIf="association.firstContact.email || association.firstContact.phone">
+      <div class="association-card__content__contact__title">
+        {{ association.firstContact.title }} - {{ association.firstContact.firstName }} {{ association.firstContact.lastName }}
+      </div>
+      <div class="association-card__content__contact__coord">
+        {{ association.firstContact.email }}
+        <span *ngIf="association.firstContact.email && association.firstContact.phone">&nbsp; - &nbsp;</span> {{ association.firstContact.phone
+        }}
+      </div>
+    </div>
+    <div class="association-card__content__contact" *ngIf="association.secondContact.email || association.secondContact.phone">
+      <div class="association-card__content__contact__title">
+        {{ association.secondContact.title }} - {{ association.secondContact.firstName }} {{ association.secondContact.lastName }}
+      </div>
+      <div class="association-card__content__contact__coord">
+        <span>
+          {{ association.secondContact.email }}
+        </span>
+        <span *ngIf="association.secondContact.email && association.secondContact.phone">
+          &nbsp; - &nbsp;
+        </span>
+        <span>
+          {{ association.secondContact.phone }}
+        </span>
+      </div>
+    </div>
+    <div class="association-card__content__contact" *ngIf="association.thirdContact.email || association.thirdContact.phone">
+      <div class="association-card__content__contact__title">
+        {{ association.thirdContact.title }} - {{ association.thirdContact.firstName }} {{ association.thirdContact.lastName }}
+      </div>
+      <div class="association-card__content__contact__coord">
+        <span>
+          {{ association.thirdContact.email }}
+        </span>
+        <span *ngIf="association.thirdContact.email && association.thirdContact.phone">&nbsp; - &nbsp;</span>
+        <span>            
+          {{ association.thirdContact.phone }}
+        </span>
+      </div>
+    </div>
   </div>
 </md-expansion-panel>

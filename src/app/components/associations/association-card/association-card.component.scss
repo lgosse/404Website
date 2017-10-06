@@ -1,5 +1,50 @@
+// Import theming functions
+@import "~@angular/material/theming";
+// Import your custom theme
+@import "src/app/theme.scss";
+@import "src/app/global.scss";
+
 .association-card {
   width: 500px !important;
   margin: auto;
   margin-bottom: 20px;
+
+  &__content {
+    &__contact {
+      padding: $md-mat-spacing;
+
+      &__title {
+        font-style: italic;
+        font-size: 16px;
+        opacity: 0.8;
+      }
+
+      &__coord {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__header {
+    padding: $gt-mat-spacing;
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__container {
+      padding-top: 20px;
+    }
+
+    &__url-button {
+      line-height: unset !important;
+      min-width: unset !important;
+      padding: unset !important;
+      margin-right: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

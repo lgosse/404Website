@@ -1,0 +1,11 @@
+@import "src/app/global.scss";
+// Import theming functions
+@import "~@angular/material/theming";
+// Import your custom theme
+@import "src/app/theme.scss";
+
+.associations {
+  &__card {
+    padding: $gt-mat-spacing;
+  }
+}

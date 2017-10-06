@@ -25,12 +25,12 @@ export class Contact {
 
 export class AssociationBuilder {
   public name: string;
-  public description: string | Boolean = false;
-  public firstContact: Contact | Boolean = false;
-  public secondContact: Contact | Boolean = false;
-  public thirdContact: Contact | Boolean = false;
-  public websiteURL: string | Boolean = false;
-  public facebookURL: string | Boolean = false;
+  public description?: string;
+  public firstContact?: Contact;
+  public secondContact?: Contact;
+  public thirdContact?: Contact;
+  public websiteURL?: string;
+  public facebookURL?: string;
   public published: Boolean = false;
 
   constructor(name: string) {
@@ -42,11 +42,11 @@ export class AssociationBuilder {
   }
 
   public addContact(contact: Contact): Boolean {
-    if (this.firstContact === false) {
+    if (this.firstContact === undefined) {
       this.firstContact = contact;
-    } else if (this.secondContact === false) {
+    } else if (this.secondContact === undefined) {
       this.secondContact = contact;
-    } else if (this.thirdContact === false) {
+    } else if (this.thirdContact === undefined) {
       this.thirdContact = contact;
     } else {
       return false;
@@ -70,12 +70,12 @@ export class AssociationBuilder {
 
 export class Association {
   name: string;
-  description: string | Boolean;
-  firstContact: Contact | Boolean;
-  secondContact: Contact | Boolean;
-  thirdContact: Contact | Boolean;
-  websiteURL?: string | Boolean;
-  facebookURL?: string | Boolean;
+  description?: string;
+  firstContact?: Contact;
+  secondContact?: Contact;
+  thirdContact?: Contact;
+  websiteURL?: string;
+  facebookURL?: string;
   published: Boolean;
 
   constructor(associationBuilder: AssociationBuilder) {
