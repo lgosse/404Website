@@ -2,33 +2,33 @@
     <div class="flex-item" fxFlex=20></div>
     <div class="commitment-form__content" *ngIf="commitment" class="flex-item" fxFlex=60>
         <form (ngSubmit)="onSubmit($event)" class="containerX" fxLayout="column">
-            <md-input-container>
-                <input type="text" [(ngModel)]="commitment.title" mdInput placeholder="Title" autofocus required name="title">
-            </md-input-container>
-            <md-input-container>
-                <input type="text" [(ngModel)]="commitment.subtitle" mdInput placeholder="Subtitle" autofocus required name="subtitle">
-            </md-input-container>
-            <md-input-container>
-                <input type="date" [(ngModel)]="commitment.date" mdInput placeholder="Date" autofocus required name="date">
-            </md-input-container>
+            <mat-input-container>
+                <input type="text" [(ngModel)]="commitment.title" matInput placeholder="Title" autofocus required name="title">
+            </mat-input-container>
+            <mat-input-container>
+                <input type="text" [(ngModel)]="commitment.subtitle" matInput placeholder="Subtitle" autofocus required name="subtitle">
+            </mat-input-container>
+            <mat-input-container>
+                <input type="date" [(ngModel)]="commitment.date" matInput placeholder="Date" autofocus required name="date">
+            </mat-input-container>
             <span class="headline">Description:</span>
             <div *ngFor="let paragraph of commitment.description" class="containerX paragraph-form" fxLayout="column">
-                <md-input-container>
-                    <input type="text" [(ngModel)]="paragraph.head" mdInput placeholder="Head" autofocus name="head">
-                </md-input-container>
-                <md-input-container>
-                    <input type="text" [(ngModel)]="paragraph.imgUrl" mdInput placeholder="Picture URL" autofocus name="url">
-                </md-input-container>
-                <md-input-container>
-                    <textarea [(ngModel)]="paragraph.body" mdInput placeholder="Body" autofocus required name="body"></textarea>
-                </md-input-container>
-                <md-input-container>
-                    <input type="text" [(ngModel)]="paragraph.foot" mdInput placeholder="Foot" autofocus name="foot">
-                </md-input-container>
+                <mat-input-container>
+                    <input type="text" [(ngModel)]="paragraph.head" matInput placeholder="Head" autofocus name="head">
+                </mat-input-container>
+                <mat-input-container>
+                    <input type="text" [(ngModel)]="paragraph.imgUrl" matInput placeholder="Picture URL" autofocus name="url">
+                </mat-input-container>
+                <mat-input-container>
+                    <textarea [(ngModel)]="paragraph.body" matInput placeholder="Body" autofocus required name="body"></textarea>
+                </mat-input-container>
+                <mat-input-container>
+                    <input type="text" [(ngModel)]="paragraph.foot" matInput placeholder="Foot" autofocus name="foot">
+                </mat-input-container>
             </div>
             <div class="containerX" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
-                <button md-raised-button color="primary">
+                <button mat-raised-button color="primary">
                     SAVE
                 </button>
                 <span class="flex-item" fxFlex></span>

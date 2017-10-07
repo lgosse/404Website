@@ -1,5 +1,5 @@
 <div class="containerX" fxLayout="column" class="order">
-    <md-card *ngFor="let order of orders" fxLayout="column" class="order__card">
+    <mat-card *ngFor="let order of orders" fxLayout="column" class="order__card">
         <div *ngFor="let article of order.articles" class="order__card__line mat-subheading-1">
             <span>
                 {{ article.title }}
@@ -23,15 +23,15 @@
                 Commande reçue:
             </span>
             <div>
-                <md-icon class="order__card__status__green" *ngIf="order.delivered">
+                <mat-icon class="order__card__status__green" *ngIf="order.delivered">
                     check
-                </md-icon>
-                <md-icon class="order__card__status__grey" *ngIf="!order.delivered">
+                </mat-icon>
+                <mat-icon class="order__card__status__grey" *ngIf="!order.delivered">
                     timer
-                </md-icon>
+                </mat-icon>
             </div>
         </div>
-    </md-card>
+    </mat-card>
     <div class="containerX" fxLayout="row" *ngIf="!orders || !orders.length">
         <span fxFlex class="flex-item"></span>
         <div class="order__no-items mat-title">
@@ -39,9 +39,9 @@
                 Tu n'as encore jamais passé commande
             </span>
         </div>
-        <md-icon class="order__no-items__icon">
+        <mat-icon class="order__no-items__icon">
             sentiment_dissatisfied
-        </md-icon>
+        </mat-icon>
         <span fxFlex class="flex-item"></span>
     </div>
 </div>

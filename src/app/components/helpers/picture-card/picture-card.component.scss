@@ -1,116 +1,116 @@
 // Import theming functions
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Import your custom theme
-@import 'src/app/theme.scss';
-@import 'src/app/global.scss';
+@import "src/app/theme.scss";
+@import "src/app/global.scss";
 
 .small {
-    width    : 91% !important;
+  width: 91% !important;
 }
 
 .small .card__title {
-    font-size      : 16px;    
+  font-size: 16px;
 }
 
 .card {
-    width    : 400px;
-    overflow : hidden !important;
+  width: 400px;
+  overflow: hidden !important;
 
-    &__partner {
-        max-width : 300px !important;
+  &__partner {
+    max-width: 300px !important;
+  }
+
+  &__picture__348px {
+    height: 348px;
+  }
+
+  &__picture__250px {
+    height: 250px !important;
+    max-height: 250px !important;
+  }
+
+  &__title {
+    font-size: 20px;
+    color: mat-color($bde-app-primary);
+    padding-bottom: $sm-mat-spacing;
+    white-space: nowrap;
+
+    &__label {
+      bottom: 4px;
+      position: relative;
     }
 
-    &__picture__348px {
-        height : 348px
-    }
+    &__alt {
+      background-color: black;
+      opacity: 0.5;
+      position: absolute;
+      margin-top: -63px;
+      width: 100%;
+      right: 0;
+      height: 43px;
 
-    &__picture__250px {
-        height     : 250px !important;
-        max-height : 250px !important;
-    }
+      &__label {
+        color: white;
+        left: 0;
+        position: absolute;
+        margin-top: -62px;
+        padding: 12px 24px;
 
-    &__title {
-        font-size      : 20px;
-        color          : mat-color($bde-app-primary);
-        padding-bottom : $sm-mat-spacing;
-        white-space    : nowrap;
-
-        &__label {
-            bottom   : 4px;
-            position : relative;
+        &__title {
+          bottom: 4px;
+          position: relative;
         }
-
-        &__alt {
-            background-color : black;
-            opacity          : 0.5;
-            position         : absolute;
-            margin-top       : -63px;
-            width            : 100%;
-            right            : 0;
-            height           : 43px;
-
-            &__label {
-                color      : white;
-                left       : 0;
-                position   : absolute;
-                margin-top : -62px;
-                padding    : 12px 24px;
-
-                &__title {
-                    bottom   : 4px;
-                    position : relative;
-                }
-            }
-        }
+      }
     }
+  }
 
-    &__container {
-        margin : 0 !important;
+  &__container {
+    margin: 0 !important;
+  }
+
+  &__content {
+    font-size: 16px;
+    color: black;
+    opacity: 0.54;
+  }
+
+  &__toggle-button {
+    margin: 5px 10px !important;
+    opacity: 0.8;
+
+    &__icon {
+      margin-left: -20px !important;
+      margin-top: 5px !important;
+      font-size: 45px;
     }
+  }
 
-    &__content {
-        font-size : 16px;
-        color     : black;
-        opacity   : 0.54;
+  &__actions {
+    max-height: 66px !important;
+  }
+
+  &__action {
+    margin: $sm-mat-spacing !important;
+    color: white !important;
+  }
+
+  &__links {
+    padding: 0 !important;
+    margin-bottom: $mat-mat-spacing !important;
+    padding-right: $sm-mat-spacing !important;
+
+    &__label {
+      white-space: initial;
+      word-wrap: break-word;
     }
-
-    &__toggle-button {
-        margin     : 5px 10px !important;
-        opacity    : 0.8;
-
-        &__icon {
-            margin-left  : -20px !important;
-            margin-top   : 5px !important;
-            font-size    : 45px;            
-        }
-    }
-
-    &__actions {
-        max-height : 66px !important;
-    }
-
-    &__action {
-        margin : $sm-mat-spacing !important;
-        color  : white !important;
-    }
-
-    &__links {
-        padding        : 0 !important;
-        margin-bottom  : $md-mat-spacing !important;
-        padding-right  : $sm-mat-spacing !important;
-
-        &__label {
-            white-space : initial;
-            word-wrap   : break-word;
-        }
-    }
+  }
 }
 
 img {
-    opacity: 0;
-    transition: opacity 1s;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 img.lazyloaded {
-    opacity: 1;
+  opacity: 1;
 }

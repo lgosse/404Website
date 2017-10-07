@@ -1,6 +1,6 @@
 <div class="containerX" fxLayout="column">
-    <md-tab-group>
-        <md-tab label="SHOP" fxFlex>
+    <mat-tab-group>
+        <mat-tab label="SHOP" fxFlex>
             <div class="shop">
                 <div *ngFor="let article of articles">
                     <app-article-card [article]="article" [basket]="basket"></app-article-card>
@@ -12,18 +12,18 @@
                             Coming soon !
                         </span>
                     </div>
-                    <md-icon class="shop__no-items__icon">
+                    <mat-icon class="shop__no-items__icon">
                         sentiment_very_satisfied
-                    </md-icon>
+                    </mat-icon>
                     <span fxFlex class="flex-item"></span>
                 </div>
             </div>
-        </md-tab>
-        <md-tab label="PANIER">
+        </mat-tab>
+        <mat-tab label="PANIER">
             <app-basket *ngIf="basket" [basket]="basket"></app-basket>
-        </md-tab>
-        <md-tab label="COMMANDES">
+        </mat-tab>
+        <mat-tab label="COMMANDES">
             <app-orders></app-orders>
-        </md-tab>
-    </md-tab-group>
+        </mat-tab>
+    </mat-tab-group>
 </div>

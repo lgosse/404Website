@@ -1,14 +1,14 @@
-<md-card class="events__card event">
-    <md-card-content class="event__card__content containerX" fxLayout="column">
+<mat-card class="events__card event">
+    <mat-card-content class="event__card__content containerX" fxLayout="column">
         <div class="containerX headline" fxLayout="row">
             <span class="flex-item message__text" fxFlex>{{event.$key}}</span>
         </div>
         <div fxLayout="row" class="containerX">
             <span fxFlex></span>
-            <md-input-container>
-                <input type="text" mdInput placeholer="login" [(ngModel)]="new.login" name="title">
-            </md-input-container>
-            <button md-button color="primary" (click)="subscribe(event.$key, new.login)">
+            <mat-input-container>
+                <input type="text" matInput placeholer="login" [(ngModel)]="new.login" name="title">
+            </mat-input-container>
+            <button mat-button color="primary" (click)="subscribe(event.$key, new.login)">
                     ADD
                 </button>
             <span fxFlex></span>
@@ -21,5 +21,5 @@
                 <app-subscription-login [login]="login" [event]="event.$key" *ngIf="login.archived == true"></app-subscription-login>
             </div>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

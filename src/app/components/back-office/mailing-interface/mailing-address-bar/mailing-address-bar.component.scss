@@ -1,16 +1,22 @@
 .address-bar {
-    &__divider {
-        border-bottom: 1px solid #F0F0F0;
+  &__divider {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  &__addresses {
+    &__chip {
+      margin-bottom: 5px !important;
     }
-    &__addresses {
-        &__chip {
-            margin-bottom: 5px !important;
-        }
-        &__address {
-            padding-top: 5px;
-            &__button {
-                height: 10px !important;
-            }
-        }
+    &__address {
+      padding-top: 5px;
+      &__button {
+        height: 10px !important;
+      }
     }
+  }
+
+  &__lists {
+    &__selected {
+      background-color: #e0e0e0 !important;
+    }
+  }
 }

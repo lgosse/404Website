@@ -1,17 +1,17 @@
-@import 'src/app/global.scss';
+@import "src/app/global.scss";
 
 .app__content {
-    background-image : url('../../../background.svg');
-    height           : 100vh !important;
-    width            : 100%;
+  background-image: url("../../../background.svg");
+  height: 100vh !important;
+  width: 100%;
 }
 
 .layout {
-    &__fab {
-        z-index  : 1;
-        position : absolute;
-        color    : white;
-        top      : $md-mat-spacing;
-        left     : $md-mat-spacing;
-    }
+  &__fab {
+    z-index: 1;
+    position: absolute;
+    color: white;
+    top: $mat-mat-spacing;
+    left: $mat-mat-spacing;
+  }
 }

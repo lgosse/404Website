@@ -2,15 +2,15 @@
     <div class="containerX" fxLayout="row">
         <span class="flex-item" fxFlex></span>
         <form (ngSubmit)="onSubmit($event)" fxLayout="column" class="containerX">
-            <md-input-container>
-                <input [(ngModel)]="form.mail" type="text" mdInput placeholder="Email" required name="email">
-            </md-input-container>
-            <md-input-container>
-                <input [(ngModel)]="form.password" type="password" mdInput placeholder="Password" required name="password">
-            </md-input-container>
+            <mat-input-container>
+                <input [(ngModel)]="form.mail" type="text" matInput placeholder="Email" required name="email">
+            </mat-input-container>
+            <mat-input-container>
+                <input [(ngModel)]="form.password" type="password" matInput placeholder="Password" required name="password">
+            </mat-input-container>
             <div class="containerX" fxLayout="row">
                 <span fxFlex class="flex-item"></span>
-                <button type="submit" color="primary" md-raised-button>
+                <button type="submit" color="primary" mat-raised-button>
                     LOGIN
                 </button>
                 <span fxFlex class="flex-item"></span>

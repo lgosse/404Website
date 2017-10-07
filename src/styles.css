@@ -176,6 +176,6 @@ body {
   width: unset !important;
 }
 
-md-error {
+mat-error {
   color: #fe7e79 !important;
 }

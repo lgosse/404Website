@@ -1,17 +1,18 @@
-<md-card class="article" fxLayout="row">
+<mat-card class="article" fxLayout="row">
     <div class="article__image__container">
         <img class="article__image" [src]="article.getImgUrls()[imgIndex]" (mouseover)="mouseHover = 'hovered'" (mouseout)="mouseHover = 'nothovered'">
-        <div class="containerX article__arrows-container" (mouseover)="mouseHover = 'hovered'" (mouseout)="mouseHover = 'nothovered'" [@fadeInOut]="mouseHover">
-            <button md-icon-button (click)="previousImg()" class="article__arrows">
-                <md-icon class="md-18">keyboard_arrow_left</md-icon>
+        <div class="containerX article__arrows-container" (mouseover)="mouseHover = 'hovered'" (mouseout)="mouseHover = 'nothovered'"
+            [@fadeInOut]="mouseHover">
+            <button mat-icon-button (click)="previousImg()" class="article__arrows">
+                <mat-icon class="mat-18">keyboard_arrow_left</mat-icon>
             </button>
             <span fxFlex class="flex-item"></span>
-            <button md-icon-button (click)="nextImg()" class="article__arrows">
-                <md-icon class="md-18">keyboard_arrow_right</md-icon>
+            <button mat-icon-button (click)="nextImg()" class="article__arrows">
+                <mat-icon class="mat-18">keyboard_arrow_right</mat-icon>
             </button>
         </div>
     </div>
-    <md-card-content class="article__content">
+    <mat-card-content class="article__content">
         <div class="mat-title article__content__title">
             {{ article.getTitle() }}
         </div>
@@ -24,7 +25,7 @@
             </div>
             <app-article-add-form [article]="article"></app-article-add-form>
             <div class="containerX" fxLayout="row">
-                <button md-raised-button (click)="addToBasket(article)" color="primary" class="mat-button" fxFlex [disabled]="!article.selectedSize || !article.quantity">
+                <button mat-raised-button (click)="addToBasket(article)" color="primary" class="mat-button" fxFlex [disabled]="!article.selectedSize || !article.quantity">
                     <span *ngIf="article.selectedSize && article.quantity; else elseAddToBasketTemplate">
                         Ajouter au panier ({{ article.getPrice() * article.quantity }}€)
                     </span>
@@ -34,5 +35,5 @@
                 </button>
             </div>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

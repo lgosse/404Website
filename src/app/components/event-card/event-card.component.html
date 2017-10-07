@@ -1,76 +1,79 @@
-<md-card class="event__card containerX" [ngClass]="{ 'passed' : isPassed(event.date), 'small' : small }" fxLayout="row">
+<mat-card class="event__card containerX" [ngClass]="{ 'passed' : isPassed(event.date), 'small' : small }" fxLayout="row">
     <!--<div class="event__picture">-->
     <img src="{{event.imgUrl}}" class="event__img" (load)="loaded = true" [class.lazyloaded]="loaded" />
     <!--</div>-->
     <div fxLayout="column" fxFlex>
-        <md-card-content class="containerX event__content" fxLayout="column">
+        <mat-card-content class="containerX event__content" fxLayout="column">
             <p class="event__content__title">{{event.title}}</p>
             <p *ngIf="small == false">{{event.description | slice:0:500}}</p>
             <p *ngIf="small == true">
                 <span>{{event.description | slice:0:320}}</span>
-                <span *ngIf="event.description.length > 320" mdTooltip="{{ event.description }}">
+                <span *ngIf="event.description.length > 320" matTooltip="{{ event.description }}">
                     <span>[ . . . ]</span>
                 </span>
             </p>
-        </md-card-content>
-        <md-card-actions class="containerX padding event__actions event__actions--desktop" fxLayout="row">
-            <a md-button class="event__action" href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ event.title }}&dates={{ generateDates(event) }}&details={{ event.description }}&location={{ event.location }}" target="_blank" rel="nofollow">
-                <md-icon>date_range</md-icon>
-                <span md-caption>{{event.date | date}}</span>
+        </mat-card-content>
+        <mat-card-actions class="containerX padding event__actions event__actions--desktop" fxLayout="row">
+            <a mat-button class="event__action" href="http://www.google.com/calendar/event?action=TEMPLATE&text={{ event.title }}&dates={{ generateDates(event) }}&details={{ event.description }}&location={{ event.location }}"
+                target="_blank" rel="nofollow">
+                <mat-icon>date_range</mat-icon>
+                <span mat-caption>{{event.date | date}}</span>
             </a>
             <span class="flex-item" fxFlex></span>
-            <button md-button (click)="showSubscriptionDialog()" class="event__action event__actions" *ngIf="event.subscription == true && sub == false && event.hasTickets == false">
-                <md-icon>edit</md-icon>
-                <span md-caption class="event__action__text">S'INSCRIRE</span>
+            <button mat-button (click)="showSubscriptionDialog()" class="event__action event__actions" *ngIf="event.subscription == true && sub == false && event.hasTickets == false">
+                <mat-icon>edit</mat-icon>
+                <span mat-caption class="event__action__text">S'INSCRIRE</span>
             </button>
-            <a md-button [href]="event.tickets" class="event__action" *ngIf="event.subscription == true && event.hasTickets == true">
-                <md-icon>shopping_basket</md-icon>
-                <span md-caption class="event__action__text">BILLETERIE</span>
+            <a mat-button [href]="event.tickets" class="event__action" *ngIf="event.subscription == true && event.hasTickets == true">
+                <mat-icon>shopping_basket</mat-icon>
+                <span mat-caption class="event__action__text">BILLETERIE</span>
             </a>
-            <button md-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription == true && sub == true">
-                <md-icon>close</md-icon>
-                <span md-caption class="event__action__text">SE DÉSINSCRIRE</span>
+            <button mat-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription == true && sub == true">
+                <mat-icon>close</mat-icon>
+                <span mat-caption class="event__action__text">SE DÉSINSCRIRE</span>
             </button>
-            <a *ngIf="small == false" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
-                <md-icon>location_on</md-icon>
-                <span md-caption>{{event.location}}</span>
+            <a *ngIf="small == false" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" mat-button
+                class="event__action">
+                <mat-icon>location_on</mat-icon>
+                <span mat-caption>{{event.location}}</span>
             </a>
-            <a *ngIf="small == true" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-icon-button class="event__action">
-                <md-icon>location_on</md-icon>
+            <a *ngIf="small == true" href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" mat-icon-button
+                class="event__action">
+                <mat-icon>location_on</mat-icon>
             </a>
-        </md-card-actions>
+        </mat-card-actions>
     </div>
-</md-card>
-<md-card class="event__card--mobile containerX" [ngClass]="{ 'passed' : isPassed(event.date) }" fxLayout="column">
+</mat-card>
+<mat-card class="event__card--mobile containerX" [ngClass]="{ 'passed' : isPassed(event.date) }" fxLayout="column">
     <!--<div class="event__picture">-->
     <img src="{{event.imgUrl}}" class="event__img--mobile" (load)="loaded = true" [class.lazyloaded]="loaded" />
     <!--</div>-->
     <div fxLayout="column">
-        <md-card-content class="containerX event__content" fxLayout="column">
+        <mat-card-content class="containerX event__content" fxLayout="column">
             <p class="event__content__title">{{event.title}}</p>
             <p>{{event.description | slice:0:500}}</p>
-            <button md-button disabled class="event__action">
-                <md-icon>date_range</md-icon>
-                <span md-caption class="event__action__text">{{event.date | date}}</span>
+            <button mat-button disabled class="event__action">
+                <mat-icon>date_range</mat-icon>
+                <span mat-caption class="event__action__text">{{event.date | date}}</span>
             </button>
-        </md-card-content>
-        <md-card-actions class="containerX padding event__actions" fxLayout="column">
-            <button md-button (click)="showSubscriptionDialog()" class="event__action" *ngIf="event.subscription == true && sub == false && event.hasTickets == false">
-                <md-icon>edit</md-icon>
-                <span md-caption class="event__action__text">S'INSCRIRE</span>
+        </mat-card-content>
+        <mat-card-actions class="containerX padding event__actions" fxLayout="column">
+            <button mat-button (click)="showSubscriptionDialog()" class="event__action" *ngIf="event.subscription == true && sub == false && event.hasTickets == false">
+                <mat-icon>edit</mat-icon>
+                <span mat-caption class="event__action__text">S'INSCRIRE</span>
             </button>
-            <a md-button [href]="event.tickets" class="event__action" *ngIf="event.subscription == true && event.hasTickets == true">
-                <md-icon>basket</md-icon>
-                <span md-caption class="event__action__text">BILLETERIE</span>
+            <a mat-button [href]="event.tickets" class="event__action" *ngIf="event.subscription == true && event.hasTickets == true">
+                <mat-icon>basket</mat-icon>
+                <span mat-caption class="event__action__text">BILLETERIE</span>
             </a>
-            <button md-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription == true && sub == true">
-                <md-icon>close</md-icon>
-                <span md-caption class="event__action__text">SE DÉSINSCRIRE</span>
+            <button mat-button (click)="unsubscribe()" class="event__action" *ngIf="event.subscription == true && sub == true">
+                <mat-icon>close</mat-icon>
+                <span mat-caption class="event__action__text">SE DÉSINSCRIRE</span>
             </button>
-            <a href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" md-button class="event__action">
-                <md-icon>location_on</md-icon>
-                <span md-caption class="event__action__text">{{event.location}}</span>
+            <a href="https://www.google.fr/maps/place/{{event.location.replace(' ', '+')}}" target="_blank" mat-button class="event__action">
+                <mat-icon>location_on</mat-icon>
+                <span mat-caption class="event__action__text">{{event.location}}</span>
             </a>
-        </md-card-actions>
+        </mat-card-actions>
     </div>
-</md-card>
+</mat-card>

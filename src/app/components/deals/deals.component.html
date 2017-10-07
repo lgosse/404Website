@@ -2,24 +2,17 @@
     <div class="containerX" fxLayout="row" class="deals__spinner" *ngIf="loading == true">
         <span class="flex-item" fxFlex></span>
         <div class="flex-item">
-            <md-spinner></md-spinner>
+            <mat-spinner></mat-spinner>
         </div>
         <span class="flex-item" fxFlex></span>
     </div>
     <div [@loadedState]="loadedState">
-    <div class="containerX deal__container" fxLayout="row" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
-        <div class="deals__card" *ngFor="let deal of deals">
-            <app-picture-card
-                [imgUrl]="deal.imgUrl"
-                [title]="deal.title"
-                [textContent]="deal.description"
-                [actionLabel]="deal.partner"
-                (cardClickEvent)="openNewTab(deal.url)"
-                [expandable]="true"
-                [expandState]="'collapsed'"
-                [isPartner]="true">
-            </app-picture-card>
+        <div class="containerX deal__container" fxLayout="row" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
+            <div class="deals__card" *ngFor="let deal of deals">
+                <app-picture-card [imgUrl]="deal.imgUrl" [title]="deal.title" [textContent]="deal.description" [actionLabel]="deal.partner"
+                    (cardClickEvent)="openNewTab(deal.url)" [expandable]="true" [expandState]="'collapsed'" [isPartner]="true">
+                </app-picture-card>
+            </div>
         </div>
-    </div>
     </div>
 </div>

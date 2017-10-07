@@ -1,18 +1,18 @@
-<md-card class="logins__card login" [ngClass]="{ 'archived': login.archived == true }">
-    <md-card-content class="logins__card__content containerX" fxLayout="column">
+<mat-card class="logins__card login" [ngClass]="{ 'archived': login.archived == true }">
+    <mat-card-content class="logins__card__content containerX" fxLayout="column">
         <div class="containerX headline" fxLayout="row">
             <span class="flex-item login__text" fxFlex *ngIf="login.$value; else elseLogin">{{login.$value}}</span>
             <ng-template #elseLogin>
                 <span class="flex-item login__text" fxFlex>{{login.login}}</span>
             </ng-template>
-            <button md-icon-button style="color: #A0CE4e" (click)="deleteSubscription()" *ngIf="!login.archived || login.archived == false; else elseBlock">
-                <md-icon>check</md-icon>
+            <button mat-icon-button style="color: #A0CE4e" (click)="deleteSubscription()" *ngIf="!login.archived || login.archived == false; else elseBlock">
+                <mat-icon>check</mat-icon>
             </button>
             <ng-template #elseBlock>
-                <button md-icon-button style="color: #A0CE4e" (click)="rollbackSubscription()">
-                    <md-icon>settings_backup_restore</md-icon>
+                <button mat-icon-button style="color: #A0CE4e" (click)="rollbackSubscription()">
+                    <mat-icon>settings_backup_restore</mat-icon>
                 </button>
             </ng-template>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

@@ -1,5 +1,5 @@
-<md-card class="team__card" [@memberCardState]='state'>
-    <md-card-content class="containerX team__card__front" fxLayout="column" *ngIf="front == true">
+<mat-card class="team__card" [@memberCardState]='state'>
+    <mat-card-content class="containerX team__card__front" fxLayout="column" *ngIf="front == true">
         <div class="containerX" fxLayout="row">
             <span class="flex-item" fxFlex=20></span>
             <div fxFlex="60" class="flex-item team__card__imgcontainer">
@@ -9,8 +9,8 @@
             </div>
             <div class="flex-item containerX" fxFlex="20" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
-                <button class="flex-item" md-icon-button (click)="flipCard()">
-                    <md-icon>rotate_left</md-icon>
+                <button class="flex-item" mat-icon-button (click)="flipCard()">
+                    <mat-icon>rotate_left</mat-icon>
                 </button>
             </div>
         </div>
@@ -34,8 +34,8 @@
                 </div>
             </div>
         </div>
-    </md-card-content>
-    <md-card-content class="containerX team__card__back" fxLayout="column" *ngIf="front == false">
+    </mat-card-content>
+    <mat-card-content class="containerX team__card__back" fxLayout="column" *ngIf="front == false">
         <div class="containerX" fxLayout="row">
             <span class="flex-item" fxFlex=20></span>
             <div fxFlex="60" class="flex-item team__card__imgcontainer">
@@ -45,8 +45,8 @@
             </div>
             <div class="flex-item containerX" fxFlex="20" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
-                <button class="flex-item" md-icon-button (click)="flipCard()">
-                    <md-icon>rotate_left</md-icon>
+                <button class="flex-item" mat-icon-button (click)="flipCard()">
+                    <mat-icon>rotate_left</mat-icon>
                 </button>
             </div>
         </div>
@@ -70,10 +70,10 @@
                 <!--<div class="subhead">
                     {{member.email}}
                 </div>-->
-                <a md-raised-button color="primary" target="_blank" href="mailto:{{ member.email }}">
-                    <md-icon>
+                <a mat-raised-button color="primary" target="_blank" href="mailto:{{ member.email }}">
+                    <mat-icon>
                         email
-                    </md-icon>
+                    </mat-icon>
                     <span>
                         Me contacter
                     </span>
@@ -81,5 +81,5 @@
                 <span class="flex-item" fxFlex></span>
             </div>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

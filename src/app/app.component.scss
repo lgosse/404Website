@@ -1,90 +1,90 @@
 // Import theming functions
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Import your custom theme
-@import 'src/app/theme.scss';
+@import "src/app/theme.scss";
 $xs-bp: 720px;
 .content {
+  height: 100%;
+  min-height: calc(100vh - 129px);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fafafa;
+  @media (max-width: $xs-bp) {
     height: 100%;
-    min-height: calc(100vh - 129px);
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #FAFAFA;
-    @media (max-width: $xs-bp) {
-        height: 100%;
-        min-height: calc(100vh - 56px);
-        background-color: unset !important;
-    }
+    min-height: calc(100vh - 56px);
+    background-color: unset !important;
+  }
 }
 
 .header {
-    &--mobile {
-        @media (min-width: $xs-bp) {
-            display: none;
-        }
+  &--mobile {
+    @media (min-width: $xs-bp) {
+      display: none;
     }
-    @media (max-width: $xs-bp) {
-        display: none;
-    }
+  }
+  @media (max-width: $xs-bp) {
+    display: none;
+  }
 }
 
 .footer {
-    @media (max-width: $xs-bp) {
-        display: none;
-    }
+  @media (max-width: $xs-bp) {
+    display: none;
+  }
 }
 
 .mat-sidenav-container {
-    background-color: unset !important;
+  background-color: unset !important;
 }
 
 .mat-sidenav {
-    min-width: 350px;
+  min-width: 350px;
 }
 
 .mat-list {
-    padding: 0;
-    &-item {
-        border-bottom: 1px solid #EEEEEE !important;
-        &:hover {
-            background-color: #EEEEEE;
-        }
+  padding: 0;
+  &-item {
+    border-bottom: 1px solid #eeeeee !important;
+    &:hover {
+      background-color: #eeeeee;
     }
+  }
 }
 
-md-button-toggle-group {
-    box-shadow: none;
-    color: rgb(245, 245, 245);
+mat-button-toggle-group {
+  box-shadow: none;
+  color: rgb(245, 245, 245);
 }
 
 .app {
-    &__content {
-        &__title {
-            font-weight: 700;
-        }
+  &__content {
+    &__title {
+      font-weight: 700;
     }
-    &__sidenav {
-        &__item {
-            padding: 10px !important;
-            background-color: unset !important;
-            text-decoration: none;
-        }
+  }
+  &__sidenav {
+    &__item {
+      padding: 10px !important;
+      background-color: unset !important;
+      text-decoration: none;
     }
-    &__shop-button {
-        text-decoration: none;
-        font-size: 16px;
-        padding-top: 2px;
-        margin-left: 15px;
-        margin-right: 15px;
-    }
+  }
+  &__shop-button {
+    text-decoration: none;
+    font-size: 16px;
+    padding-top: 2px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 .welcome {
-    padding-right: 15px;
+  padding-right: 15px;
 }
 
 .logout {
-    &__button {
-        color: mat-color($bde-app-primary);
-    }
+  &__button {
+    color: mat-color($bde-app-primary);
+  }
 }

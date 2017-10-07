@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./back-office.component.scss"]
 })
 export class BackOfficeComponent implements OnInit {
-  selectedRoute: any = "";
+  public selectedRoute = -1;
 
   private routes: string[] = [
     "messages",
@@ -24,6 +24,6 @@ export class BackOfficeComponent implements OnInit {
   ngOnInit() {}
 
   navigateTo(routeIndex): void {
-    this.router.navigate(["back-office/" + this.routes[routeIndex.value - 1]]);
+    this.router.navigate(["back-office/" + this.routes[routeIndex.value]]);
   }
 }

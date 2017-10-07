@@ -1,13 +1,14 @@
 <div class="containerX" fxLayout="column" *ngIf="basket.getArticles()" class="basket">
-    <md-card *ngFor="let article of basket.getArticles()" fxLayout="row" class="basket__card mat-title">
+    <mat-card *ngFor="let article of basket.getArticles()" fxLayout="row" class="basket__card mat-title">
         <span class="basket__card__text">{{ article.getTitle() }}</span>
         <span fxFlex class="containerX "></span>
         <span class="basket__card__text">{{ article.quantity }} items - {{ article.getPrice() * article.quantity }}€</span>
-        <button md-icon-button (click)="deleteItem()" color="warn" mdTooltip="Retirer du panier">
-            <md-icon class="basket__card__grey">delete</md-icon>
+        <button mat-icon-button (click)="deleteItem()" color="warn" mdTooltip="Retirer du panier">
+            <mat-icon class="basket__card__grey">delete</mat-icon>
         </button>
-    </md-card>
-    <button md-raised-button *ngIf="basket.getArticles() && basket.getArticles().length; else noArticleTemplate" (click)="openOrderDialog()" class="mat-button basket__order-button" color="primary">
+    </mat-card>
+    <button mat-raised-button *ngIf="basket.getArticles() && basket.getArticles().length; else noArticleTemplate" (click)="openOrderDialog()"
+        class="mat-button basket__order-button" color="primary">
         PASSER COMMANDE
     </button>
     <ng-template #noArticleTemplate>
@@ -18,9 +19,9 @@
                     Il n'y aucun article dans ton panier
                 </span>
             </div>
-            <md-icon class="basket__no-items__icon">
+            <mat-icon class="basket__no-items__icon">
                 sentiment_dissatisfied
-            </md-icon>
+            </mat-icon>
             <span fxFlex class="flex-item"></span>
         </div>
     </ng-template>

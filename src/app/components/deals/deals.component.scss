@@ -1,8 +1,8 @@
-@import 'src/app/global.scss';
+@import "src/app/global.scss";
 .deals {
-    padding: 10px 20px 10px 20px;
+  padding: 10px 20px 10px 20px;
 
-    &__card {
-        margin : $md-mat-spacing;
-    }
+  &__card {
+    margin: $mat-mat-spacing;
+  }
 }

@@ -1,36 +1,32 @@
-<md-card class="address-bar margin">
-    <md-card-content>
+<mat-card class="address-bar margin">
+    <mat-card-content>
         <div class="containerX" fxLayout="row">
-            <md-input-container>
-                <input mdInput ngModel #newMail="ngModel" name="new mail" placeholder="New mail">
-            </md-input-container>
-            <button md-button color="primary" (click)="addMail(newMail)">
+            <mat-input-container>
+                <input matInput ngModel #newMail="ngModel" name="new mail" placeholder="New mail">
+            </mat-input-container>
+            <button mat-button color="primary" (click)="addMail(newMail)">
                 ADD
             </button>
             <span fxFlex></span>
-            <button md-button color="primary" (click)="resetSelectedAddresses()">
+            <button mat-button color="primary" (click)="resetSelectedAddresses()">
                 RESET
             </button>
         </div>
         <div class="address-bar__adresses">
-            <md-chip *ngFor="let mail of mails" color="primary" selected="true" class="address-bar__addresses__chip">
-                <div fxLayout="row">
-                    <span class="address-bar__addresses__address">
-                        {{ mail.email }}
-                    </span>
-                    <md-icon (click)="removeMail(mail)">
-                        close
-                    </md-icon>
-                </div>
-            </md-chip>
+            <mat-chip *ngFor="let mail of mails" color="primary" selected="true" class="address-bar__addresses__chip" [removable]="true"
+                (remove)="removeMail(mail)">
+                {{ mail.email }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
         </div>
         <div class="address-bar__divider margin"></div>
         <div class="address-bar__lists">
-            <md-chip-list>
-                <md-chip *ngFor="let mailingList of mailingLists" [selected]="selectedLists.indexOf(mailingList.$key) < 0" color="primary" (click)="selectList(mailingList, mailingList.$key)">
+            <mat-chip-list>
+                <mat-chip *ngFor="let mailingList of mailingLists" selected="true" [ngClass]="{ 'address-bar__lists__selected': selectedLists.indexOf(mailingList.$key) >= 0 }"
+                    color="primary" (click)="selectList(mailingList, mailingList.$key)">
                     {{ mailingList.$key }}
-                </md-chip>
-            </md-chip-list>
+                </mat-chip>
+            </mat-chip-list>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

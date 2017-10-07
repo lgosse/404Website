@@ -43,7 +43,7 @@ export class MailingAddressBarComponent implements OnInit {
     return false;
   }
 
-  selectList(list: [User], listKey): void {
+  selectList(list: User[], listKey): void {
     if (this.selectedLists.indexOf(listKey) > -1) {
       return;
     } else {
@@ -52,15 +52,21 @@ export class MailingAddressBarComponent implements OnInit {
 
     let keys = this.keys(list);
 
-    for (let key of keys) {
-      if (this.isMailSelected(list[key].email)) {
-        continue;
+    let toAddMails = keys.reduce((accumulator, key) => {
+      if (
+        this.isMailSelected(list[key].email) === false &&
+        list[key].isAuthenticated === true &&
+        list[key].email !== ""
+      ) {
+        accumulator.push(list[key]);
+        return accumulator;
+      } else {
+        return accumulator;
       }
-      if (list[key].isAuthenticated === false) {
-        continue;
-      }
-      this.mails.push(list[key]);
-    }
+    }, []);
+
+    this.mails = this.mails.concat(toAddMails);
+
     this.updateMails.emit(this.mails);
   }
 

@@ -1,23 +1,23 @@
-<md-expansion-panel *ngIf="association" class="association-card">
-  <md-expansion-panel-header collapsedHeight="80px" class="association-card__header">
+<mat-expansion-panel *ngIf="association" class="association-card">
+  <mat-expansion-panel-header collapsedHeight="80px" class="association-card__header">
     <div>
-      <md-panel-title class="association-card__header__title">
+      <mat-panel-title class="association-card__header__title">
         {{ association.name }}
-      </md-panel-title>
-      <md-panel-description>
+      </mat-panel-title>
+      <mat-panel-description>
         {{ association.description ? association.description : 'Votre description ici' }}
-      </md-panel-description>
+      </mat-panel-description>
       <div class="containerX association-card__header__container" fxLayout="row">
-        <a md-button class="association-card__header__url-button" color="primary" [href]="association.facebookURL" target="_blank">
+        <a mat-button class="association-card__header__url-button" color="primary" [href]="association.facebookURL" target="_blank">
           FACEBOOK
         </a>
-        <a md-button class="association-card__header__url-button" color="primary" *ngIf="association.websiteURL" [href]="association.websiteURL"
+        <a mat-button class="association-card__header__url-button" color="primary" *ngIf="association.websiteURL" [href]="association.websiteURL"
           target="_blank">
           WEBSITE
         </a>
       </div>
     </div>
-  </md-expansion-panel-header>
+  </mat-expansion-panel-header>
   <div class="association-card__content">
     <div class="association-card__content__contact" *ngIf="association.firstContact.email || association.firstContact.phone">
       <div class="association-card__content__contact__title">
@@ -60,4 +60,4 @@
       </div>
     </div>
   </div>
-</md-expansion-panel>
+</mat-expansion-panel>

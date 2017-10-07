@@ -1,11 +1,11 @@
 .text-interface {
-    &__subject {
-        width: 100%;
-    }
-    &__textarea {
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        min-height: 100px;
-    }
+  &__subject {
+    width: 100% !important;
+  }
+  &__textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100px;
+  }
 }

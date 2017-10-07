@@ -1,37 +1,37 @@
-<md-card class="mailing-lists__card mailing-list margin" (click)="opened = !opened">
-    <md-card-content class="mailing-list__card__content containerX" fxLayout="column">
+<mat-card class="mailing-lists__card mailing-list margin" (click)="opened = !opened">
+    <mat-card-content class="mailing-list__card__content containerX" fxLayout="column">
         <div class="containerX headline" fxLayout="row">
             <span class="flex-item message__text" fxFlex>{{mailingList.$key}}</span>
         </div>
         <div class="message__body" [ngClass]="{ 'hidden': !opened }">
             <div *ngFor="let userKey of keys(mailingList)">
-                <md-card class="mails__card mail" *ngIf="mailingList[userKey].isAuthenticated === true">
-                    <md-card-content class="mails__card__content containerX" fxLayout="column">
+                <mat-card class="mails__card mail" *ngIf="mailingList[userKey].isAuthenticated === true">
+                    <mat-card-content class="mails__card__content containerX" fxLayout="column">
                         <div class="containerX headline" fxLayout="row">
                             <span class="flex-item mail__text" fxFlex>
                                 {{ mailingList[userKey].email }}
                             </span>
-                            <button md-icon-button style="color: #FE7E79" (click)="deleteMail(mailingList.$key, mailingList[userKey], userKey)">
-                                <md-icon>close</md-icon>
+                            <button mat-icon-button style="color: #FE7E79" (click)="deleteMail(mailingList.$key, mailingList[userKey], userKey)">
+                                <mat-icon>close</mat-icon>
                             </button>
                         </div>
-                    </md-card-content>
-                </md-card>
+                    </mat-card-content>
+                </mat-card>
             </div>
             <div *ngFor="let userKey of keys(mailingList)">
-                <md-card class="mails__card mail archived" *ngIf="mailingList[userKey].isAuthenticated === false">
-                    <md-card-content class="mails__card__content containerX" fxLayout="column">
+                <mat-card class="mails__card mail archived" *ngIf="mailingList[userKey].isAuthenticated === false">
+                    <mat-card-content class="mails__card__content containerX" fxLayout="column">
                         <div class="containerX headline" fxLayout="row">
                             <span class="flex-item mail__text" fxFlex>
                                 {{ mailingList[userKey].email }}
                             </span>
-                            <button md-icon-button style="color: #A0CE4e" (click)="rollbackMail(mailingList.$key, mailingList[userKey], userKey)">
-                                <md-icon>settings_backup_restore</md-icon>
+                            <button mat-icon-button style="color: #A0CE4e" (click)="rollbackMail(mailingList.$key, mailingList[userKey], userKey)">
+                                <mat-icon>settings_backup_restore</mat-icon>
                             </button>
                         </div>
-                    </md-card-content>
-                </md-card>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
-    </md-card-content>
-</md-card>
+    </mat-card-content>
+</mat-card>

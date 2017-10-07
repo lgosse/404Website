@@ -1,50 +1,43 @@
-<div class="event-form containerX" fxLayout="row">
-    <div class="event-form__content" *ngIf="event" class="flex-item padding" fxFlex>
+<div class="event-form containerX" fxLayout="row" *ngIf="event">
+    <div class="event-form__content" class="flex-item padding" fxFlex>
         <form (ngSubmit)="onSubmit($event)" class="containerX" fxLayout="column">
-            <md-input-container>
-                <input type="text" [(ngModel)]="event.title" mdInput placeholder="Title" autofocus required name="title">
-            </md-input-container>
-            <md-input-container>
-                <input type="text" [(ngModel)]="event.imgUrl" mdInput placeholder="Picture URL" autofocus required name="imgUrl">
-            </md-input-container>
-            <md-input-container>
-                <input type="text" [(ngModel)]="event.location" mdInput placeholder="Location" autofocus required name="location">
-            </md-input-container>
-            <md-input-container>
-                <input type="date" [(ngModel)]="event.date" mdInput placeholder="Date" autofocus required name="date">
-            </md-input-container>
-            <md-input-container>
-                <textarea [(ngModel)]="event.description" mdInput placeholder="Description" autofocus required name="description"></textarea>
-            </md-input-container>
-            <md-checkbox [(ngModel)]="event.subscription" name="subscription">
+            <mat-input-container>
+                <input type="text" [(ngModel)]="event.title" matInput placeholder="Title" autofocus required name="title">
+            </mat-input-container>
+            <mat-input-container>
+                <input type="text" [(ngModel)]="event.imgUrl" matInput placeholder="Picture URL" autofocus required name="imgUrl">
+            </mat-input-container>
+            <mat-input-container>
+                <input type="text" [(ngModel)]="event.location" matInput placeholder="Location" autofocus required name="location">
+            </mat-input-container>
+            <mat-input-container>
+                <input type="date" [(ngModel)]="event.date" matInput placeholder="Date" autofocus required name="date">
+            </mat-input-container>
+            <mat-input-container>
+                <textarea [(ngModel)]="event.description" matInput placeholder="Description" autofocus required name="description"></textarea>
+            </mat-input-container>
+            <mat-checkbox [(ngModel)]="event.subscription" name="subscription">
                 Subscriptions ?
-            </md-checkbox>
-            <md-checkbox [(ngModel)]="event.isParty" name="isParty">
+            </mat-checkbox>
+            <mat-checkbox [(ngModel)]="event.isParty" name="isParty">
                 Is Party ?
-            </md-checkbox>
-            <md-checkbox [(ngModel)]="event.hasTickets" name="hasTickets">
+            </mat-checkbox>
+            <mat-checkbox [(ngModel)]="event.hasTickets" name="hasTickets">
                 Has Tickets ?
-            </md-checkbox>
-            <md-input-container>
-                <input type="text" [(ngModel)]="event.tickets" mdInput placeholder="Tickets url" autofocus required name="tickets">
-            </md-input-container>
+            </mat-checkbox>
+            <mat-input-container>
+                <input type="text" [(ngModel)]="event.tickets" matInput placeholder="Tickets url" autofocus required name="tickets">
+            </mat-input-container>
             <div class="containerX" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
-                <button md-raised-button color="primary">
+                <button mat-raised-button color="primary">
                     SAVE
                 </button>
                 <span class="flex-item" fxFlex></span>
             </div>
         </form>
     </div>
-    <app-picture-card
-        [imgUrl]="event.imgUrl"
-        [title]="event.title"
-        [textContent]="event.description"
-        [actionLabel]="'S\'INSCRIRE'"
-        [expandable]="true"
-        [expandState]="'collapsed'"
-        [titleOverPicture]="true"
-        [isEvent]="true">
+    <app-picture-card [imgUrl]="event.imgUrl" [title]="event.title" [textContent]="event.description" [actionLabel]="'S\'INSCRIRE'"
+        [expandable]="true" [expandState]="'collapsed'" [titleOverPicture]="true" [isEvent]="true">
     </app-picture-card>
 </div>

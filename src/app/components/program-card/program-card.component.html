@@ -1,29 +1,29 @@
-<md-card class="program__card" color="accent">
-    <md-card-title class="program__card__title">
+<mat-card class="program__card" color="accent">
+    <mat-card-title class="program__card__title">
         {{commitment.title}}
-    </md-card-title>
-    <md-card-subtitle class="program__card__subtitle title">
+    </mat-card-title>
+    <mat-card-subtitle class="program__card__subtitle title">
         {{commitment.subtitle}}
-    </md-card-subtitle>
-    <md-card-content [@cardState]="cardState" class="program__card__content containerX" fxLayout="column">
+    </mat-card-subtitle>
+    <mat-card-content [@cardState]="cardState" class="program__card__content containerX" fxLayout="column">
         <div class="program__card__section" *ngFor="let section of commitment.description">
-            <md-card-subtitle class="program__card__section__head">
+            <mat-card-subtitle class="program__card__section__head">
                 {{section.head}}
-            </md-card-subtitle>
+            </mat-card-subtitle>
             <div class="program__card__section__body subhead">
                 {{section.body}}
             </div>
             <div class="program__card__section__foot">
                 {{section.foot}}
             </div>
-            <img md-card-image src="{{section.imgUrl}}" class="program__card__section__img">
+            <img mat-card-image src="{{section.imgUrl}}" class="program__card__section__img">
         </div>
-    </md-card-content>
-    <md-card-actions fxLayout="row" class="containerX program__card__actions">
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" class="containerX program__card__actions">
         <span fxFlex class="flex-item"></span>
-        <button md-button (click)="toggleCardState()">
+        <button mat-button (click)="toggleCardState()">
             VOIR PLUS
-            <md-icon>expand_more</md-icon>
+            <mat-icon>expand_more</mat-icon>
         </button>
-    </md-card-actions>
-</md-card>
+    </mat-card-actions>
+</mat-card>

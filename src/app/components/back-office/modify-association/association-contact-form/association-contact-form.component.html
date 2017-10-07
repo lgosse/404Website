@@ -1,29 +1,29 @@
 <div [formGroup]="contactGroup" fxLayout="column">
-  <md-form-field>
-    <input mdInput formControlName="firstName" type="text" placeholder="Prénom">
-    <md-error *ngIf="contactGroup.get('firstName').valid === false">
+  <mat-form-field>
+    <input matInput formControlName="firstName" type="text" placeholder="Prénom">
+    <mat-error *ngIf="contactGroup.get('firstName').valid === false">
       First name is <strong>required</strong>
-    </md-error>
-  </md-form-field>
-  <md-form-field>
-    <input mdInput formControlName="lastName" type="text" placeholder="Nom">
-    <md-error *ngIf="contactGroup.get('lastName').valid === false">
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="lastName" type="text" placeholder="Nom">
+    <mat-error *ngIf="contactGroup.get('lastName').valid === false">
       Last name is <strong>required</strong>
-    </md-error>
-  </md-form-field>
-  <md-form-field>
-    <input mdInput formControlName="login" type="text" placeholder="Login">
-    <md-error *ngIf="contactGroup.get('login').valid === false">
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="login" type="text" placeholder="Login">
+    <mat-error *ngIf="contactGroup.get('login').valid === false">
       Login is <strong>required</strong>
-    </md-error>
-  </md-form-field>
-  <md-form-field>
-    <input mdInput formControlName="phone" type="tel" placeholder="Téléphone">
-  </md-form-field>
-  <md-form-field>
-    <input mdInput formControlName="email" type="email" placeholder="E-mail">
-    <md-error *ngIf="contactGroup.get('email').valid === false">
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="phone" type="tel" placeholder="Téléphone">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="email" type="email" placeholder="E-mail">
+    <mat-error *ngIf="contactGroup.get('email').valid === false">
       E-mail is <strong>invalid</strong>
-    </md-error>
-  </md-form-field>
+    </mat-error>
+  </mat-form-field>
 </div>

@@ -1,118 +1,118 @@
 <app-layout></app-layout>
 
-<!--<md-sidenav-container>
-    <md-sidenav #sidenav mode="push" opened="false">
-        <md-toolbar color="primary" class="box-shadow-2">
+<!--<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="push" opened="false">
+        <mat-toolbar color="primary" class="box-shadow-2">
             <div class="containerx" fxLayout="row">
-                <span class="md-display-1">MENU</span>
+                <span class="mat-display-1">MENU</span>
 
             </div>
-        </md-toolbar>
-        <md-list>
-            <md-list-item>
-                <a md-line (click)="navigateTo('/home'); sidenav.close()" class="app__sidenav__item">
+        </mat-toolbar>
+        <mat-list>
+            <mat-list-item>
+                <a mat-line (click)="navigateTo('/home'); sidenav.close()" class="app__sidenav__item">
                     ACCUEIL
                 </a>
-            </md-list-item>
-            <md-list-item>
-                <a md-line (click)="navigateTo('/events'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item>
+                <a mat-line (click)="navigateTo('/events'); sidenav.close()" class="app__sidenav__item">
                     ÉVÈNEMENTS
                 </a>
-            </md-list-item>
-            <md-list-item>
-                <a md-line (click)="navigateTo('/team'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item>
+                <a mat-line (click)="navigateTo('/team'); sidenav.close()" class="app__sidenav__item">
                     L'ÉQUIPE
                 </a>
-            </md-list-item>
-            <md-list-item>
-                <a md-line (click)="navigateTo('/partners'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item>
+                <a mat-line (click)="navigateTo('/partners'); sidenav.close()" class="app__sidenav__item">
                     PARTENAIRES
                 </a>
-            </md-list-item>
-            <md-list-item>
-                <a md-line (click)="navigateTo('/deals'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item>
+                <a mat-line (click)="navigateTo('/deals'); sidenav.close()" class="app__sidenav__item">
                     BONS PLANS
                 </a>
-            </md-list-item>
-            <md-list-item>
-                <a md-line *ngIf="user.isAuthenticated" (click)="navigateTo('/shop'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item>
+                <a mat-line *ngIf="user.isAuthenticated" (click)="navigateTo('/shop'); sidenav.close()" class="app__sidenav__item">
                     SHOP
                 </a>
-                <a md-line *ngIf="!user.isAuthenticated" [href]="intraRedirectUrl" class="app__sidenav__item">
+                <a mat-line *ngIf="!user.isAuthenticated" [href]="intraRedirectUrl" class="app__sidenav__item">
                     SHOP
                 </a>
-            </md-list-item>
-            <md-list-item>
-                <a md-line (click)="navigateTo('/faq'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item>
+                <a mat-line (click)="navigateTo('/faq'); sidenav.close()" class="app__sidenav__item">
                     FAQ
                 </a>
-            </md-list-item>
-            <md-list-item *ngIf="admin == true">
-                <a md-line (click)="navigateTo('/back-office'); sidenav.close()" class="app__sidenav__item">
+            </mat-list-item>
+            <mat-list-item *ngIf="admin == true">
+                <a mat-line (click)="navigateTo('/back-office'); sidenav.close()" class="app__sidenav__item">
                     BACK-OFFICE
                 </a>
-            </md-list-item>
-        </md-list>
-    </md-sidenav>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
     <div class="header">
-        <md-toolbar color="primary" class="box-shadow-2">
+        <mat-toolbar color="primary" class="box-shadow-2">
             <img class="logo__header" (click)="navigateTo('/home')" src="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F404logo.svg?alt=media&token=d80a83aa-abc8-4311-81da-1086c6f070a6" />
             <span class="flex-item" fxFlex style="width: 100%"></span>
-            <button md-button (click)="logoutFromAdmin()" *ngIf="loggued == true">
+            <button mat-button (click)="logoutFromAdmin()" *ngIf="loggued == true">
                 LOGOUT FROM ADMIN
-                <md-icon>exit_to_app</md-icon>
+                <mat-icon>exit_to_app</mat-icon>
             </button>
-            <a md-button *ngIf="user.isAuthenticated == false" [href]="intraRedirectUrl">
+            <a mat-button *ngIf="user.isAuthenticated == false" [href]="intraRedirectUrl">
                 LOGIN
-                <md-icon>account_box</md-icon>
+                <mat-icon>account_box</mat-icon>
             </a>
 
             <div *ngIf="user.isAuthenticated == true" class="welcome">
                 Bienvenue {{ user.firstName }}
             </div>
-            <button md-raised-button class="logout__button" (click)="logout()" *ngIf="user.isAuthenticated == true">
+            <button mat-raised-button class="logout__button" (click)="logout()" *ngIf="user.isAuthenticated == true">
                 LOGOUT
-                <md-icon>exit_to_app</md-icon>
+                <mat-icon>exit_to_app</mat-icon>
             </button>
-            <md-toolbar-row class="containerX">
+            <mat-toolbar-row class="containerX">
                 <span class="flex-item" fxFlex></span>
-                <md-button-toggle-group class="no-border">
-                    <md-button-toggle class="md-raised-button" color="primary" routerLink="home" routerLinkActive="active" active="active">ACCUEIL</md-button-toggle>
-                    <md-button-toggle class="md-button" color="primary" routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</md-button-toggle>
-                    <md-button-toggle class="md-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</md-button-toggle>
-                    <md-button-toggle class="md-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</md-button-toggle>
-                    <md-button-toggle class="md-button" color="primary" routerLink="deals" routerLinkActive="active" active="active">BONS PLANS</md-button-toggle>
-                    <md-button-toggle class="md-button" *ngIf="user.isAuthenticated" color="primary" routerLink="shop" routerLinkActive="active" active="active">SHOP</md-button-toggle>
-                    <a class="md-button mat-button-toggle app__shop-button" *ngIf="!user.isAuthenticated" color="primary" [href]="intraRedirectUrl">SHOP</a>
-                    <md-button-toggle class="md-button" color="primary" routerLink="faq" routerLinkActive="active" active="active">FAQ</md-button-toggle>
-                    <md-button-toggle *ngIf="admin == true" class="md-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</md-button-toggle>
-                </md-button-toggle-group>
+                <mat-button-toggle-group class="no-border">
+                    <mat-button-toggle class="mat-raised-button" color="primary" routerLink="home" routerLinkActive="active" active="active">ACCUEIL</mat-button-toggle>
+                    <mat-button-toggle class="mat-button" color="primary" routerLink="/events" routerLinkActive="active" active="active">ÉVÈNEMENTS</mat-button-toggle>
+                    <mat-button-toggle class="mat-button" color="primary" routerLink="team" routerLinkActive="active" active="active ">L'ÉQUIPE</mat-button-toggle>
+                    <mat-button-toggle class="mat-button" color="primary" routerLink="partners" routerLinkActive="active" active="active">PARTENAIRES</mat-button-toggle>
+                    <mat-button-toggle class="mat-button" color="primary" routerLink="deals" routerLinkActive="active" active="active">BONS PLANS</mat-button-toggle>
+                    <mat-button-toggle class="mat-button" *ngIf="user.isAuthenticated" color="primary" routerLink="shop" routerLinkActive="active" active="active">SHOP</mat-button-toggle>
+                    <a class="mat-button mat-button-toggle app__shop-button" *ngIf="!user.isAuthenticated" color="primary" [href]="intraRedirectUrl">SHOP</a>
+                    <mat-button-toggle class="mat-button" color="primary" routerLink="faq" routerLinkActive="active" active="active">FAQ</mat-button-toggle>
+                    <mat-button-toggle *ngIf="admin == true" class="mat-button" color="primary" routerLink="back-office" routerLinkActive="active" active="active">BACK-OFFICE</mat-button-toggle>
+                </mat-button-toggle-group>
                 <div class="flex-item containerX" fxFlex></div>
-            </md-toolbar-row>
-        </md-toolbar>
+            </mat-toolbar-row>
+        </mat-toolbar>
     </div>
     <div class="header--mobile">
-        <md-toolbar color="primary" class="box-shadow-2">
+        <mat-toolbar color="primary" class="box-shadow-2">
             <div class="containerX" fxLayout="row">
                 <div class="flex-item" fxFlex>
-                    <button md-icon-button (click)="sidenav.open()">
-                            <md-icon>menu</md-icon>
+                    <button mat-icon-button (click)="sidenav.open()">
+                            <mat-icon>menu</mat-icon>
                     </button>
                 </div>
             </div>
-            <span class="md-display-1">
+            <span class="mat-display-1">
                 <img class="logo__header--mobile" src="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2F404logo.svg?alt=media&token=d80a83aa-abc8-4311-81da-1086c6f070a6" />
             </span>
             <span fxFlex></span>
-            <a md-button *ngIf="user.isAuthenticated == false" [href]="intraRedirectUrl">
+            <a mat-button *ngIf="user.isAuthenticated == false" [href]="intraRedirectUrl">
                 LOGIN
-                <md-icon>account_box</md-icon>
+                <mat-icon>account_box</mat-icon>
             </a>
-            <button md-button (click)="logout()" *ngIf="user.isAuthenticated == true">
+            <button mat-button (click)="logout()" *ngIf="user.isAuthenticated == true">
                 LOGOUT
-                <md-icon>exit_to_app</md-icon>
+                <mat-icon>exit_to_app</mat-icon>
             </button>
-        </md-toolbar>
+        </mat-toolbar>
     </div>
     <div>
         <div class="box-shadow-2 content">
@@ -120,4 +120,4 @@
         </div>
         <app-footer class="footer"></app-footer>
     </div>
-</md-sidenav-container>-->
+</mat-sidenav-container>-->

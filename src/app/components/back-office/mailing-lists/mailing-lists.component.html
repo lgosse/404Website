@@ -1,29 +1,29 @@
 <div class="mailing-lists">
-    <md-card class="margin">
-        <md-card-header class="headline">
+    <mat-card class="margin">
+        <mat-card-header class="headline">
             Add mail
-        </md-card-header>
-        <md-card-content>
+        </mat-card-header>
+        <mat-card-content>
             <div fxLayout="row" class="containerX">
                 <span fxFlex></span>
-                <md-input-container class="margin">
-                    <input type="text" mdInput placeholder="List name" [(ngModel)]="listTyped" name="title" [mdAutocomplete]="auto">
-                </md-input-container>
-                <md-autocomplete #auto="mdAutocomplete">
-                    <md-option *ngFor="let mailingList of mailingLists" [value]="mailingList.$key">
+                <mat-input-container class="margin">
+                    <input type="text" matInput placeholder="List name" [(ngModel)]="listTyped" name="title" [matAutocomplete]="auto">
+                </mat-input-container>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let mailingList of mailingLists" [value]="mailingList.$key">
                         {{ mailingList.$key }}
-                    </md-option>
-                </md-autocomplete>
-                <md-input-container class="margin">
-                    <input type="text" mdInput placeholder="Mail" [(ngModel)]="mailTyped" name="title">
-                </md-input-container>
-                <button md-button color="primary" (click)="addMail()">
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-input-container class="margin">
+                    <input type="text" matInput placeholder="Mail" [(ngModel)]="mailTyped" name="title">
+                </mat-input-container>
+                <button mat-button color="primary" (click)="addMail()">
                     ADD
                 </button>
                 <span fxFlex></span>
             </div>
-        </md-card-content>
-    </md-card>
+        </mat-card-content>
+    </mat-card>
     <div *ngFor="let mailingList of mailingLists; let index = index">
         <app-mailing-list [mailingList]="mailingList"></app-mailing-list>
     </div>
