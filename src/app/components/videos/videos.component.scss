@@ -5,7 +5,7 @@
 @import "src/app/theme.scss";
 
 .videos {
-  padding: $mat-mat-spacing;
+  padding: $md-mat-spacing;
 
   &__player {
     padding: 0 !important;
@@ -23,12 +23,12 @@
   }
 
   &__info {
-    padding: $mat-mat-spacing;
+    padding: $md-mat-spacing;
     font-size: 20px;
     color: mat-color($bde-app-primary);
 
     &__title {
-      padding-left: $mat-mat-spacing;
+      padding-left: $md-mat-spacing;
     }
   }
 

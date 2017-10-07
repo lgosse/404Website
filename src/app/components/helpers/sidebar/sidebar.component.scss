@@ -19,7 +19,7 @@
 
   &__header {
     max-height: 88px;
-    padding: $mat-mat-spacing;
+    padding: $md-mat-spacing;
     padding-bottom: $gt-mat-spacing;
   }
 }
@@ -60,7 +60,7 @@
     &__login {
       text-align: left;
       width: 188px;
-      margin: $mat-mat-spacing;
+      margin: $md-mat-spacing;
 
       &__label {
         color: mat-color($bde-app-primary);
@@ -72,7 +72,7 @@
     }
 
     &__welcome {
-      padding-left: $mat-mat-spacing;
+      padding-left: $md-mat-spacing;
       &__label {
         color: white;
       }

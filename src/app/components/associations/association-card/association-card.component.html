@@ -19,6 +19,39 @@
     </div>
   </mat-expansion-panel-header>
   <div class="association-card__content">
+    <div class="association-card__content__description" *ngIf="association.occupation">
+      <div class="association-card__content__description__title">
+        Ce qu'ils font...
+      </div>
+      <div class="association-card__content__description__content">
+        {{ association.occupation }}
+      </div>
+    </div>
+    <div class="association-card__content__description" *ngIf="association.hobbies">
+      <div class="association-card__content__description__title">
+        Ce qu'ils aiment...
+      </div>
+      <div class="association-card__content__description__content">
+        {{ association.hobbies }}
+      </div>
+    </div>
+    <div class="association-card__content__description" *ngIf="association.location">
+      <div class="association-card__content__description__title">
+        Où on peut les trouver...
+      </div>
+      <div class="association-card__content__description__content">
+        {{ association.location }}
+      </div>
+    </div>
+    <div class="association-card__content__divider"></div>
+    <div class="association-card__content__description" *ngIf="association.knowledge">
+      <div class="association-card__content__description__title">
+        Ce qu'il y a à savoir...
+      </div>
+      <div class="association-card__content__description__content">
+        {{ association.knowledge }}
+      </div>
+    </div>
     <div class="association-card__content__contact" *ngIf="association.firstContact.email || association.firstContact.phone">
       <div class="association-card__content__contact__title">
         {{ association.firstContact.title }} - {{ association.firstContact.firstName }} {{ association.firstContact.lastName }}

@@ -5,10 +5,10 @@
 @import "src/app/theme.scss";
 
 .associations {
-  padding: $mat-mat-spacing;
+  padding: $md-mat-spacing;
   &__card {
-    padding: $mat-mat-spacing;
-    margin: $mat-mat-spacing;
+    padding: $md-mat-spacing;
+    margin: $md-mat-spacing;
     &__title {
       font-size: 24px;
       padding: 6px;
@@ -16,7 +16,7 @@
   }
 
   &__form {
-    padding: $mat-mat-spacing;
+    padding: $md-mat-spacing;
     &__button {
       margin: 10px;
       height: 40px;

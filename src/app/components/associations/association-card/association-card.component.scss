@@ -11,7 +11,7 @@
 
   &__content {
     &__contact {
-      padding: $mat-mat-spacing;
+      padding: $md-mat-spacing;
 
       &__title {
         font-style: italic;
@@ -20,6 +20,24 @@
       }
 
       &__coord {
+        opacity: 0.6;
+      }
+    }
+
+    &__divider {
+      margin: auto;
+      width: 80%;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    &__description {
+      padding: $sm-mat-spacing;
+      &__title {
+        font-style: italic;
+        font-size: 16px;
+        opacity: 0.8;
+      }
+      &__content {
         opacity: 0.6;
       }
     }

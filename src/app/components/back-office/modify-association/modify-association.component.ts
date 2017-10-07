@@ -55,6 +55,30 @@ export class ModifyAssociationComponent implements OnInit {
         Validators.required,
         Validators.maxLength(this.descriptionMaxLength)
       ]),
+      occupation: new FormControl(
+        this.association.occupation || "",
+        this.customValidators.optional([
+          Validators.maxLength(this.descriptionMaxLength * 2)
+        ])
+      ),
+      hobbies: new FormControl(
+        this.association.hobbies || "",
+        this.customValidators.optional([
+          Validators.maxLength(this.descriptionMaxLength * 2)
+        ])
+      ),
+      location: new FormControl(
+        this.association.location || "",
+        this.customValidators.optional([
+          Validators.maxLength(this.descriptionMaxLength * 2)
+        ])
+      ),
+      knowledge: new FormControl(
+        this.association.knowledge || "",
+        this.customValidators.optional([
+          Validators.maxLength(this.descriptionMaxLength * 2)
+        ])
+      ),
       websiteURL: new FormControl(
         this.association.websiteURL,
         this.customValidators.optional([this.customValidators.URLValidator])
