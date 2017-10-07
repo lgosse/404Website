@@ -48,8 +48,6 @@ export class AssociationFormComponent implements OnInit {
   }
 
   public redirectToModificationPage(association: any): void {
-    this.router.navigateByUrl(
-      `https://bde.42.fr/association/${association.$key}`
-    );
+    window.location.href = `https://bde.42.fr/association/${association.$key}`;
   }
 }
