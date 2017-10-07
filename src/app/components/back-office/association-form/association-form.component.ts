@@ -48,7 +48,8 @@ export class AssociationFormComponent implements OnInit {
   }
 
   public redirectToModificationPage(association: any): void {
-    console.log(`localhost:4200/association/${association.$key}`);
-    this.router.navigateByUrl(`localhost:4200/association/${association.$key}`);
+    this.router.navigateByUrl(
+      `https://bde.42.fr/association/${association.$key}`
+    );
   }
 }
