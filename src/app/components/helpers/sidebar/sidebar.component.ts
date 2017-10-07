@@ -115,7 +115,10 @@ export class SidebarComponent implements OnInit {
         association => association.published === true
       );
 
-      if (publishedAssociations.length > 0) {
+      if (
+        publishedAssociations.length > 0 &&
+        this.mainMenus.indexOf(this.associationsLink) === -1
+      ) {
         this.mainMenus.splice(5, 0, this.associationsLink);
       } else {
         this.mainMenus = this.mainMenus.filter(
