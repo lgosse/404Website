@@ -14,11 +14,8 @@
                 </mat-button-toggle>
             </div>
         </mat-button-toggle-group>
-        <div fxHide.gt-sm>
-            <ng-container *ngTemplateOutlet="menuBottom"></ng-container>
-        </div>
     </div>
-    <div class="menu__bottom" fxHide.lt-md>
+    <div class="menu__bottom">
         <ng-container *ngTemplateOutlet="menuBottom"></ng-container>
     </div>
 </div>
@@ -47,12 +44,16 @@
     </button>
     <div class="wrapper containerX" fxLayout="row">
         <span fxFlex class="flex-item"></span>
-        <a href="https://www.facebook.com/bde42/" target="_blank"><i class="fa fa-2x fa-facebook-square facebook"></i></a>
+        <a href="https://www.facebook.com/bde42/" target="_blank">
+            <i class="fa fa-2x fa-facebook-square facebook"></i>
+        </a>
         <span fxFlex class="flex-item"></span>
         <i (click)="openDialog()" class="fa fa-2x fa-envelope-o"></i>
         <span fxFlex class="flex-item"></span>
         <a href="https://firebasestorage.googleapis.com/v0/b/website-d0a07.appspot.com/o/various%2Fsnapchat.jpg?alt=media&token=b46b9645-1f83-46d6-a389-29aa00e0760c"
-            target="_blank"><i class="fa fa-2x fa-snapchat-square snapchat"></i></a>
+            target="_blank">
+            <i class="fa fa-2x fa-snapchat-square snapchat"></i>
+        </a>
         <span fxFlex class="flex-item"></span>
     </div>
 </ng-template>

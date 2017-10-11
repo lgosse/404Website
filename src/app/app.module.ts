@@ -39,7 +39,6 @@ import { MessageCardComponent } from "./components/back-office/message-card/mess
 import { CommitmentFormComponent } from "./components/back-office/commitment-form/commitment-form.component";
 import { CommitmentCardComponent } from "./components/back-office/commitment-card/commitment-card.component";
 import { NewCommitmentFormComponent } from "./components/back-office/new-commitment-form/new-commitment-form.component";
-import { EventCardComponent } from "./components/event-card/event-card.component";
 import { EventFormComponent } from "./components/back-office/event-form/event-form.component";
 import { NewEventFormComponent } from "./components/back-office/new-event-form/new-event-form.component";
 import { EventBackCardComponent } from "./components/back-office/event-back-card/event-back-card.component";
@@ -82,9 +81,9 @@ import { LoggerService } from "./services/shared/logger.service";
 import { ContactCardComponent } from "./components/helpers/contact-card/contact-card.component";
 import { AssociationFormComponent } from "./components/back-office/association-form/association-form.component";
 import { ModifyAssociationComponent } from "./components/back-office/modify-association/modify-association.component";
-import { ContactInfoComponent } from "./component/back-office/association-form/contact-info/contact-info.component";
 import { AssociationCardComponent } from "./components/associations/association-card/association-card.component";
 import { AssociationContactFormComponent } from './components/back-office/modify-association/association-contact-form/association-contact-form.component';
+import { PartyCardComponent } from './components/events/party-card/party-card.component';
 
 Firebase.initializeApp(environment.firebase);
 
@@ -110,7 +109,6 @@ Firebase.initializeApp(environment.firebase);
     CommitmentFormComponent,
     CommitmentCardComponent,
     NewCommitmentFormComponent,
-    EventCardComponent,
     EventFormComponent,
     NewEventFormComponent,
     EventBackCardComponent,
@@ -146,9 +144,9 @@ Firebase.initializeApp(environment.firebase);
     ContactCardComponent,
     AssociationFormComponent,
     ModifyAssociationComponent,
-    ContactInfoComponent,
     AssociationCardComponent,
-    AssociationContactFormComponent
+    AssociationContactFormComponent,
+    PartyCardComponent
   ],
   imports: [
     BrowserModule,

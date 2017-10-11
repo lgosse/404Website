@@ -36,7 +36,7 @@ export class EventsComponent implements OnInit {
 
   public passedEvents: EventBde[] = [];
   public currentEvents: EventBde[] = [];
-  public party: EventBde = null;
+  public party: EventBde;
   public subscriptions: any;
 
   constructor(
@@ -74,7 +74,8 @@ export class EventsComponent implements OnInit {
     this.eventsService.getEvents().subscribe(events => {
       this.passedEvents.length = 0;
       this.currentEvents.length = 0;
-      for (let event of events) {
+
+      events.map(event => {
         event.links = [
           {
             name: this.datePipe.transform(event.date),
@@ -92,13 +93,14 @@ export class EventsComponent implements OnInit {
             )}`
           }
         ];
-
         if (this.isPassed(event.date)) {
           this.passedEvents.push(event);
+        } else if (event.isParty === true) {
+          this.party = event;
         } else {
           this.currentEvents.push(event);
         }
-      }
+      });
 
       this.passedEvents = this.passedEvents.sort(this.sortByDate);
       this.currentEvents = this.currentEvents.sort(this.sortByDate);
