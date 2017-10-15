@@ -4,9 +4,13 @@
             <app-sidebar [sidenav]="sidenav"></app-sidebar>
         </mat-sidenav>
         <div class="app__content_view">
-            <button mat-fab (click)="sidenav.open()" color="primary" class="layout__fab" *ngIf="showFab">
-                <mat-icon class="mat-24">menu</mat-icon>
-            </button>
+            <mat-toolbar color="primary">
+                <button mat-icon-button class="color__white" (click)="sidenav.open()" *ngIf="showFab">
+                    <mat-icon>
+                        menu
+                    </mat-icon>
+                </button>
+            </mat-toolbar>
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-container>
