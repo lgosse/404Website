@@ -19,7 +19,7 @@ export class FirebaseWrapperService<T> {
   }
 
   public getItem(itemKey: string): FirebaseObjectObservable<T> {
-    return this.af.object(`${this.firebaseReference}/${itemKey})`);
+    return this.af.object(`${this.firebaseReference}/${itemKey}`);
   }
 
   public addItem(item: Partial<T>): void {

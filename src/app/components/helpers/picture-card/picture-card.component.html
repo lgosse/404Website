@@ -1,5 +1,5 @@
 <mat-card class.gt-xs="card" class.xs="card small">
-    <img class="card__picture" matCardImage [src]="imgUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded' : loaded, 'card__picture__250px': isEvent, 'card__picture__348px': isPartner }">
+    <img class="card__picture" *ngIf="imgUrl" matCardImage [src]="imgUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded' : loaded, 'card__picture__250px': isEvent, 'card__picture__348px': isPartner }">
     <div class="card__title__alt" *ngIf="titleOverPicture === true">
         <div class="card__title__alt__label" *ngIf="titleOverPicture === true">
             <mat-icon *ngIf="icon">

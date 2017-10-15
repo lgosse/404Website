@@ -4,6 +4,7 @@
             <mat-input-container>
                 <input type="text" [(ngModel)]="event.title" matInput placeholder="Title" autofocus required name="title">
             </mat-input-container>
+            {{ event.title }}
             <mat-input-container>
                 <input type="text" [(ngModel)]="event.imgUrl" matInput placeholder="Picture URL" autofocus required name="imgUrl">
             </mat-input-container>
@@ -31,7 +32,7 @@
             <div class="containerX" fxLayout="row">
                 <span class="flex-item" fxFlex></span>
                 <button mat-raised-button color="primary">
-                    SAVE
+                    SAVED
                 </button>
                 <span class="flex-item" fxFlex></span>
             </div>
