@@ -8,7 +8,7 @@ import { Observable, Subject } from "rxjs/Rx";
 import { IntraApiService } from "app/services/intra-api.service";
 import { UserService } from "app/services/shared/user.service";
 
-import { User } from "app/classes/user";
+import { User } from "app/models/user";
 
 import { environment } from "environments/environment";
 

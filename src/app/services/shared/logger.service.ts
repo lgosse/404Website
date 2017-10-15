@@ -5,7 +5,7 @@ import {
   FirebaseObjectObservable
 } from "angularfire2/database";
 
-import { Log } from "app/classes/log";
+import { Log } from "app/models/log";
 
 @Injectable()
 export class LoggerService {

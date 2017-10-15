@@ -8,13 +8,13 @@ import { Observable, Subject } from "rxjs/Rx";
 import * as Firebase from "firebase";
 
 // App dependencies
-import { DialogContactComponent } from "app/components/dialog-contact/dialog-contact.component";
+import { DialogContactComponent } from "app/components/helpers/dialog-contact/dialog-contact.component";
 import { IntraApiService } from "app/services/intra-api.service";
 import { UserService } from "app/services/shared/user.service";
 import { SnacksService } from "app/services/snacks.service";
 import { LayoutService } from "app/services/shared/layout.service";
-import { AssociationsService } from "app/services/associations.service";
-import { User } from "app/classes/user";
+import { AssociationsService } from "app/views/associations/services/associations.service";
+import { User } from "app/models/user";
 import { environment } from "environments/environment";
 
 @Component({
@@ -110,7 +110,7 @@ export class SidebarComponent implements OnInit {
       }
     });
 
-    this.associationsService.getAssociations().subscribe(associations => {
+    this.associationsService.getList().subscribe(associations => {
       let publishedAssociations = associations.filter(
         association => association.published === true
       );

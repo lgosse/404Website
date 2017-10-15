@@ -2,43 +2,37 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
-import { TeamComponent } from "./components/team/team.component";
-import { HomeComponent } from "./components/home/home.component";
-import { FamiliesComponent } from "./components/families/families.component";
-import { EventsComponent } from "./components/events/events.component";
-import { PartnersComponent } from "app/components/partners/partners.component";
-import { ProgramComponent } from "app/components/program/program.component";
-import { LoginComponent } from "app/components/login/login.component";
-import { DealsComponent } from "app/components/deals/deals.component";
-import { FaqComponent } from "app/components/faq/faq.component";
-import { ShopComponent } from "app/components/shop/shop.component";
-import { IdeaBoxComponent } from "app/components/idea-box/idea-box.component";
-import { VideosComponent } from "app/components/videos/videos.component";
-import { AssociationsComponent } from "app/components/associations/associations.component";
+import { TeamComponent } from "app/views/team/team.component";
+import { HomeComponent } from "app/views//home/home.component";
+import { EventsComponent } from "app/views/events/events.component";
+import { PartnersComponent } from "app/views/partners/partners.component";
+import { LoginComponent } from "app/views/login/login.component";
+import { DealsComponent } from "app/views/deals/deals.component";
+import { FaqComponent } from "app/views/faq/faq.component";
+import { ShopComponent } from "app/views/shop/shop.component";
+import { IdeaBoxComponent } from "app/views/idea-box/idea-box.component";
+import { VideosComponent } from "app/views/videos/videos.component";
+import { AssociationsComponent } from "app/views/associations/associations.component";
 
-import { BackOfficeComponent } from "app/components/back-office/back-office.component";
-import { MessagesComponent } from "app/components/back-office/messages/messages.component";
-import { AssociationFormComponent } from "app/components/back-office/association-form/association-form.component";
+import { BackOfficeComponent } from "app/views/back-office/back-office.component";
+import { MessagesComponent } from "app/views/idea-box/back-office/messages/messages.component";
+import { AssociationFormComponent } from "app/views/associations/back-office/association-form/association-form.component";
 
-import { ProgramOfficeComponent } from "app/components/back-office/program-office/program-office.component";
-import { CommitmentFormComponent } from "app/components/back-office/commitment-form/commitment-form.component";
-import { NewCommitmentFormComponent } from "app/components/back-office/new-commitment-form/new-commitment-form.component";
+import { EventsOfficeComponent } from "app/views/events/back-office/events-office/events-office.component";
+import { EventFormComponent } from "app/views/events/back-office/event-form/event-form.component";
+import { NewEventFormComponent } from "app/views/events/back-office/new-event-form/new-event-form.component";
 
-import { EventsOfficeComponent } from "app/components/back-office/events-office/events-office.component";
-import { EventFormComponent } from "app/components/back-office/event-form/event-form.component";
-import { NewEventFormComponent } from "app/components/back-office/new-event-form/new-event-form.component";
+import { SubscriptionsOfficeComponent } from "app/views/events/back-office/subscriptions-office/subscriptions-office.component";
 
-import { SubscriptionsOfficeComponent } from "app/components/back-office/subscriptions-office/subscriptions-office.component";
+import { DealsOfficeComponent } from "app/views/deals/back-office/deals-office/deals-office.component";
+import { NewDealFormComponent } from "app/views/deals/back-office/new-deal-form/new-deal-form.component";
+import { DealFormComponent } from "app/views/deals/back-office/deal-form/deal-form.component";
 
-import { DealsOfficeComponent } from "./components/back-office/deals-office/deals-office.component";
-import { NewDealFormComponent } from "./components/back-office/new-deal-form/new-deal-form.component";
-import { DealFormComponent } from "./components/back-office/deal-form/deal-form.component";
+import { MailingListsComponent } from "app/views/mailing-lists/mailing-lists.component";
 
-import { MailingListsComponent } from "app/components/back-office/mailing-lists/mailing-lists.component";
+import { MailingInterfaceComponent } from "app/views/mailing-interface/mailing-interface.component";
 
-import { MailingInterfaceComponent } from "app/components/back-office/mailing-interface/mailing-interface.component";
-
-import { ModifyAssociationComponent } from "app/components/back-office/modify-association/modify-association.component";
+import { ModifyAssociationComponent } from "app/views/associations/back-office/modify-association/modify-association.component";
 
 const routes: Routes = [
   {
@@ -66,10 +60,6 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: "families",
-        component: FamiliesComponent
-      },
-      {
         path: "events",
         component: EventsComponent
       },
@@ -80,10 +70,6 @@ const routes: Routes = [
       {
         path: "partners",
         component: PartnersComponent
-      },
-      {
-        path: "program",
-        component: ProgramComponent
       },
       {
         path: "login",

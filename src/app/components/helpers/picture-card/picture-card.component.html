@@ -1,19 +1,19 @@
-<mat-card class="card" class.xs="small" [ngClass]="{ 'card__partner' : isPartner }">
+<mat-card class.gt-xs="card" class.xs="card small">
     <img class="card__picture" matCardImage [src]="imgUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded' : loaded, 'card__picture__250px': isEvent, 'card__picture__348px': isPartner }">
     <div class="card__title__alt" *ngIf="titleOverPicture === true">
+        <div class="card__title__alt__label" *ngIf="titleOverPicture === true">
+            <mat-icon *ngIf="icon">
+                {{ icon }}
+            </mat-icon>
+            <span class="card__title__alt__label__title" *ngIf="icon">
+                {{ title }}
+            </span>
+            <span *ngIf="!icon">
+                {{ title }}
+            </span>
+        </div>
     </div>
-    <span class="card__title__alt__label" *ngIf="titleOverPicture === true">
-        <mat-icon *ngIf="icon">
-            {{ icon }}
-        </mat-icon>
-        <span class="card__title__alt__label__title" *ngIf="icon">
-            {{ title }}
-        </span>
-    <span *ngIf="!icon">
-            {{ title }}
-        </span>
-    </span>
-    <div class="containerX" fxLayout="row" *ngIf="links" fxLayoutWrap>
+    <div *ngIf="links">
         <div *ngFor="let link of links">
             <a mat-button color="primary" class="card__links" [href]="link.href">
                 <mat-icon *ngIf="link.icon">

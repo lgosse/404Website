@@ -1,0 +1,29 @@
+<div class="associations">
+  <mat-card *ngFor="let association of associations" class="associations__card">
+    <div fxLayout="row" fxFlex class="containerX">
+      <span class="associations__card__title">
+        {{ association.name }}
+      </span>
+      <span fxFlex class="flex-item"></span>
+      <button mat-icon-button (click)="redirectToModificationPage(association)">
+        <mat-icon>link</mat-icon>
+      </button>
+      <button mat-icon-button (click)="unpublishAssociation(association)" *ngIf="association.published === true">
+        <mat-icon>visibility_off</mat-icon>
+      </button>
+      <button mat-icon-button (click)="removeItem(association)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+  <form (ngSubmit)="createAssociation()" class="associations__form">
+    <div fxLayout="row" class="containerX">
+      <span fxFlex class="flex-item"></span>
+      <mat-input-container>
+        <input matInput type="text" required placeholder="Association name" [(ngModel)]="newAssociation.name" name="name">
+      </mat-input-container>
+      <button mat-raised-button class="color__white associations__form__button" color="primary">ADD</button>
+      <span fxFlex class="flex-item"></span>
+    </div>
+  </form>
+</div>
