@@ -1,12 +1,12 @@
-@import 'src/app/global.scss';
+@import "src/app/global.scss";
 
 .team {
-    padding: $gt-mat-spacing;
-    &__spinner {
-        padding-top: 100px;
-    }
+  padding: $gt-mat-spacing;
+  &__spinner {
+    padding-top: 100px;
+  }
 
-    &__card {
-        padding : $gt-mat-spacing;
-    }
+  &__card {
+    padding: $gt-mat-spacing;
+  }
 }

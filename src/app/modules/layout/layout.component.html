@@ -4,7 +4,7 @@
             <app-sidebar [sidenav]="sidenav"></app-sidebar>
         </mat-sidenav>
         <div class="app__content_view">
-            <mat-toolbar color="primary">
+            <mat-toolbar color="primary" *ngIf="showFab">
                 <button mat-icon-button class="color__white" (click)="sidenav.open()" *ngIf="showFab">
                     <mat-icon>
                         menu

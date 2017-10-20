@@ -1,6 +1,6 @@
 <div class="events">
 
-    <div class="containerX" fxLayout="row" class="program__spinner" *ngIf="loading == true">
+    <div fxLayout="row" class="containerX program__spinner" *ngIf="loading == true">
         <span class="flex-item" fxFlex></span>
         <div class="flex-item">
             <mat-spinner></mat-spinner>
@@ -14,10 +14,8 @@
             <div class="events__section__title">
                 {{ party.title }}
             </div>
-            <div class="events__party containerX" fxLayout="row">
-                <span fxFlex></span>
+            <div class.xs="events__party" class.sm="events__party">
                 <app-party-card [party]="party"></app-party-card>
-                <span fxFlex></span>
             </div>
         </div>
 
@@ -42,13 +40,11 @@
             <div class="events__section__title">
                 ÉVÈNEMENTS PASSÉS
             </div>
-            <div class="containerX" id="passed-events" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
-                <div *ngFor="let event of passedEvents" class="events__card" fxFlex>
-                    <span fxFlex class="flex-item"></span>
+            <div class="containerX" id="passed-events" fxLayout="row" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
+                <div *ngFor="let event of passedEvents" class="events__card">
                     <app-picture-card [links]="event.links" [imgUrl]="event.imgUrl" [title]="event.title" [textContent]="event.description" [expandable]="true"
                         [expandState]="'collapsed'" [isEvent]="true" [titleOverPicture]="true">
                     </app-picture-card>
-                    <span fxFlex class="flex-item"></span>
                 </div>
             </div>
         </div>

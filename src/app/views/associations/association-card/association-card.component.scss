@@ -4,9 +4,14 @@
 @import "src/app/theme.scss";
 @import "src/app/global.scss";
 
+.small {
+  width: unset !important;
+  min-width: 200px;
+  max-width: 400px !important;
+}
+
 .association-card {
-  width: 500px !important;
-  margin: auto;
+  width: 400px;
   margin-bottom: 20px;
 
   &__content {

@@ -6,7 +6,7 @@
         </div>
         <span class="flex-item" fxFlex></span>
     </div>
-    <div [@loadedState]="loadedState" class="containerX" fxLayout.gt-sm="row" fxLayoutWrap>
+    <div [@loadedState]="loadedState" class="containerX" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
         <div *ngFor="let member of members" class="team__card flex-item" fxFlex>
             <span class="flex-item" fxFlex></span>
             <app-member-card class="flex-item" [member]="member"></app-member-card>

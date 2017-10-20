@@ -1,4 +1,11 @@
 .contact {
-    padding: 24px;
-    width: 500px;
+  padding: 24px;
+  width: 500px;
+
+  &__card {
+    &__title {
+      color: white !important;
+      margin: 0;
+    }
+  }
 }

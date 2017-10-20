@@ -5,10 +5,10 @@
 @import "src/app/theme.scss";
 .events {
   height: 100%;
-  padding: $gt-mat-spacing;
+  padding: $md-mat-spacing;
 
   &__card {
-    padding: $md-mat-spacing;
+    padding: $sm-mat-spacing;
   }
 
   &__section {
@@ -16,17 +16,20 @@
       width: 250px;
       color: mat-color($bde-app-primary);
       padding: 5px 0;
-      margin: 16px auto;
+      margin: $sm-mat-spacing;
       border-bottom: 2px solid mat-color($bde-app-primary);
       font-size: 21px;
-      text-align: center;
     }
   }
 
   &__waiting {
     font-size: 24px;
     opacity: 0.54;
-    text-align: center;
+    padding: $sm-mat-spacing;
+  }
+
+  &__party {
+    padding: $sm-mat-spacing;
   }
 
   &__scroll-button {

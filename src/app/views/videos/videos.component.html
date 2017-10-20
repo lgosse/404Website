@@ -14,16 +14,10 @@
     </mat-card>
     <div [@loadedState]="loadedState" class="containerX" fxLayout="row" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
         <div *ngFor="let video of videos" class="videos__card">
-            <mat-card class="videos__min" class.xs="videos__min__small">
+            <mat-card class="videos__min" class.xs="videos__min__small" (click)="playVideo(video)">
                 <mat-card-content class="videos__min__container">
                     <div class="videos__min__picture__container">
-                        <img class="videos__min__picture" [src]="video.thumbnailUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded': loaded }"
-                        />
-                        <a mat-fab class="videos__min__play" color="primary" (click)="playVideo(video)">
-                            <mat-icon class="color__white">
-                                play_arrow
-                            </mat-icon>
-                        </a>
+                        <img class="videos__min__picture" [src]="video.thumbnailUrl" (load)="loaded = true" [ngClass]="{ 'lazyloaded': loaded }">
                     </div>
                     <div class="videos__info containerX" fxLayout="row" *ngIf="currentVideo">
                         <div class="videos__info__youtube-icon">

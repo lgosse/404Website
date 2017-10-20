@@ -1,4 +1,4 @@
-<mat-expansion-panel *ngIf="association" class="association-card">
+<mat-expansion-panel *ngIf="association" class="association-card" class.xs="association-card small">
   <mat-expansion-panel-header collapsedHeight="80px" class="association-card__header">
     <div>
       <mat-panel-title class="association-card__header__title">
@@ -58,8 +58,7 @@
       </div>
       <div class="association-card__content__contact__coord">
         {{ association.firstContact.email }}
-        <span *ngIf="association.firstContact.email && association.firstContact.phone">&nbsp; - &nbsp;</span> {{ association.firstContact.phone
-        }}
+        <span *ngIf="association.firstContact.email && association.firstContact.phone">&nbsp; - &nbsp;</span> {{ association.firstContact.phone }}
       </div>
     </div>
     <div class="association-card__content__contact" *ngIf="association.secondContact.email || association.secondContact.phone">
@@ -87,7 +86,7 @@
           {{ association.thirdContact.email }}
         </span>
         <span *ngIf="association.thirdContact.email && association.thirdContact.phone">&nbsp; - &nbsp;</span>
-        <span>            
+        <span>
           {{ association.thirdContact.phone }}
         </span>
       </div>

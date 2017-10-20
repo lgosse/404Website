@@ -1,5 +1,5 @@
 <div class="containerX associations" fxLayout="row" fxLayout.gt-sm="row" fxLayoutWrap.gt-sm>
-    <div *ngFor="let association of associations" id="associations" class="associations__card">
+    <div *ngFor="let association of associations" id="associations" class="associations__card" class.lt-md="associations__card__little">
         <app-association-card [association]="association"></app-association-card>
     </div>
 </div>
