@@ -175,6 +175,7 @@ export class ModifyAssociationComponent implements OnInit {
       return;
     }
 
+    this.association = this.associationForm.getRawValue();
     this.association.published = !this.association.published;
     this.associationRef.update(this.association).then(() => {
       this.snacks.openSnackBar("Association publiée !");
