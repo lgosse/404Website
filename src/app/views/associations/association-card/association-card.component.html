@@ -43,7 +43,6 @@
         {{ association.location }}
       </div>
     </div>
-    <div class="association-card__content__divider"></div>
     <div class="association-card__content__description" *ngIf="association.knowledge">
       <div class="association-card__content__description__title">
         Ce qu'il y a à savoir...
@@ -52,13 +51,15 @@
         {{ association.knowledge }}
       </div>
     </div>
+    <div class="association-card__content__divider"></div>
     <div class="association-card__content__contact" *ngIf="association.firstContact.email || association.firstContact.phone">
       <div class="association-card__content__contact__title">
         {{ association.firstContact.title }} - {{ association.firstContact.firstName }} {{ association.firstContact.lastName }}
       </div>
       <div class="association-card__content__contact__coord">
         {{ association.firstContact.email }}
-        <span *ngIf="association.firstContact.email && association.firstContact.phone">&nbsp; - &nbsp;</span> {{ association.firstContact.phone }}
+        <span *ngIf="association.firstContact.email && association.firstContact.phone">&nbsp; - &nbsp;</span> {{ association.firstContact.phone
+        }}
       </div>
     </div>
     <div class="association-card__content__contact" *ngIf="association.secondContact.email || association.secondContact.phone">
