@@ -41,7 +41,7 @@ export class DialogContactComponent implements OnInit {
   onSubmit(event): void {
     event.preventDefault();
 
-    if (this.userInfos === null) {
+    if (this.userInfos.isAuthenticated === false) {
       this.openSnackBar("Connecte toi pour envoyer ton message !", "FERMER");
 
       return;
