@@ -2,28 +2,36 @@
   <mat-form-field>
     <input matInput formControlName="firstName" type="text" placeholder="Prénom">
     <mat-error *ngIf="contactGroup.get('firstName').valid === false">
-      First name is <strong>required</strong>
+      First name is
+      <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="lastName" type="text" placeholder="Nom">
     <mat-error *ngIf="contactGroup.get('lastName').valid === false">
-      Last name is <strong>required</strong>
+      Last name is
+      <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="login" type="text" placeholder="Login">
     <mat-error *ngIf="contactGroup.get('login').valid === false">
-      Login is <strong>required</strong>
+      Login is
+      <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="phone" type="tel" placeholder="Téléphone">
+    <mat-error *ngIf="contactGroup.get('phone').valid === false">
+      Phone is
+      <strong>invalid</strong> (Try removing spaces)
+    </mat-error>
   </mat-form-field>
   <mat-form-field>
     <input matInput formControlName="email" type="email" placeholder="E-mail">
     <mat-error *ngIf="contactGroup.get('email').valid === false">
-      E-mail is <strong>invalid</strong>
+      E-mail is
+      <strong>invalid</strong>
     </mat-error>
   </mat-form-field>
 </div>

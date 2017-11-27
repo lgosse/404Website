@@ -74,7 +74,7 @@ export class ModifyAssociationComponent implements OnInit {
       knowledge: new FormControl(
         this.association.knowledge || "",
         this.customValidators.optional([
-          Validators.maxLength(this.descriptionMaxLength * 2)
+          Validators.maxLength(this.descriptionMaxLength * 4)
         ])
       ),
       websiteURL: new FormControl(
@@ -149,6 +149,7 @@ export class ModifyAssociationComponent implements OnInit {
 
   public setStep(step: number): void {
     this.step = step;
+    console.log(this.associationForm);
   }
 
   public nextStep(): void {
